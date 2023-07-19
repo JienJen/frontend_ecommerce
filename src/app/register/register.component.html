@@ -1,0 +1,73 @@
+<form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <div class="mb-md-5 mt-md-4 pb-0">
+                            <h2 class="h2 fw-bold mb-5 text-uppercase">Registro</h2>
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Nombre de Usuario</mat-label>
+                                <input matInput  
+                                    ngModel
+                                    name="userName"
+                                    id="userName"
+                                    placeholder="Nombre de usuario">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Nombre</mat-label>
+                                <input matInput  
+                                    ngModel
+                                    name="name"
+                                    id="name"
+                                    placeholder="Nombre">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Apellido</mat-label>
+                                <input matInput  
+                                    ngModel
+                                    name="lastName"
+                                    id="lastName"
+                                    placeholder="Apellido">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Correo Electronico</mat-label>
+                                <input matInput  
+                                    ngModel
+                                    name="email"
+                                    id="email"
+                                    placeholder="Correo Electronico">
+                            </mat-form-field>
+
+                            <mat-form-field appearance="outline" class="w-100">
+                                <mat-label>Contraseña</mat-label>
+                                <input type="password" matInput  ngModel
+                                    name="password"
+                                    id="password"
+                                    placeholder="Contraseña">
+                            </mat-form-field>
+                    
+  
+  
+                                <input type="submit"
+                                value="Registrarse"
+                                class="btn btn-outline-light btn-lg px-5 mt-3 mb-2 rounded-0"
+                                >
+
+                        
+                                <div class="mt-md-4">
+                                    <p class="mt-4">¿Ya tienes una cuenta? 
+                                        <a class="nav-link text-white-50 fw-bold" routerLink="/login" >Inicia sesion</a>
+                                    </p>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+           
