@@ -1,9 +1,27 @@
 .nav-link{
+    font-family: 'Lucida Sans';
+
     position: relative;
+    color: #6e7172;
 }
 
 .nav-link:hover::after{
     opacity: 1;
+}
+
+.boton{
+        height:20px; 
+        width:100px; 
+        position:relative;
+        top:50%; 
+        left:41.5%;
+
+}
+
+.nav-link.active {
+    font-family: 'Lucida Sans';
+    color:#71db8e;
+    background-color:#757778 ;
 }
 
 .nav-link:hover{
@@ -22,5 +40,6 @@
 }
 
 .h2{
+    font-family:Arial, Helvetica, sans-serif;
     color:greenyellow;
 }
