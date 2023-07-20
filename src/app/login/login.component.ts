@@ -1,6 +1,8 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output} from '@angular/core';
 import { UserService } from '../_services/user.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',

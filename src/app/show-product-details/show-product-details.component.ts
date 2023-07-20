@@ -1,33 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../_services/product.service';
+import { Component} from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Product } from '../_model/product.model';
+import { AxiosService } from '../_services/axios.service';
 
 @Component({
   selector: 'app-show-product-details',
   templateUrl: './show-product-details.component.html',
   styleUrls: ['./show-product-details.component.css']
 })
-export class ShowProductDetailsComponent implements OnInit{ 
+export class ShowProductDetailsComponent { 
 
   productDetails: Product[] = [];
   displayedColumns: string[] = ['id', 'Nombre del Producto', ' Descripción del Producto', 'Precio'];
 
-  constructor(private productService: ProductService) {}
+  constructor(private axiosService:AxiosService) {}
 
-  ngOnInit(): void{
-    this.getAllProducts();
-  }
 
-  public getAllProducts(){
-    this.productService.getAllProducts().subscribe(
-      (resp: Product[]) =>{
-        console.log(resp)
-        this.productDetails = resp;
-      }, (error: HttpErrorResponse) => {
-        console.log(error)
-      }
-    )
-  }
 
 }

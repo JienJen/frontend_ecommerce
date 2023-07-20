@@ -7,32 +7,7 @@
                 <form #productForm="ngForm"
                       (ngSubmit)="addProduct(productForm)">
 
-                    <mat-form-field appearance="outline"
-                                    class="w-100">
-                        <mat-label>Nombre del Producto</mat-label>
-                        <input matInput
-                               placeholder="Nombre del Producto"
-                               [(ngModel)]="product.productName"
-                               name="productName">
-                    </mat-form-field>
-
-                    <mat-form-field appearance="outline"
-                                    class="w-100">
-                        <mat-label>Descripción del Producto</mat-label>
-                        <input matInput
-                               placeholder="Descripción del Producto"
-                               [(ngModel)]="product.productDescription"
-                               name="productDescription">
-                    </mat-form-field>
-
-                    <mat-form-field appearance="outline"
-                                    class="w-100">
-                        <mat-label>Precio del Producto</mat-label>
-                        <input matInput
-                               placeholder="Precio del Producto"
-                               [(ngModel)]="product.productPrice"
-                               name="productPrice">
-                    </mat-form-field>
+                    
 
                     <div align="end">
                         <button mat-stroked-button

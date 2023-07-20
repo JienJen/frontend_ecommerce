@@ -1,36 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Product } from '../_model/product.model';
 import { NgForm } from '@angular/forms';
-import { ProductService } from '../_services/product.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AxiosService } from '../_services/axios.service';
 
 @Component({
   selector: 'app-add-new-product',
   templateUrl: './add-new-product.component.html',
   styleUrls: ['./add-new-product.component.css']
 })
-export class AddNewProductComponent implements OnInit {
+export class AddNewProductComponent {
 
-  product: Product = {
-    productName: "",
-    productDescription: "",
-    productPrice: 0
-  }
+  constructor(private axiosService: AxiosService) {}
 
-  constructor(private productService: ProductService) {}
-
-  ngOnInit(): void {
-      
-  }
-
-  addProduct(productForm : NgForm) {
-    this.productService.addProduct(this.product).subscribe(
-      (response: Product) => {
-        productForm.reset();
-      },
-      (error:HttpErrorResponse) => {
-        console.log(error);
+  addProduct(input: any):void {
+   this.axiosService.request(
+      "POST",
+      "/api/products",
+      {
+        name: input.name,
+        description: input.description,
+        price: input.price,
+        amountInStock : input.amountInStock
+       
       }
-    );
+    )
   }
 }

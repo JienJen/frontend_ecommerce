@@ -1,16 +1,44 @@
-<section class="banner">
-    <owl-carousel-o [options]="bannerSlider">
-        <ng-template carouselSlide>
-            <img class="image-1">
-        </ng-template>  
-        <ng-template carouselSlide>
-            <img class="image-2">
-        </ng-template>  
-        <ng-template carouselSlide>
-            <img class="image-3">
-        </ng-template> 
-      </owl-carousel-o>
-</section>
+ <section class="banner">
+
+    <ngb-carousel
+      [showNavigationArrows]="true"
+      [showNavigationIndicators]="true"
+      [keyboard]="true"
+      [pauseOnHover]="true"
+      [wrap]="true"
+      [activeId]="'secondSlide'"
+    >
+      <ng-template ngbSlide id="firstSlide">
+          <img class="image-3"  />
+        <div class="carousel-caption">
+          <h3>Lorem ipsum dolor</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur pariatur, voluptate a corporis repudiandae delectus omnis magnam dicta. Vitae obcaecati placeat officiis adipisci temporibus sunt perspiciatis nobis voluptatem est ipsa.</p>
+        </div>
+      </ng-template>
+
+      <ng-template ngbSlide id="secondSlide">
+          <img class="image-2"  />
+        <div class="carousel-caption">
+            <h3>Lorem ipsum dolor</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur pariatur, voluptate a corporis repudiandae delectus omnis magnam dicta. Vitae obcaecati placeat officiis adipisci temporibus sunt perspiciatis nobis voluptatem est ipsa.</p>
+        </div>
+      </ng-template>
+
+      <ng-template ngbSlide id="thirdSlide">
+        <img class="image-1"  />
+      <div class="carousel-caption">
+        <h3>Lorem ipsum dolor</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consequuntur pariatur, voluptate a corporis repudiandae delectus omnis magnam dicta. Vitae obcaecati placeat officiis adipisci temporibus sunt perspiciatis nobis voluptatem est ipsa.</p>
+      </div>
+    </ng-template>
+
+    </ngb-carousel>
+
+</section> 
+
+
+
+
 
 <div class="container mt-5">
     <div class="card text-center" style="padding:20px;">

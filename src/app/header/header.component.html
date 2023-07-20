@@ -34,13 +34,13 @@
             
                <!--- Hay que cambiar el ngIf en caso de que sean admins-->
             <li>
-                <a  *ngIf="isLoggedIn()" class="nav-link px-2 text-light" routerLink="/addNewProduct" >Añadir Producto</a>
+                <a   class="nav-link px-2 text-light" routerLink="/addNewProduct" >Añadir Producto</a>
             </li>
             <li>
-                <a *ngIf="isLoggedIn()"  class="nav-link px-2 text-light" routerLink="/showProductDetails">Detalles de Productos</a>
+                <a   class="nav-link px-2 text-light" routerLink="/showProductDetails">Detalles de Productos</a>
             </li>
             <li>
-                <a  *ngIf="isLoggedIn()" class="nav-link px-2 text-light" routerLink="user">Información de Ordenes</a>
+                <a  class="nav-link px-2 text-light" routerLink="user">Información de Ordenes</a>
             </li>
             <!--- fin ngIf usuarios-->
         </ul>

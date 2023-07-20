@@ -1,19 +1,23 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../_model/product.model';
+import axios from 'axios';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor(private httpClient: HttpClient) { }
-
-  public addProduct(product: Product){
-    return this.httpClient.post<Product>("localhost:8080/addNewProduct", product);
+  constructor() { 
+    axios.defaults.baseURL = "http://localhost:8080"
+    axios.defaults.headers.post["Content-type"] = "application/json"
     }
-
-  public getAllProducts() {
-    return this.httpClient.get<Product[]>("localhost:8080/getAllProducts");
+  
+    request(method: string, url: string, data: any): Promise<any>{
+      return axios({
+        method: method,
+        url: url,
+        data: data
+      });
+    }
   }
-}
+  
