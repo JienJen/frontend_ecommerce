@@ -1,6 +1,6 @@
 import { Component} from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Product } from '../_model/product.model';
+import { Products } from '../_model/product.model';
 import { AxiosService } from '../_services/axios.service';
 
 @Component({
@@ -10,8 +10,9 @@ import { AxiosService } from '../_services/axios.service';
 })
 export class ShowProductDetailsComponent { 
 
-  productDetails: Product[] = [];
-  displayedColumns: string[] = ['id', 'Nombre del Producto', ' Descripción del Producto', 'Precio'];
+  productDetails: Products[] = [];
+  displayedColumns: string[] = ['id', 'name', 'description', 'price', 'amount_in_stock'];
+  
 
   constructor(private axiosService:AxiosService) {}
 
