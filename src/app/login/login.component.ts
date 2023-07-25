@@ -20,6 +20,7 @@ export class LoginComponent {
   lastName: string = "";
   login: string = "";
   password: string = "";
+  
 
 
   onRegisterTab(): void {
@@ -31,6 +32,7 @@ export class LoginComponent {
 
  onSubmitLogin(): void{
   this.onSubmitLoginEvent.emit({"login": this.login, "password":this.password});
+
  }
 
  
