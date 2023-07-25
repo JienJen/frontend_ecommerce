@@ -1,6 +1,9 @@
-export interface Products {
-    name : string,
-    description : string;
-    price: number;
-    amountInStock: number
+import { FileHandle } from "./file-handle.model";
+
+export interface Product{
+    "name": string,
+    "description":  string,
+    "amountInStock": number,
+    "price": number,
+    "imageFile": FileHandle[]
 }

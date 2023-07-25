@@ -3,12 +3,11 @@
 
         <div class="row">
             <div class="col-6">
-
-                <form #productForm="ngForm"
-                      (ngSubmit)="addProduct(productForm)">
-                        <div class="formularioowo">
+                <div class="formularioowo">
+                    <form #productForm="ngForm"
+                      (ngSubmit)="addProduct(productForm)" >
+                     
                             
-                            <div class="form-outline mb-4">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Nombre</mat-label>
                                     <input  matInput 
@@ -17,11 +16,10 @@
                                             id="name" 
                                             name="name" 
                                             class="form-control" 
-                                            [(ngModel)]="name">
+                                            [(ngModel)]="product.name">
                                 </mat-form-field>
-                            </div>
+                         
 
-                            <div class="form-outline mb-4">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Descripción</mat-label>
                                     <input  matInput 
@@ -30,12 +28,9 @@
                                             id="description" 
                                             name="description" 
                                             class="form-control" 
-                                            [(ngModel)]="description">
+                                            [(ngModel)]="product.description">
                                 </mat-form-field>
-                            </div>
 
-
-                            <div class="form-outline mb-4">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Precio</mat-label>
                                     <input  matInput 
@@ -44,11 +39,9 @@
                                             id="price" 
                                             name="price" 
                                             class="form-control" 
-                                            [(ngModel)]="price">
+                                            [(ngModel)]="product.price">
                                 </mat-form-field>
-                            </div>
 
-                            <div class="form-outline mb-4">
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Cantidad en Stock</mat-label>
                                     <input  matInput 
@@ -57,34 +50,37 @@
                                             id="amount_in_stock" 
                                             name="amount_in_stock" 
                                             class="form-control" 
-                                            [(ngModel)]="amountInStock">
+                                            [(ngModel)]="product.amountInStock">
                                 </mat-form-field>
-                            </div>
 
 
-
-
-                            
-                        
                             <div align="end">
-                                <button mat-stroked-button
+                                <button type="reset"  
+                                        mat-stroked-button
                                         color="accent"
-                                        style="margin-right: 3px;">Limpiar</button>
+                                        style="margin-right: 1rem;">Limpiar</button>
                                 <button type="submit"
                                         mat-stroked-button
                                         color="accent">Añadir Producto</button>
-                                <button type="submit"
-                                        mat-stroked-button
-                                        color="accent">Actualizar Producto</button>
                             </div>
-                        </div>     
+
+                            
+                        
+                           
+                          
 
 
-                </form>
+                    </form>
+                </div>
+            </div>
 
+            <div class="col-6 text-light">
+                <input type="file" multiple value="select" #selectFile 
+                    (change)="onFileSelected($event)"
+                >
             </div>
         
         </div>
 
-    </div>
+    </div>0
 </div> 

@@ -22,9 +22,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ProductosComponent } from './productos/productos.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { RegisterComponent } from './register/register.component';
 import { AuthContentComponent } from './auth-content/auth-content.component';
 import { ContentComponent } from './content/content.component';
+import { NewproductComponent } from './newproduct/newproduct.component';
 
 
 
@@ -42,9 +42,9 @@ import { ContentComponent } from './content/content.component';
     AddNewProductComponent,
     ShowProductDetailsComponent,
     ProductosComponent,
-    RegisterComponent,
     AuthContentComponent,
     ContentComponent,
+    NewproductComponent,
   ],
   imports: [
     BrowserModule,

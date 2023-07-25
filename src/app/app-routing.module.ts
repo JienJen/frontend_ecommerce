@@ -8,7 +8,6 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { AddNewProductComponent } from './add-new-product/add-new-product.component';
 import { ShowProductDetailsComponent } from './show-product-details/show-product-details.component';
 import { ProductosComponent } from './productos/productos.component';
-import { RegisterComponent } from './register/register.component';
 import { ContentComponent } from './content/content.component';
 
 const routes: Routes = [
@@ -40,8 +39,7 @@ const routes: Routes = [
   {path:'Productos', 
     component:ProductosComponent},
 
-  {path: 'register', 
-    component:RegisterComponent}
+  
 ];
 
 @NgModule({
