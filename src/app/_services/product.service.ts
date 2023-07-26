@@ -10,11 +10,11 @@ export class ProductService {
   constructor(private httpClient: HttpClient) { }
 
   public addProduct(product: FormData){
-    return this.httpClient.post<Product>("http://localhost:8080/api/products", product);
+    return this.httpClient.post<Product>("http://localhost:8080/api/products/createNew", product);
   }
 
   public getAllProducts(){
-    return this.httpClient.get<Product[]>("http://localhost:8080/api/products");
+    return this.httpClient.get<Product[]>("http://localhost:8080/api/products/view/all");
   }
 
   public deleteProduct(id: number){

@@ -37,11 +37,10 @@ export class LoginComponent implements OnInit {
 		this.active = "login";
 	}
 
-  
 
-onSubmitLogin(): void{
-  this.onSubmitLoginEvent.emit({"login": this.login, "password":this.password});
-  
+
+ onSubmitLogin(): void{
+ this.onSubmitLoginEvent.emit({"login": this.login, "password":this.password});
 }
 
  
