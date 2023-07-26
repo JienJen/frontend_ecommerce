@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Output} from '@angular/core';
+import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgForm } from '@angular/forms';
+import { UserServiceService } from '../_services/user-service.service';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +10,13 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 
-export class LoginComponent {
+export class LoginComponent implements OnInit {
+  
+  constructor(private userService: UserServiceService){ }
 
+  ngOnInit(): void{
+
+  }
   @Output() onSubmitLoginEvent = new EventEmitter();
   @Output() onSubmitRegisterEvent = new EventEmitter();
 
@@ -26,15 +32,17 @@ export class LoginComponent {
   onRegisterTab(): void {
 		this.active = "register";
 	}
-  
+
   onLoginTab(): void {
 		this.active = "login";
 	}
 
- onSubmitLogin(): void{
-  this.onSubmitLoginEvent.emit({"login": this.login, "password":this.password});
+  
 
- }
+onSubmitLogin(): void{
+  this.onSubmitLoginEvent.emit({"login": this.login, "password":this.password});
+  
+}
 
  
  onSubmitRegister(): void {

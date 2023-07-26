@@ -3,21 +3,21 @@
 <header class="p-3 bg-dark text-white">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <a routerLink="/home" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-white text-decoration-none"> logologologo
+            <a routerLink="/home" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-white text-decoration-none"> <img class="logo">
             </a>
 
             <ul class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li>
-                    <a href="#" class="nav-link px-2 text-light" routerLink="/home">Inicio</a>
+                    <a href="#" class="home nav-link px-2  text-light" routerLink="/home">Inicio</a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link px-2 text-light" routerLink="/Productos" >Productos</a>
+                    <a href="#" class="home nav-link px-2 text-light" routerLink="/Productos" >Productos</a>
                 </li>
             </ul>            
             <div class="col-md-3 text-end">
                          <!-- Hay que ponerle al iniciar sesion *ngIf="! isLoggedIn()" --> 
-                <button mat-stroked-button color="accent" routerLink="/login">Iniciar Sesión </button>
-                <button mat-flat-button color="warn" routerLink="/login">Registrarse</button>
+                <button mat-stroked-button color="accent" style="margin-right:1rem" routerLink="/login">Iniciar Sesión </button>
+                <button mat-stroked-button color="warn" routerLink="/login">Registrarse</button>
 
                 <button *ngIf="isLoggedIn()" mat-flat-button color="warn" routerLink="/ ">Cerrar Sesión</button>
             </div>
@@ -26,23 +26,23 @@
         <ul class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" >
             <!--- Hay que poner el ngIf en caso de que sean usuarios-->
             <li>
-                <a *ngIf="isLoggedIn()" href="#" class="nav-link px-2 text-light" routerLink="/admin" >Mi carrito</a>
+                <a *ngIf="isLoggedIn()" href="#" class="user nav-link px-2 text-light" routerLink="/admin" >Mi carrito</a>
             </li>
             <li>
-                <a *ngIf="isLoggedIn()" href="#" class="nav-link px-2 text-light" routerLink="user">Mis Ordenes</a>
+                <a *ngIf="isLoggedIn()" href="#" class="user nav-link px-2 text-light" routerLink="user">Mis Ordenes</a>
             </li>
             <!--- fin ngIf usuarios-->
 
             
                <!--- Hay que cambiar el ngIf en caso de que sean admins-->
             <li>
-                <a     class="nav-link px-2 text-light" routerLink="/addNewProduct" >Añadir Producto</a>
+                <a     class="user nav-link px-2 text-light" routerLink="/addNewProduct" >Añadir Producto</a>
             </li>
             <li>
-                <a    class="nav-link px-2 text-light" routerLink="/showProductDetails">Detalles de Productos</a>
+                <a    class="user nav-link px-2 text-light" routerLink="/showProductDetails">Detalles de Productos</a>
             </li>
             <li>
-                <a *ngIf="isLoggedIn()"   class="nav-link px-2 text-light" routerLink="user">Información de Ordenes</a>
+                <a   class=" user nav-link px-2 text-light" routerLink="/DetallesOrden">Información de Ordenes</a>
             </li>
             <!--- fin ngIf usuarios-->
         </ul>

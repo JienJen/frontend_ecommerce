@@ -1,6 +1,23 @@
+.logo{
+    content: url(../../images/logologo.png);
+    height: 5.5rem;
+    width: 5.5rem;
+    
+}
+
+.home{
+    font-size: 20px;
+    margin-right: 1rem;
+}
 
 .nav-link{
     position: relative;
+}
+
+.user{
+    color:rgb(196, 247, 180) !important;
+    margin-right: 1.5rem;
+    font-size:16px;
 }
 
 .nav-link:hover::after{

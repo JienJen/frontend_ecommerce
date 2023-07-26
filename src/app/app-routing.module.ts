@@ -9,6 +9,7 @@ import { AddNewProductComponent } from './add-new-product/add-new-product.compon
 import { ShowProductDetailsComponent } from './show-product-details/show-product-details.component';
 import { ProductosComponent } from './productos/productos.component';
 import { ContentComponent } from './content/content.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 
 const routes: Routes = [
   { path: '', 
@@ -39,6 +40,8 @@ const routes: Routes = [
   {path:'Productos', 
     component:ProductosComponent},
 
+  {path:'DetallesOrden', 
+    component:OrderDetailsComponent},
   
 ];
 

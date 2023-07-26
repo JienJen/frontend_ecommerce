@@ -28,6 +28,7 @@ import { NewproductComponent } from './newproduct/newproduct.component';
 import {MatIcon, MatIconModule} from '@angular/material/icon';
 import { ShowProductImagesDialogComponent } from './show-product-images-dialog/show-product-images-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 
 
 
@@ -49,6 +50,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     ContentComponent,
     NewproductComponent,
     ShowProductImagesDialogComponent,
+    OrderDetailsComponent,
   ],
   imports: [
     BrowserModule,
