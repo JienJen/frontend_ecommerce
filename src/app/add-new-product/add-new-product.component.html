@@ -55,26 +55,32 @@
 
 
                             <div align="end">
-                                <button type="reset"  
+                                <button type="reset"
                                         mat-stroked-button
                                         color="accent"
                                         style="margin-right: 1rem;">Limpiar</button>
+                                <button type="button" 
+                                        mat-stroked-button 
+                                        color="accent" 
+                                        (click)="selectFile.click()"
+                                        style="margin-right: 1rem;">Añadir Fotos</button>
+                                            <input  hidden
+                                                    type="file" 
+                                                    multiple 
+                                                    value="select" 
+                                                    #selectFile 
+                                                    (change)="onFileSelected($event)">
                                 <button type="submit"
                                         mat-stroked-button
                                         color="accent">Añadir Producto</button>
+                               
                             </div>
                     </form>
                 </div>
             </div>
 
-            <div class="col-5 text-light">
-                <div>
-                    <input type="file" 
-                        multiple 
-                        value="select" 
-                        #selectFile 
-                        (change)="onFileSelected($event)">
-                </div>
+            <div class="col-5 text-light mt-4">
+               
                 <div class="mt-5">
                     <div class="row">
                         <mat-grid-list cols="4" rowHeight="1:1" >

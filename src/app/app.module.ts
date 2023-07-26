@@ -25,6 +25,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AuthContentComponent } from './auth-content/auth-content.component';
 import { ContentComponent } from './content/content.component';
 import { NewproductComponent } from './newproduct/newproduct.component';
+import {MatIcon, MatIconModule} from '@angular/material/icon';
+import { ShowProductImagesDialogComponent } from './show-product-images-dialog/show-product-images-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -45,6 +48,7 @@ import { NewproductComponent } from './newproduct/newproduct.component';
     AuthContentComponent,
     ContentComponent,
     NewproductComponent,
+    ShowProductImagesDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,9 @@ import { NewproductComponent } from './newproduct/newproduct.component';
     MatInputModule,
     MatTableModule,
     MatGridListModule,
-    CarouselModule
+    CarouselModule,
+    MatIconModule,
+    MatDialogModule,
   ],
 
   providers: [],

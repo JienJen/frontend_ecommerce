@@ -17,6 +17,8 @@
             <div class="col-md-3 text-end">
                          <!-- Hay que ponerle al iniciar sesion *ngIf="! isLoggedIn()" --> 
                 <button mat-stroked-button color="accent" routerLink="/login">Iniciar Sesión </button>
+                <button mat-flat-button color="warn" routerLink="/login">Registrarse</button>
+
                 <button *ngIf="isLoggedIn()" mat-flat-button color="warn" routerLink="/ ">Cerrar Sesión</button>
             </div>
         </div>

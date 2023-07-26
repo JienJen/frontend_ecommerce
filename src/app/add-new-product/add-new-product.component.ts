@@ -51,11 +51,11 @@ export class AddNewProductComponent implements OnInit{
       new Blob([JSON.stringify(product)], {type:'application/json'})
     );
     
-    for(var i = 0; i < product.imageFile.length; i++){
+    for(var i = 0; i < this.product.imageFile.length; i++){
       formData.append(
         'imageFile',
-        product.imageFile[i].file,
-        product.imageFile[i].file.name
+        this.product.imageFile[i].file,
+        this.product.imageFile[i].file.name
       );
     }
 

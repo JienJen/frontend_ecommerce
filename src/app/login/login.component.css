@@ -47,3 +47,7 @@
 .mat-mdc-raised-button.mat-accent{
     --mdc-protected-button-container-color: #84d863;
 }
+.mat-mdc-raised-button.mat-primary {
+    --mdc-protected-button-container-color: #418123;
+    --mdc-protected-button-label-text-color: #fff;
+}

@@ -16,4 +16,10 @@ export class ProductService {
   public getAllProducts(){
     return this.httpClient.get<Product[]>("http://localhost:8080/api/products");
   }
+
+  public deleteProduct(id: number){
+    return this.httpClient.delete<string>("http://localhost:8080/api/products/" + id);
+  }
+
 }
+

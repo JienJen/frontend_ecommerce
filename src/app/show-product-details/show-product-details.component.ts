@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { ProductService } from '../_services/product.service';
 import { Product } from '../_model/product.model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class ShowProductDetailsComponent implements OnInit { 
   productDetails: Product[] = [];
-  displayedColumns = ['id', 'name', 'description', 'amountInStock', 'price'];
+  displayedColumns = ['id', 'name', 'description', 'amountInStock', 'price',  'edit', 'delete'];
 
 
   constructor(private productService: ProductService){}
@@ -32,4 +33,18 @@ export class ShowProductDetailsComponent implements OnInit {
       }
     )
   }
+  
+  deleteProduct(id: number){
+    this.productService.deleteProduct(id).subscribe(
+      (resp) => {
+          this.getAllProducts();
+          console.log(resp);
+      },
+      (error:HttpErrorResponse) => {
+        console.log(error);
+      }
+    );
+  }
+  
+ 
 }

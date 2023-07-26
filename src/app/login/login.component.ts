@@ -26,6 +26,7 @@ export class LoginComponent {
   onRegisterTab(): void {
 		this.active = "register";
 	}
+  
   onLoginTab(): void {
 		this.active = "login";
 	}
