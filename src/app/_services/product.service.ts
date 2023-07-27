@@ -18,8 +18,11 @@ export class ProductService {
   }
 
   public deleteProduct(id: number){
-    return this.httpClient.delete<string>("http://localhost:8080/api/products/" + id);
+    return this.httpClient.delete<string>("http://localhost:8080/api/products/delete/productId/" + id);
   }
 
+  public getProductDetailsById(id:any){
+    return this.httpClient.get<Product>("http://localhost:8080/api/products/view/productId/" + id)
+  }
 }
 
