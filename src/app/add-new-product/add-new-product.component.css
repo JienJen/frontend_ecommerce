@@ -7,7 +7,9 @@
 }
 
 
-
+img{
+    object-fit: contain;
+}
 
 .btn-remove-image{
     position: absolute;

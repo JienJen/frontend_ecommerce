@@ -5,5 +5,5 @@ export interface Product{
     "description":  string,
     "amountInStock": number,
     "price": number,
-    "imageFile": FileHandle[]
+    "imageFiles": FileHandle[]
 }

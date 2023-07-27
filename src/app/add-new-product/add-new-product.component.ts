@@ -5,6 +5,7 @@ import { Product } from '../_model/product.model';
 import { ProductService } from '../_services/product.service';
 import { FileHandle } from '../_model/file-handle.model';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-new-product',
@@ -18,13 +19,15 @@ export class AddNewProductComponent implements OnInit{
     description: "",
     amountInStock: 0,
     price: 0,
-    imageFile: []
+    imageFiles: []
   }
 
   constructor(private productService: ProductService,
-    private sanitizer: DomSanitizer){ }
+    private sanitizer: DomSanitizer,
+    private activatedRoute: ActivatedRoute){ }
 
   ngOnInit():void{
+    this.product = this.activatedRoute.snapshot.data['product']
   }
 
   addProduct(productForm: NgForm){
@@ -34,7 +37,7 @@ export class AddNewProductComponent implements OnInit{
     this.productService.addProduct(productFormData).subscribe(
       (response: Product) => {
         productForm.reset();
-        this.product.imageFile = [];
+        this.product.imageFiles = [];
         console.log(response);
       },
       (error: HttpErrorResponse) =>{
@@ -51,11 +54,11 @@ export class AddNewProductComponent implements OnInit{
       new Blob([JSON.stringify(product)], {type:'application/json'})
     );
     
-    for(var i = 0; i < this.product.imageFile.length; i++){
+    for(var i = 0; i < this.product.imageFiles.length; i++){
       formData.append(
         'imageFile',
-        this.product.imageFile[i].file,
-        this.product.imageFile[i].file.name
+        this.product.imageFiles[i].file,
+        this.product.imageFiles[i].file.name
       );
     }
 
@@ -73,14 +76,14 @@ export class AddNewProductComponent implements OnInit{
           )
         }
         
-        this.product.imageFile.push(fileHandle); 
+        this.product.imageFiles.push(fileHandle); 
         
 
       }
     }
 
   removeimages(i:number){
-      this.product.imageFile.splice(i, 1);
+      this.product.imageFiles.splice(i, 1);
 
     }
 

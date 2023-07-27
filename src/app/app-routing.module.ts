@@ -10,6 +10,7 @@ import { ShowProductDetailsComponent } from './show-product-details/show-product
 import { ProductosComponent } from './productos/productos.component';
 import { ContentComponent } from './content/content.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
+import { ProductResolveService } from './_services/product-resolve.service';
 
 const routes: Routes = [
   { path: '', 
@@ -32,7 +33,11 @@ const routes: Routes = [
     component:ForbiddenComponent},
 
   {path:'addNewProduct', 
-    component: AddNewProductComponent},
+    component: AddNewProductComponent,
+    resolve: {
+      product: ProductResolveService
+    }
+  },
 
   {path:'showProductDetails', 
     component: ShowProductDetailsComponent},
