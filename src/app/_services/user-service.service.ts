@@ -16,6 +16,6 @@ export class UserServiceService {
   constructor(private httpClient: HttpClient) { }
 
   public login(loginData: any) {
-    return this.httpClient.post(this.PATH_OF_API + "/authenticate", loginData, { headers : this.requestHeader})
+    return this.httpClient.post(this.PATH_OF_API + "/login", loginData, { headers : this.requestHeader})
   }
 }

@@ -23,17 +23,20 @@
             </div>
         </div>
 
-        <ul class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" >
+        <ul  class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" >
             <!--- Hay que poner el ngIf en caso de que sean usuarios-->
             <li>
-                <a *ngIf="isLoggedIn()" href="#" class="user nav-link px-2 text-light" routerLink="/admin" >Mi carrito</a>
+                <a  href="#" class="user nav-link px-2 text-light" routerLink="/admin" >Mi carrito</a>
             </li>
             <li>
-                <a *ngIf="isLoggedIn()" href="#" class="user nav-link px-2 text-light" routerLink="user">Mis Ordenes</a>
+                <a  href="#" class="user nav-link px-2 text-light" routerLink="user">Mis Ordenes</a>
             </li>
             <!--- fin ngIf usuarios-->
+        </ul>
 
-            
+        <!--*ngIf="isLoggedIn()"-->
+        
+        <ul class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" >
                <!--- Hay que cambiar el ngIf en caso de que sean admins-->
             <li>
                 <a     class="user nav-link px-2 text-light" routerLink="/addNewProduct" >Añadir Producto</a>

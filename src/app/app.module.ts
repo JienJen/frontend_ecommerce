@@ -10,7 +10,6 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
@@ -29,6 +28,9 @@ import {MatIcon, MatIconModule} from '@angular/material/icon';
 import { ShowProductImagesDialogComponent } from './show-product-images-dialog/show-product-images-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { OrderDetailsComponent } from './order-details/order-details.component';
+import { FormsModule } from '@angular/forms';
+import { Login2Component } from './login2/login2.component';
+import { ProductViewDetailsComponent } from './product-view-details/product-view-details.component';
 
 
 
@@ -51,6 +53,8 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     NewproductComponent,
     ShowProductImagesDialogComponent,
     OrderDetailsComponent,
+    Login2Component,
+    ProductViewDetailsComponent,
   ],
   imports: [
     BrowserModule,

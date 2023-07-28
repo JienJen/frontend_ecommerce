@@ -11,6 +11,8 @@ import { ProductosComponent } from './productos/productos.component';
 import { ContentComponent } from './content/content.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { ProductResolveService } from './_services/product-resolve.service';
+import { Login2Component } from './login2/login2.component';
+import { ProductViewDetailsComponent } from './product-view-details/product-view-details.component';
 
 const routes: Routes = [
   { path: '', 
@@ -25,6 +27,10 @@ const routes: Routes = [
 
   {path:'user', 
     component:UserComponent},
+
+  {path: 'login2',
+    component:Login2Component},
+
 
   {path:'login', 
     component:ContentComponent},
@@ -41,6 +47,9 @@ const routes: Routes = [
 
   {path:'showProductDetails', 
     component: ShowProductDetailsComponent},
+
+  {path: 'productViewDetails',
+    component: ProductViewDetailsComponent},
 
   {path:'Productos', 
     component:ProductosComponent},
