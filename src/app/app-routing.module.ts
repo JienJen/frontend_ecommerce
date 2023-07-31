@@ -13,6 +13,9 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
 import { ProductResolveService } from './_services/product-resolve.service';
 import { Login2Component } from './login2/login2.component';
 import { ProductViewDetailsComponent } from './product-view-details/product-view-details.component';
+import { AuthGuard } from './_auth/auth.guard';
+import { MyCartComponent } from './my-cart/my-cart.component';
+import { MyOrderComponent } from './my-order/my-order.component';
 
 const routes: Routes = [
   { path: '', 
@@ -23,10 +26,10 @@ const routes: Routes = [
     component:HomeComponent},
 
   {path:'admin', 
-    component:AdminComponent},
+    component:AdminComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']} },
 
   {path:'user', 
-    component:UserComponent},
+    component:UserComponent, canActivate:[AuthGuard], data:{roles:['CLIENT']} },
 
   {path: 'login2',
     component:Login2Component},
@@ -39,25 +42,32 @@ const routes: Routes = [
     component:ForbiddenComponent},
 
   {path:'addNewProduct', 
-    component: AddNewProductComponent,
+    component: AddNewProductComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']},
     resolve: {
       product: ProductResolveService
     }
   },
 
   {path:'showProductDetails', 
-    component: ShowProductDetailsComponent},
+    component: ShowProductDetailsComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']} },
 
   {path: 'productViewDetails',
     component: ProductViewDetailsComponent,
     resolve:{
       product: ProductResolveService}},
 
+  {path:'MiCarrito', 
+    component: MyCartComponent,  canActivate:[AuthGuard], data:{roles:['CLIENT']} },
+  
+  {path:'MisOrdenes', 
+    component: MyOrderComponent,  canActivate:[AuthGuard], data:{roles:['CLIENT']} },
+
+
   {path:'Productos', 
     component:ProductosComponent},
 
   {path:'DetallesOrden', 
-    component:OrderDetailsComponent},
+    component:OrderDetailsComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']} },
   
 ];
 

@@ -29,4 +29,6 @@ export class HeaderComponent implements OnInit {
   this.userAuthService.clear();
   this.router.navigate(['/home'])
  }
+
+ 
 }

@@ -1,4 +1,3 @@
-
 <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -18,7 +17,7 @@
                     
                     <div class="tab-content">
                         <div [ngClass]="active == 'login' ? 'tab-pane fade show active' : 'tab-pane fade'">
-                            <form #loginForm="ngForm" (ngSubmit)="onSubmitLogin()">
+                            <form #loginForm="ngForm" (ngSubmit)="logins(loginForm)">
                                 <div class="mb-md-5 mt-md-4 pb-0">
                                     <h2 class="h2 fw-bold mb-3 text-uppercase">Iniciar Sesion</h2>
                                 
@@ -128,7 +127,7 @@
                             
                             
         
-                                    <button class="w-100" type="submit" mat-raised-button color="primary">Registrarse</button>
+                                    <button class="w-100" type="submit" mat-raised-button color="primary" (click)="reloadCurrentPage()">Registrarse</button>
 
                                     <div class="mt-md-4">
                                         <p class="mt-4">¿Ya tenes una cuenta? 
