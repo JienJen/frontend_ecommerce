@@ -49,7 +49,9 @@ const routes: Routes = [
     component: ShowProductDetailsComponent},
 
   {path: 'productViewDetails',
-    component: ProductViewDetailsComponent},
+    component: ProductViewDetailsComponent,
+    resolve:{
+      product: ProductResolveService}},
 
   {path:'Productos', 
     component:ProductosComponent},

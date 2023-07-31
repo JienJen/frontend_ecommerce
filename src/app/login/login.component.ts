@@ -26,6 +26,10 @@ export class LoginComponent implements OnInit {
   lastName: string = "";
   login: string = "";
   password: string = "";
+  userEmail: string = "";
+  userPhoneNumber: string = "";
+  userAddress: string = "";
+
   
 
 
@@ -41,10 +45,11 @@ export class LoginComponent implements OnInit {
 
  onSubmitLogin(): void{
  this.onSubmitLoginEvent.emit({"login": this.login, "password":this.password});
+ console.log()
 }
 
  
  onSubmitRegister(): void {
-  this.onSubmitRegisterEvent.emit({"firstName": this.firstName, "lastName": this.lastName, "login": this.login, "password": this.password});
+  this.onSubmitRegisterEvent.emit({"firstName": this.firstName, "lastName": this.lastName, "login": this.login, "password": this.password, "userEmail": this.userEmail, "userPhoneNumber": this.userPhoneNumber, "userAddress": this.userAddress});
 }
 }

@@ -31,6 +31,8 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
 import { FormsModule } from '@angular/forms';
 import { Login2Component } from './login2/login2.component';
 import { ProductViewDetailsComponent } from './product-view-details/product-view-details.component';
+import { BuyProductComponent } from './buy-product/buy-product.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -55,6 +57,7 @@ import { ProductViewDetailsComponent } from './product-view-details/product-view
     OrderDetailsComponent,
     Login2Component,
     ProductViewDetailsComponent,
+    BuyProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +75,7 @@ import { ProductViewDetailsComponent } from './product-view-details/product-view
     CarouselModule,
     MatIconModule,
     MatDialogModule,
+    RouterModule
   ],
 
   providers: [],

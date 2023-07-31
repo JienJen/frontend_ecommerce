@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators'
 import { Product } from '../_model/product.model';
 import { ImageProcessingService } from '../_services/image-processing.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-productos',
@@ -15,7 +16,8 @@ export class ProductosComponent implements OnInit {
 
 
   constructor(private productService: ProductService,
-    private imageProcessingService: ImageProcessingService){}
+    private imageProcessingService: ImageProcessingService,
+    private router: Router){}
 
   ngOnInit(): void {
       this.getAllProducts();
@@ -37,5 +39,9 @@ export class ProductosComponent implements OnInit {
     )
   }
 
+  showProductDetails(id:number){
+    this.router.navigate(['/productViewDetails', {id: id}]);
+    
+  }
 
 }

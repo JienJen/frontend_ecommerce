@@ -22,7 +22,11 @@ export class ProductService {
   }
 
   public getProductDetailsById(id:any){
-    return this.httpClient.get<Product>("http://localhost:8080/api/products/view/productId/" + id)
+    return this.httpClient.get<Product>("http://localhost:8080/api/products/view/productId/" + id);
+  }
+
+  public addToCart(id:number){
+    return this.httpClient.get("http://localhost:8080/api/orders/order/" + id);
   }
 }
 

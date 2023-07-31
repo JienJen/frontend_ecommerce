@@ -70,10 +70,12 @@
                                                     value="select" 
                                                     #selectFile 
                                                     (change)="onFileSelected($event)">
-                                <button type="submit"
+                                <button type="submit" *ngIf="isNewProduct"
                                         mat-stroked-button
                                         color="accent">Añadir Producto</button>
-                               
+                                <button type="submit" *ngIf="!isNewProduct"
+                                        mat-stroked-button
+                                        color="accent">Actualizar Producto</button>
                             </div>
                     </form>
                 </div>

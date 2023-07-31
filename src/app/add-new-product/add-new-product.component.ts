@@ -14,7 +14,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AddNewProductComponent implements OnInit{
 
+  isNewProduct= true;
+
   product: Product = {
+    id: null,
     name: "",
     description: "",
     amountInStock: 0,
@@ -28,6 +31,10 @@ export class AddNewProductComponent implements OnInit{
 
   ngOnInit():void{
     this.product = this.activatedRoute.snapshot.data['product']
+
+    if(this.product && this.product.id){
+      this.isNewProduct = false;
+    }
   }
 
   addProduct(productForm: NgForm){
@@ -45,7 +52,6 @@ export class AddNewProductComponent implements OnInit{
       }
     );
   }
-
   prepareFormData(product: Product): FormData {
     const formData = new FormData();
 

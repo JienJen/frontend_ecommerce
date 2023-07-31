@@ -59,39 +59,72 @@
                             <form (ngSubmit)="onSubmitRegister()" #registerForm="ngForm">
                                 <div class="mb-md-5 mt-md-4 pb-0">
                                     <h2 class="h2 fw-bold mb-3 text-uppercase">Registro</h2>
+                                    <div class="row">
+                                        <div class="col-6"> 
+                                            <div class="form-outline mb-1">
+                                                <mat-form-field appearance="outline" class="w-100">
+                                                    <mat-label>Nombre</mat-label>
+                                                    <input matInput placeholder="Nombre"  type="text" id="firstName" name="firstName" class="form-control" [(ngModel)]="firstName">
+        
+                                                </mat-form-field>
+                                            </div>
 
-                                    <div class="form-outline mb-1">
-                                        <mat-form-field appearance="outline" class="w-100">
-                                            <mat-label>Nombre</mat-label>
-                                            <input matInput placeholder="Nombre"  type="text" id="firstName" name="firstName" class="form-control" [(ngModel)]="firstName">
+                                            <div class="form-outline mb-1">
+                                                <mat-form-field appearance="outline" class="w-100">
+                                                    <mat-label>Número de Telefono</mat-label>
+                                                    <input matInput placeholder="Número de Telefono"type="text" id="userPhoneNumber" name="userPhoneNumber" class="form-control" [(ngModel)]="userPhoneNumber">
+        
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
 
-                                        </mat-form-field>
+                                        <div class="col-6"> 
+                                            <div class="form-outline mb-1">
+                                                <mat-form-field appearance="outline" class="w-100">
+                                                    <mat-label>Apellido</mat-label>
+                                                    <input matInput placeholder="Apellido"  type="text" id="lastName" name="lastName" class="form-control" [(ngModel)]="lastName">
+        
+                                                </mat-form-field>
+                                            </div>
+        
+                                            <div class="form-outline mb-1">
+                                                <mat-form-field appearance="outline" class="w-100">
+                                                    <mat-label>Correo Electrónico</mat-label>
+                                                    <input matInput placeholder="Correo Electrónico"   type="text" id="userEmail" name="userEmail" class="form-control" [(ngModel)]="userEmail">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-outline mb-1">
+                                            <mat-form-field appearance="outline" class="w-100">
+                                                <mat-label>Dirección</mat-label>
+                                                <input matInput placeholder="Dirección"   type="text" id="userAddress" name="userAddress" class="form-control" [(ngModel)]="userAddress">
+                                            </mat-form-field>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <div class="form-outline mb-1">
+                                                <mat-form-field appearance="outline" class="w-100">
+                                                    <mat-label>Nombre de Usuario</mat-label>
+                                                    <input matInput placeholder="Usuario"  type="text" id="login" name="login" class="form-control" [(ngModel)]="login">
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <div class="form-outline mb-1">
+                                                <mat-form-field appearance="outline" class="w-100">
+                                                    <mat-label>Contraseña</mat-label>
+                                                    <input matInput placeholder="Contraseña"   type="password" id="registerPassword" name="password" class="form-control" [(ngModel)]="password">
+        
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
-                                   
-                                    <div class="form-outline mb-1">
-                                        <mat-form-field appearance="outline" class="w-100">
-                                            <mat-label>Apellido</mat-label>
-                                            <input matInput placeholder="Apellido"  type="text" id="lastName" name="lastName" class="form-control" [(ngModel)]="lastName">
+                                    
 
-                                        </mat-form-field>
-                                    </div>
-
-                                    <div class="form-outline mb-1">
-                                        <mat-form-field appearance="outline" class="w-100">
-                                            <mat-label>Usuario</mat-label>
-                                            <input matInput placeholder="Usuario"  type="text" id="login" name="login" class="form-control" [(ngModel)]="login">
-
-                                        </mat-form-field>
-                                    </div>
-
-                                    <div class="form-outline mb-1">
-                                        <mat-form-field appearance="outline" class="w-100">
-                                            <mat-label>Contraseña</mat-label>
-                                            <input matInput placeholder="Contraseña"   type="password" id="registerPassword" name="password" class="form-control" [(ngModel)]="password">
-
-                                        </mat-form-field>
-                                    </div>
-                            
+                                  
                             
                             
         

@@ -16,20 +16,20 @@
             </ul>            
             <div class="col-md-3 text-end">
                          <!-- Hay que ponerle al iniciar sesion *ngIf="! isLoggedIn()" --> 
-                <button mat-stroked-button color="accent" style="margin-right:1rem" routerLink="/login">Iniciar Sesión </button>
-                <button mat-stroked-button color="warn" routerLink="/login">Registrarse</button>
+                <button *ngIf="! isLoggedIn()" mat-stroked-button color="accent" style="margin-right:1rem" routerLink="/login2">Iniciar Sesión </button>
+                <button *ngIf="! isLoggedIn()" mat-stroked-button color="warn" routerLink="/login">Registrarse</button>
 
-                <button *ngIf="isLoggedIn()" mat-flat-button color="warn" routerLink="/ ">Cerrar Sesión</button>
+                <button *ngIf=" isLoggedIn()" mat-flat-button color="warn" (click)="logout()" >Cerrar Sesión</button>
             </div>
         </div>
 
         <ul  class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" >
             <!--- Hay que poner el ngIf en caso de que sean usuarios-->
             <li>
-                <a  href="#" class="user nav-link px-2 text-light" routerLink="/admin" >Mi carrito</a>
+                <a  *ngIf="userService.roleMatch(['CLIENT'])" href="#" class="user nav-link px-2 text-light" routerLink="/admin" >Mi carrito</a>
             </li>
             <li>
-                <a  href="#" class="user nav-link px-2 text-light" routerLink="user">Mis Ordenes</a>
+                <a  *ngIf="userService.roleMatch(['CLIENT'])" href="#" class="user nav-link px-2 text-light" routerLink="/user">Mis Ordenes</a>
             </li>
             <!--- fin ngIf usuarios-->
         </ul>
@@ -39,13 +39,13 @@
         <ul class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" >
                <!--- Hay que cambiar el ngIf en caso de que sean admins-->
             <li>
-                <a     class="user nav-link px-2 text-light" routerLink="/addNewProduct" >Añadir Producto</a>
+                <a   *ngIf="userService.roleMatch(['ADMIN'])"   class="user nav-link px-2 text-light" routerLink="/addNewProduct" >Añadir Producto</a>
             </li>
             <li>
-                <a    class="user nav-link px-2 text-light" routerLink="/showProductDetails">Detalles de Productos</a>
+                <a   *ngIf="userService.roleMatch(['ADMIN'])"  class="user nav-link px-2 text-light" routerLink="/showProductDetails">Detalles de Productos</a>
             </li>
             <li>
-                <a   class=" user nav-link px-2 text-light" routerLink="/DetallesOrden">Información de Ordenes</a>
+                <a   *ngIf="userService.roleMatch(['ADMIN'])" class=" user nav-link px-2 text-light" routerLink="/DetallesOrden">Información de Ordenes</a>
             </li>
             <!--- fin ngIf usuarios-->
         </ul>

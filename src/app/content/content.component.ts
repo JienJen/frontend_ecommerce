@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AxiosService } from '../_services/axios.service';
+import { Token } from '@angular/compiler';
 
 @Component({
   selector: 'app-content',
@@ -16,7 +17,7 @@ export class ContentComponent {
       "/login",
       {
         login: input.login,
-        password: input.password
+        password: input.password,
       }
     )
   }
@@ -30,7 +31,10 @@ export class ContentComponent {
 		        firstName: input.firstName,
 		        lastName: input.lastName,
 		        login: input.login,
-		        password: input.password
+		        password: input.password,
+            userAddress: input.userAddress,
+            userEmail: input.userEmail,
+            userPhoneNumber: input.userPhoneNumber
 		    }
     )
   }
