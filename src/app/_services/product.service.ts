@@ -1,6 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Product } from '../_model/product.model';
+import { Observable } from 'rxjs';
+import { MyOrderDetails } from '../_model/order.model';
+import { MyCartDetails } from '../_model/cart.model';
+import { AllOrderDetails } from '../_model/allorders.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +29,20 @@ export class ProductService {
     return this.httpClient.get<Product>("http://localhost:8080/api/products/view/productId/" + id);
   }
 
-  public addToCart(id:number){
-    return this.httpClient.get("http://localhost:8080/api/orders/order/" + id);
+  public getMyOrders(): Observable<MyOrderDetails[]>{
+    return this.httpClient.get<MyOrderDetails[]>("http://localhost:8080/api/orders/view/myOrders");
+  }
+
+  public getMyCart(): Observable<MyCartDetails[]>{
+    return this.httpClient.get<MyCartDetails[]>("http://localhost:8080/api/cart/miCarrito")
+  }
+
+  public setMyOrder(){
+    return this.httpClient.post("http://localhost:8080/api/orders/order", {})
+  }
+
+  public getAllOrders(): Observable<AllOrderDetails[]>{
+    return this.httpClient.get<AllOrderDetails[]>("http://localhost:8080/api/orders/viewAll")
   }
 }
 

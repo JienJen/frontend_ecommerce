@@ -60,7 +60,7 @@ const routes: Routes = [
     component: MyCartComponent,  canActivate:[AuthGuard], data:{roles:['CLIENT']} },
   
   {path:'MisOrdenes', 
-    component: MyOrderComponent,  canActivate:[AuthGuard], data:{roles:['CLIENT']} },
+    component: MyOrderComponent,   },
 
 
   {path:'Productos', 

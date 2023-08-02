@@ -7,6 +7,8 @@ import { Product } from '../_model/product.model';
 import { ImageProcessingService } from '../_services/image-processing.service';
 import { ProductService } from '../_services/product.service';
 import { ShowProductImagesDialogComponent } from '../show-product-images-dialog/show-product-images-dialog.component';
+import { MyOrderDetails } from '../_model/order.model';
+import { AllOrderDetails } from '../_model/allorders.model';
 
 @Component({
   selector: 'app-order-details',
@@ -14,18 +16,26 @@ import { ShowProductImagesDialogComponent } from '../show-product-images-dialog/
   styleUrls: ['./order-details.component.css']
 })
 export class OrderDetailsComponent { 
-  productDetails: Product[] = [];
-  displayedColumns = ['idOrden', 'idUser', 'userFirstName', 'userLastName','description', 'direction', 'amountInStock', 'price'];
+  allOrderDetails: AllOrderDetails[] = [];
+  displayedColumns = [ 'orderId','idUser', 'userFirstName','userPhoneNumber', 'userAddress', 'cartItemsproductId', 'cartItemsproductName', 'cartItemsamount', 'cartItemsprice', 'totalPrice'];
 
 
   constructor(private productService: ProductService,
-    public imagesDialog: MatDialog,
-    private imageProcessingService: ImageProcessingService,
-    private router: Router){}
+    ){}
 
   ngOnInit(): void{
-
+    this.getOrderDetails();
   }
 
+  getOrderDetails(){
+    this.productService.getAllOrders().subscribe(
+      (resp: AllOrderDetails[]) => {
+        console.log(resp);
+        this.allOrderDetails = resp;
+      }, (error) => {
+        console.log(error);
+      }
+    )
+  }
  
 }

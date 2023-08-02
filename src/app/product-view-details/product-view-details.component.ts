@@ -25,15 +25,5 @@ export class ProductViewDetailsComponent implements OnInit{
     this.selectedProductIndex = index;
   }
 
-  addToCart(id:number){
-    this.productService.addToCart(id).subscribe(
-      (resp) => {
-        console.log(resp)
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
 
-  }
 }

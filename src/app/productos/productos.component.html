@@ -1,7 +1,8 @@
+
 <div class="container mt-5 mb-5">
     <mat-grid-list cols="3" rowHeight="2:3" gutterSize="50">
         <mat-grid-tile *ngFor="let p of productDetails">
-          <div class="row p-5">
+            <div class="row p-5">
             <div class="image-container">
               <img class="home-page-product-image" [src]="p.imageFiles[0].url"> 
             </div>
@@ -28,6 +29,7 @@
             </div>
 
           </div>
+          
         </mat-grid-tile>
       </mat-grid-list>
 </div>

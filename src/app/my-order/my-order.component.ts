@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Product } from '../_model/product.model';
 import { ImageProcessingService } from '../_services/image-processing.service';
 import { ProductService } from '../_services/product.service';
+import { MyOrderDetails } from '../_model/order.model';
+import { cartItems } from '../_model/cartItems.model';
 
 @Component({
   selector: 'app-my-order',
@@ -11,18 +13,26 @@ import { ProductService } from '../_services/product.service';
   styleUrls: ['./my-order.component.css']
 })
 export class MyOrderComponent {
-  productDetails: Product[] = [];
-  displayedColumns = ['idOrden', 'idUser', 'apellido','userFirstName', 'direction', 'userLastName','description'];
-
+  myOrderDetails: MyOrderDetails[] = [];
+  cartItems: cartItems[] = [];
+  displayedColumns: string[] = [  'userFirstName','userPhoneNumber', 'userAddress', 'cartItemsproductId', 'cartItemsproductName' , 'cartItemsamount', 'cartItemsprice', 'totalPrice'];
 
   constructor(private productService: ProductService,
-    public imagesDialog: MatDialog,
-    private imageProcessingService: ImageProcessingService,
-    private router: Router){}
+    ){}
 
   ngOnInit(): void{
-
+    this.getOrderDetails();
   }
 
+  getOrderDetails(){
+    this.productService.getMyOrders().subscribe(
+      (resp: MyOrderDetails[]) => {
+        console.log(resp);
+        this.myOrderDetails = resp;
+      }, (error) => {
+        console.log(error);
+      }
+    )
+  }
  
 }

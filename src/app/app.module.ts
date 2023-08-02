@@ -38,6 +38,8 @@ import { AuthGuard } from './_auth/auth.guard';
 import { UserServiceService } from './_services/user-service.service';
 import { MyCartComponent } from './my-cart/my-cart.component';
 import { MyOrderComponent } from './my-order/my-order.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatPaginatorModule} from '@angular/material/paginator';
 
 
 
@@ -82,7 +84,9 @@ import { MyOrderComponent } from './my-order/my-order.component';
     CarouselModule,
     MatIconModule,
     MatDialogModule,
-    RouterModule
+    RouterModule,
+    MatCardModule,
+    MatPaginatorModule
   ],
 
   providers: [

@@ -52,6 +52,7 @@ export class AddNewProductComponent implements OnInit{
       }
     );
   }
+
   prepareFormData(product: Product): FormData {
     const formData = new FormData();
 
