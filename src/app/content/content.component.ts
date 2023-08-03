@@ -32,7 +32,6 @@ export class ContentComponent {
 		        lastName: input.lastName,
 		        login: input.login,
 		        password: input.password,
-            userAddress: input.userAddress,
             userEmail: input.userEmail,
             userPhoneNumber: input.userPhoneNumber
 		    }

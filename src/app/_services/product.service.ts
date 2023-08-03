@@ -44,5 +44,6 @@ export class ProductService {
   public getAllOrders(): Observable<AllOrderDetails[]>{
     return this.httpClient.get<AllOrderDetails[]>("http://localhost:8080/api/orders/viewAll")
   }
+
 }
 

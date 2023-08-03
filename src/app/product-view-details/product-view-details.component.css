@@ -25,3 +25,10 @@
     right: 0;
     margin: auto;
 }
+
+.info{
+    
+    background-color: rgba(221, 253, 181, 0.5);
+    border:none;
+    color: rgb(78, 114, 97);
+}

@@ -1,8 +1,11 @@
 mat-grid-tile{
     border:1px solid lightgray;
-    border-radius: 20px;
-    background-color: white;
+    background-color: rgba(221, 253, 181, 0.5);
+/*  background-color: rgba(196,219,128, 0.5) */
+
 }
+
+
 
 .image-container{
     position: relative;

@@ -24,7 +24,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AuthContentComponent } from './auth-content/auth-content.component';
 import { ContentComponent } from './content/content.component';
 import { NewproductComponent } from './newproduct/newproduct.component';
-import {MatIcon, MatIconModule} from '@angular/material/icon';
+import { MatIconModule} from '@angular/material/icon';
 import { ShowProductImagesDialogComponent } from './show-product-images-dialog/show-product-images-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { OrderDetailsComponent } from './order-details/order-details.component';
@@ -40,6 +40,7 @@ import { MyCartComponent } from './my-cart/my-cart.component';
 import { MyOrderComponent } from './my-order/my-order.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule} from '@angular/material/paginator';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 
@@ -67,6 +68,7 @@ import { MatPaginatorModule} from '@angular/material/paginator';
     BuyProductComponent,
     MyCartComponent,
     MyOrderComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,
