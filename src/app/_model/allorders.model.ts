@@ -10,4 +10,6 @@ export interface AllOrderDetails {
     totalPrice: number;
     product: Product;
     cartItems: cartItems[];
+    orderDescription : string;
+    orderStatus: string;
 }

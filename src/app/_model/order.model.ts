@@ -5,6 +5,8 @@ export interface MyOrderDetails {
     orderId : number;
     firstName : string;
     userAddress : string;
+    orderDescription : string;
+    orderStatus: string;
     userPhoneNumber : number;
     totalPrice: number;
     product: Product;

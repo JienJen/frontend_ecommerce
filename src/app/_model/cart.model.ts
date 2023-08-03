@@ -7,5 +7,6 @@ export interface MyCartDetails {
     price: number;
     status: string;
     product: Product;
-    
+
+
 }

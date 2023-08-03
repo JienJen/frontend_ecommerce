@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { ProductService } from '../_services/product.service';
 import { MyCartDetails } from '../_model/cart.model';
+import { ProductService } from '../_services/product.service';
 
 @Component({
-  selector: 'app-my-cart',
-  templateUrl: './my-cart.component.html',
-  styleUrls: ['./my-cart.component.css']
+  selector: 'app-my-cart-items',
+  templateUrl: './my-cart-items.component.html',
+  styleUrls: ['./my-cart-items.component.css']
 })
-export class MyCartComponent {
+export class MyCartItemsComponent {
   myCartDetails: MyCartDetails[] = [];
   displayedColumns = ['idProducto', 'nombreProducto', 'cantidadProducto',  'precioProducto','estadoProducto'];
 
@@ -24,24 +24,9 @@ export class MyCartComponent {
       (resp: MyCartDetails[]) => {
         console.log(resp);
         this.myCartDetails = resp;
-      }, (error) => {
+      }, (error: any) => {
         console.log(error);
       }
     )
   }
-  
-
-
-  /*
-  sendOrder(){
-    this.productService.setMyOrder().subscribe(
-      (resp) => {
-        console.log(resp);
-        window.location.reload();
-      }, (error) =>{
-        console.log(error);
-      }
-    )
-  }
-  */
 }

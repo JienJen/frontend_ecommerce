@@ -41,6 +41,8 @@ import { MyOrderComponent } from './my-order/my-order.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { MyCartItemsComponent } from './my-cart-items/my-cart-items.component';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -69,6 +71,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     MyCartComponent,
     MyOrderComponent,
     CheckoutComponent,
+    MyCartItemsComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,7 +91,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     MatDialogModule,
     RouterModule,
     MatCardModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectModule
   ],
 
   providers: [

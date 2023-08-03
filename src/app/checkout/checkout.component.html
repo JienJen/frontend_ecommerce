@@ -1,1 +1,61 @@
-<p>checkout works!</p>
+<div class="container mt-5">
+    <div class="card p-2 bg-dark">
+
+        <div class="row">
+            <div class="col-6">
+                <div class=" text-light p-4">
+                    <form #productForm="ngForm"
+                      (ngSubmit)="addToOrder()" >
+
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Dirección</mat-label>
+                                    <input  matInput 
+                                            placeholder="Dirección"  
+                                            type="text" 
+                                            id="direction" 
+                                            name="direction" 
+                                            class="form-control" 
+                                            [(ngModel)]="direccion">
+                                </mat-form-field>
+                         
+
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label> Comentarios de la Orden </mat-label>
+                                    <input  matInput 
+                                            placeholder="Comentarios de la Orden"  
+                                            type="text" 
+                                            id="comments" 
+                                            name="comments" 
+                                            class="form-control" 
+                                            [(ngModel)]="detalles">
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label> Método de Pago </mat-label>
+                                    <mat-select placeholder="Método de Pago" [(ngModel)]="selectedValue" name="method">
+                                      <mat-option *ngFor="let method of methods" [value]="method.value">
+                                        {{method.viewValue}}
+                                      </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                                <div align="end">
+                                    <button type="submit" 
+                                    mat-stroked-button
+                                    color="accent">Realizar Orden</button>
+                                </div>
+                               
+
+                               
+                    </form> 
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class=" text-light p-4">
+                    <app-my-cart-items></app-my-cart-items>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

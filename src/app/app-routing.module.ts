@@ -16,6 +16,8 @@ import { ProductViewDetailsComponent } from './product-view-details/product-view
 import { AuthGuard } from './_auth/auth.guard';
 import { MyCartComponent } from './my-cart/my-cart.component';
 import { MyOrderComponent } from './my-order/my-order.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { MyCartItemsComponent } from './my-cart-items/my-cart-items.component';
 
 const routes: Routes = [
   { path: '', 
@@ -30,10 +32,6 @@ const routes: Routes = [
 
   {path:'user', 
     component:UserComponent, canActivate:[AuthGuard], data:{roles:['CLIENT']} },
-
-  {path: 'login2',
-    component:Login2Component},
-
 
   {path:'login', 
     component:ContentComponent},
@@ -59,9 +57,12 @@ const routes: Routes = [
   {path:'MiCarrito', 
     component: MyCartComponent,  canActivate:[AuthGuard], data:{roles:['CLIENT']} },
   
-  {path:'MisOrdenes', 
-    component: MyOrderComponent,   },
 
+  {path:'MisOrdenes', 
+    component: MyOrderComponent},
+
+  {path:'CheckOut', 
+    component:CheckoutComponent},
 
   {path:'Productos', 
     component:ProductosComponent},

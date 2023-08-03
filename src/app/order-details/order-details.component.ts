@@ -17,7 +17,7 @@ import { AllOrderDetails } from '../_model/allorders.model';
 })
 export class OrderDetailsComponent { 
   allOrderDetails: AllOrderDetails[] = [];
-  displayedColumns = [ 'orderId','idUser', 'userFirstName','userPhoneNumber', 'userAddress', 'cartItemsproductId', 'cartItemsproductName', 'cartItemsamount', 'cartItemsprice', 'totalPrice'];
+  displayedColumns = [ 'orderId','idUser', 'userFirstName','userPhoneNumber', 'userAddress', 'orderDescription', 'cartItemsproductId', 'cartItemsproductName', 'cartItemsamount', 'cartItemsprice', 'totalPrice', 'orderStatus'];
 
 
   constructor(private productService: ProductService,
