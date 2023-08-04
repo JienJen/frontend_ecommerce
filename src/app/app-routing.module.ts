@@ -5,7 +5,7 @@ import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
-import { AddNewProductComponent } from './añadir-producto/add-new-product.component';
+import { AddNewProductComponent } from './nuevo-producto/add-new-product.component';
 import { ShowProductDetailsComponent } from './detalles-productos-tabla/show-product-details.component';
 import { ProductosComponent } from './productos/productos.component';
 import { OrderDetailsComponent } from './todas-las-ordenes/order-details.component';

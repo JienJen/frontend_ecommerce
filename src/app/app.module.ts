@@ -15,7 +15,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import { AddNewProductComponent } from './añadir-producto/add-new-product.component';
+import { AddNewProductComponent } from './nuevo-producto/add-new-product.component';
 import { ShowProductDetailsComponent } from './detalles-productos-tabla/show-product-details.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatGridListModule} from '@angular/material/grid-list';
