@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './inicio/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { UserComponent } from './user/user.component';
 import { LoginComponent } from './login/login.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
-import { AddNewProductComponent } from './add-new-product/add-new-product.component';
-import { ShowProductDetailsComponent } from './show-product-details/show-product-details.component';
+import { AddNewProductComponent } from './añadir-producto/add-new-product.component';
+import { ShowProductDetailsComponent } from './detalles-productos-tabla/show-product-details.component';
 import { ProductosComponent } from './productos/productos.component';
-import { ContentComponent } from './content/content.component';
-import { OrderDetailsComponent } from './order-details/order-details.component';
+import { OrderDetailsComponent } from './todas-las-ordenes/order-details.component';
 import { ProductResolveService } from './_services/product-resolve.service';
-import { ProductViewDetailsComponent } from './product-view-details/product-view-details.component';
+import { ProductViewDetailsComponent } from './ver-producto/product-view-details.component';
 import { AuthGuard } from './_auth/auth.guard';
-import { MyCartComponent } from './my-cart/my-cart.component';
-import { MyOrderComponent } from './my-order/my-order.component';
+import { MyCartComponent } from './mi-carrito/my-cart.component';
+import { MyOrderComponent } from './mi-orden/my-order.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { ContentComponent } from './contenido-login/content.component';
 
 const routes: Routes = [
   { path: '', 

@@ -3,7 +3,7 @@ import { ProductService } from '../_services/product.service';
 import { Product } from '../_model/product.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
-import { ShowProductImagesDialogComponent } from '../show-product-images-dialog/show-product-images-dialog.component';
+import { ShowProductImagesDialogComponent } from '../detalles-productos-imagenes/show-product-images-dialog.component';
 import { ImageProcessingService } from '../_services/image-processing.service';
 import { map } from 'rxjs/operators'
 import { Router } from '@angular/router';

@@ -6,7 +6,7 @@ import { map } from 'rxjs';
 import { Product } from '../_model/product.model';
 import { ImageProcessingService } from '../_services/image-processing.service';
 import { ProductService } from '../_services/product.service';
-import { ShowProductImagesDialogComponent } from '../show-product-images-dialog/show-product-images-dialog.component';
+import { ShowProductImagesDialogComponent } from '../detalles-productos-imagenes/show-product-images-dialog.component';
 import { MyOrderDetails } from '../_model/order.model';
 import { AllOrderDetails } from '../_model/allorders.model';
 
