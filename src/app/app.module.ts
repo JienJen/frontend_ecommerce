@@ -29,7 +29,6 @@ import { ShowProductImagesDialogComponent } from './show-product-images-dialog/s
 import {MatDialogModule} from '@angular/material/dialog';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { FormsModule } from '@angular/forms';
-import { Login2Component } from './login2/login2.component';
 import { ProductViewDetailsComponent } from './product-view-details/product-view-details.component';
 import { BuyProductComponent } from './buy-product/buy-product.component';
 import { RouterModule } from '@angular/router';
@@ -43,6 +42,7 @@ import { MatPaginatorModule} from '@angular/material/paginator';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { MyCartItemsComponent } from './my-cart-items/my-cart-items.component';
 import {MatSelectModule} from '@angular/material/select';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -65,13 +65,13 @@ import {MatSelectModule} from '@angular/material/select';
     NewproductComponent,
     ShowProductImagesDialogComponent,
     OrderDetailsComponent,
-    Login2Component,
     ProductViewDetailsComponent,
     BuyProductComponent,
     MyCartComponent,
     MyOrderComponent,
     CheckoutComponent,
     MyCartItemsComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

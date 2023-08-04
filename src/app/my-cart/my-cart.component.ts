@@ -30,7 +30,21 @@ export class MyCartComponent {
     )
   }
   
+  emptyMessage: any;
 
+  emptyClause(array: MyCartDetails[]) {
+
+
+    if (array.length === 0) {
+        // array empty or does not exist
+
+        this.emptyMessage=false;
+
+}else{
+
+        this.emptyMessage=true;
+    }
+}
 
   /*
   sendOrder(){

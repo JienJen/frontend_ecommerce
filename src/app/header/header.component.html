@@ -8,7 +8,7 @@
 
             <ul class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li>
-                    <a href="#" class="home nav-link px-2  text-light" routerLink="/home">Inicio</a>
+                    <a href="#" class="home nav-link px-2  text-light" routerLink="/Inicio">Inicio</a>
                 </li>
                 <li>
                     <a href="#" class="home nav-link px-2 text-light" routerLink="/Productos" >Productos</a>
@@ -38,11 +38,13 @@
         
         <ul class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" >
                <!--- Hay que cambiar el ngIf en caso de que sean admins-->
+            <!-- 
+                Añadir esta ruta en los detalles de productos
+                <li>
+                <a   *ngIf="userService.roleMatch(['ADMIN'])"   class="user nav-link px-2 text-light" routerLink="/AñadirProducto" >Añadir Producto</a>
+            </li>-->
             <li>
-                <a   *ngIf="userService.roleMatch(['ADMIN'])"   class="user nav-link px-2 text-light" routerLink="/addNewProduct" >Añadir Producto</a>
-            </li>
-            <li>
-                <a   *ngIf="userService.roleMatch(['ADMIN'])"  class="user nav-link px-2 text-light" routerLink="/showProductDetails">Detalles de Productos</a>
+                <a   *ngIf="userService.roleMatch(['ADMIN'])"  class="user nav-link px-2 text-light" routerLink="/DetallesProductos">Detalles de Productos</a>
             </li>
             <li>
                 <a   *ngIf="userService.roleMatch(['ADMIN'])" class=" user nav-link px-2 text-light" routerLink="/DetallesOrden">Información de Ordenes</a>

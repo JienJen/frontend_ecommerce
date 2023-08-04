@@ -21,13 +21,17 @@ export class HeaderComponent implements OnInit {
 
   }
 
+  //Llama al servicio de Autenticación de Usuario, retornando la funcion que trae los valores de rol y token otorgados al usuario
+
  public isLoggedIn(){
   return this.userAuthService.isLoggedIn();
  }
 
+
+ //Cierra la sesión del usuario y nos redirige a la página de Inicio
  public logout(){
   this.userAuthService.clear();
-  this.router.navigate(['/home'])
+  this.router.navigate(['/Inicio'])
  }
 
  

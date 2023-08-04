@@ -12,6 +12,11 @@ mat-grid-tile{
     height: 350px;
 }
 
+.colorcito{
+    background-color: #bb754d;
+}
+
+
 .home-page-product-image{
     max-width: 90%;
     max-height: 90%;

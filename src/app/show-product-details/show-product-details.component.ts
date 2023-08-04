@@ -68,6 +68,6 @@ export class ShowProductDetailsComponent implements OnInit {
   }
   
   editProductDetails(id: number){
-    this.router.navigate(['/addNewProduct', {id: id}]);
+    this.router.navigate(['/AñadirProducto', {id: id}]);
   }
 }

@@ -9,7 +9,7 @@ import { ProductService } from '../_services/product.service';
 })
 export class MyCartItemsComponent {
   myCartDetails: MyCartDetails[] = [];
-  displayedColumns = ['idProducto', 'nombreProducto', 'cantidadProducto',  'precioProducto','estadoProducto'];
+  displayedColumns = ['idProducto', 'nombreProducto', 'cantidadProducto',  'precioProducto'];
 
 
   constructor(private productService: ProductService,

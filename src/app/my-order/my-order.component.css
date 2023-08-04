@@ -1,0 +1,18 @@
+.mdc-data-table__cell, .mdc-data-table__header-cell{
+    border: 1px solid #b3b3b3;
+    padding: 0 !important;
+}
+
+.mdc-data-table__header-cell{
+    text-align: center
+}
+
+.mat-column-totalPrice, .mat-column-orderStatus{
+    text-align: center;
+} 
+
+
+ul {
+    margin-top: 10px;
+    list-style-type: none;
+  }

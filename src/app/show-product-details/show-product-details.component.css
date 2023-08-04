@@ -4,15 +4,26 @@ table {
 }
 
 
-table td {
-    padding: 10px;
-}
+.mat-column-id{
+    width: 5%;
+} 
 
 .mat-column-name{
     width: 13%;
 }
 
 .mat-column-description {
-    width: 65% !important;
+    width: 55% 
 }
 
+
+.mat-column-amountInStock {
+    width: 7% 
+}
+
+
+ .mdc-data-table__header-cell{
+    text-align: center;
+    border: 1px solid #b3b3b3;
+    padding: 0 !important;
+}

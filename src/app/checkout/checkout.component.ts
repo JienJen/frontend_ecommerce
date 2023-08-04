@@ -18,8 +18,7 @@ export class CheckoutComponent {
 
   methods = [
     {value: 'efectivo-0', viewValue: 'Efectivo'},
-    {value: 'credito-1', viewValue: 'Crédito'},
-    {value: 'debito-2', viewValue: 'Débito'}
+    {value: 'credito-1', viewValue: 'Tarjeta - QR'},
   ];
 
 
@@ -41,7 +40,7 @@ export class CheckoutComponent {
     return this.httpClient.post("http://localhost:8080/api/orders/order", object, {headers: header}).subscribe(
       (resp) => {
         console.log(resp)
-        window.location.reload();
+        window.location.href = "/MisOrdenes"
       },
       (error) => {
       console.log(error)

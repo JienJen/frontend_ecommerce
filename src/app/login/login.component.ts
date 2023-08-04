@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm, Validators } from '@angular/forms';
 import { UserServiceService } from '../_services/user-service.service';
 import { UserAuthService } from '../_services/user-auth.service';
 
@@ -55,9 +55,9 @@ export class LoginComponent implements OnInit {
 
         const role = resp.roles[0];
         if(role === 'ADMIN') {
-          this.router.navigate(['/home'])
+          this.router.navigate(['/Inicio'])
         } else {
-          this.router.navigate(['/home'])
+          this.router.navigate(['/Inicio'])
         }
       },
       (error) =>{
@@ -65,6 +65,11 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
 
   onSubmitRegister(): void {
     this.onSubmitRegisterEvent.emit({"firstName": this.firstName, "lastName": this.lastName, "login": this.login, "password": this.password, "userEmail": this.userEmail, "userPhoneNumber": this.userPhoneNumber});

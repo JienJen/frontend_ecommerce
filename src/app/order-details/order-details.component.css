@@ -10,3 +10,34 @@ table td {
 
 
 
+.mdc-data-table__cell, .mdc-data-table__header-cell{
+    text-align: center;
+    border: 1px solid #b3b3b3;
+    padding: 0 !important;
+}
+
+.mat-column-orderId{
+    width: 5%;
+} 
+
+.mat-column-idUser{
+    width: 5%;
+} 
+
+.mat-column-cartItemsproductId{
+    width: 5%;
+} 
+
+
+.mat-column-totalPrice{
+    width: 8%;
+}
+
+.mat-column-description {
+    width: 55% 
+}
+
+
+.mat-column-amountInStock {
+    width: 7% 
+}

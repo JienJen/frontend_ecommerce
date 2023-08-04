@@ -40,7 +40,7 @@ export class ProductosComponent implements OnInit {
   }
 
   showProductDetails(id:number){
-    this.router.navigate(['/productViewDetails', {id: id}]);
+    this.router.navigate(['/DetallesDeProducto', {id: id}]);
     
   }
 

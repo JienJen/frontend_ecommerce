@@ -1,7 +1,7 @@
 <table mat-table [dataSource]="myCartDetails" class="mat-elevation-z8">
   
     <ng-container matColumnDef="idProducto">
-      <th mat-header-cell  *matHeaderCellDef> Id Producto </th>
+      <th mat-header-cell  *matHeaderCellDef> Código del Producto </th>
       <td mat-cell  *matCellDef="let element"> {{element.productId}} </td>
     </ng-container>
 
@@ -20,10 +20,7 @@
       <td mat-cell  *matCellDef="let element"> {{element.price}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="estadoProducto">
-      <th mat-header-cell  *matHeaderCellDef> Estado del Producto </th>
-      <td mat-cell  *matCellDef="let element"> {{element.status}} </td>
-    </ng-container>
+
     
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

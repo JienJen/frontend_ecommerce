@@ -11,20 +11,18 @@ import { ProductosComponent } from './productos/productos.component';
 import { ContentComponent } from './content/content.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { ProductResolveService } from './_services/product-resolve.service';
-import { Login2Component } from './login2/login2.component';
 import { ProductViewDetailsComponent } from './product-view-details/product-view-details.component';
 import { AuthGuard } from './_auth/auth.guard';
 import { MyCartComponent } from './my-cart/my-cart.component';
 import { MyOrderComponent } from './my-order/my-order.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-import { MyCartItemsComponent } from './my-cart-items/my-cart-items.component';
 
 const routes: Routes = [
   { path: '', 
-    redirectTo: 'home', 
+    redirectTo: 'Inicio', 
     pathMatch: 'full', },
 
-  {path:'home', 
+  {path:'Inicio', 
     component:HomeComponent},
 
   {path:'admin', 
@@ -39,17 +37,17 @@ const routes: Routes = [
   {path:'forbidden', 
     component:ForbiddenComponent},
 
-  {path:'addNewProduct', 
+  {path:'AñadirProducto', 
     component: AddNewProductComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']},
     resolve: {
       product: ProductResolveService
     }
   },
 
-  {path:'showProductDetails', 
+  {path:'DetallesProductos', 
     component: ShowProductDetailsComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']} },
 
-  {path: 'productViewDetails',
+  {path: 'DetallesDeProducto',
     component: ProductViewDetailsComponent,
     resolve:{
       product: ProductResolveService}},

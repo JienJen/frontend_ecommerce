@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../_model/product.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../_services/product.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UserServiceService } from '../_services/user-service.service';
 
 @Component({
   selector: 'app-product-view-details',
@@ -16,7 +17,9 @@ export class ProductViewDetailsComponent implements OnInit{
 
   constructor(private activatedRoute: ActivatedRoute,
     private productService: ProductService,
-    public httpClient: HttpClient) { }
+    public httpClient: HttpClient,
+    public userService: UserServiceService,
+    private router: Router) { }
 
 
   inputText : string = "1"
@@ -53,5 +56,9 @@ export class ProductViewDetailsComponent implements OnInit{
       console.log(error)
     }   )
     
+  }
+
+  editProductDetails(id: number){
+    this.router.navigate(['/AñadirProducto', {id: id}]);
   }
 }

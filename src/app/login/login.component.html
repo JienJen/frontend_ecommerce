@@ -7,11 +7,11 @@
                     <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
                         <li class="nav-item" role="presentation">
                           <button [ngClass]="active == 'login' ? 'nav-link active' : 'nav-link'" id="tab-login"
-                            (click)="onLoginTab()" >Login</button>
+                            (click)="onLoginTab()" >Inicio de Sesión</button>
                         </li>
                         <li class="nav-item" role="presentation">
                           <button [ngClass]="active == 'register' ? 'nav-link active' : 'nav-link'" id="tab-register"
-                            (click)="onRegisterTab()" >Register</button>
+                            (click)="onRegisterTab()" >Registro</button>
                         </li>
                       </ul>
                     
@@ -25,7 +25,7 @@
                                     <div class="form-outline mb-1">
                                         <mat-form-field appearance="outline" class="w-100">
                                             <mat-label>Nombre de Usuario</mat-label>
-                                            <input matInput placeholder="Nombre de Usuario" type="login" id="loginName" name= "login" class="form-control" [(ngModel)]="login">
+                                            <input matInput placeholder="Nombre de Usuario" type="login" id="loginName" name= "login" class="form-control" [(ngModel)]="login" #input required>
 
                                         </mat-form-field>
                                     </div>
@@ -33,17 +33,17 @@
                                      <div class="form-outline mb-1">
                                         <mat-form-field appearance="outline" class="w-100">
                                             <mat-label>Contraseña</mat-label>
-                                            <input matInput placeholder="Contraseña" type="password" id="loginPassword" name="password" class="form-control" [(ngModel)]="password">
+                                            <input matInput placeholder="Contraseña" type="password" id="loginPassword" name="password" class="form-control" [(ngModel)]="password" #input required>
                                         </mat-form-field>
                                     </div>
                             
         
-                                    <button class="w-100" type="submit" mat-raised-button color="primary">Iniciar sesión</button>
+                                    <button class="w-100" type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid">Iniciar sesión</button>
 
                                     <div class="mt-md-4">
                                         <p class="mt-4">¿No tienes una cuenta? 
                                             <a class="boton nav-link text-white-50 fw-bold" >
-                                                <button [ngClass]="active == 'register' ? 'nav-link active' : 'nav-link'" 
+                                                <button [ngClass]="active == 'register' ? 'nav-link active' : 'nav-link' "  
                                                 (click)="onRegisterTab()" >Registrate</button>
                                             </a>
                                         </p>
@@ -59,37 +59,40 @@
                                 <div class="mb-md-5 mt-md-4 pb-0">
                                     <h2 class="h2 fw-bold mb-3 text-uppercase">Registro</h2>
                                     <div class="row">
-                                        <div class="col-6"> 
+                                        <div class="col-6 "> 
                                             <div class="form-outline mb-1">
                                                 <mat-form-field appearance="outline" class="w-100">
                                                     <mat-label>Nombre</mat-label>
-                                                    <input matInput placeholder="Nombre"  type="text" id="firstName" name="firstName" class="form-control" [(ngModel)]="firstName">
-        
-                                                </mat-form-field>
-                                            </div>
-
-                                            <div class="form-outline mb-1">
-                                                <mat-form-field appearance="outline" class="w-100">
-                                                    <mat-label>Número de Telefono</mat-label>
-                                                    <input matInput placeholder="Número de Telefono"type="text" id="userPhoneNumber" name="userPhoneNumber" class="form-control" [(ngModel)]="userPhoneNumber">
-        
+                                                    <input matInput placeholder="Nombre"  type="text" id="firstName" name="firstName" class="form-control" [(ngModel)]="firstName" required>
                                                 </mat-form-field>
                                             </div>
                                         </div>
+
 
                                         <div class="col-6"> 
                                             <div class="form-outline mb-1">
                                                 <mat-form-field appearance="outline" class="w-100">
                                                     <mat-label>Apellido</mat-label>
-                                                    <input matInput placeholder="Apellido"  type="text" id="lastName" name="lastName" class="form-control" [(ngModel)]="lastName">
-        
+                                                    <input matInput placeholder="Apellido"  type="text" id="lastName" name="lastName" class="form-control" [(ngModel)]="lastName" required>
                                                 </mat-form-field>
                                             </div>
-        
+                                        </div>
+
+                                        <div class="col-6">
+                                            <div class="form-outline mb-1">
+                                                <mat-form-field appearance="outline" class="w-100">
+                                                    <mat-label>Número de Telefono</mat-label>
+                                                    <input matInput placeholder="Número de Telefono"type="number" id="userPhoneNumber" name="userPhoneNumber" class="form-control" [(ngModel)]="userPhoneNumber" required>
+                                                </mat-form-field>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-6">
                                             <div class="form-outline mb-1">
                                                 <mat-form-field appearance="outline" class="w-100">
                                                     <mat-label>Correo Electrónico</mat-label>
-                                                    <input matInput placeholder="Correo Electrónico"   type="text" id="userEmail" name="userEmail" class="form-control" [(ngModel)]="userEmail">
+                                                    <input matInput placeholder="Correo Electrónico"  type="email" id="userEmail" name="userEmail" class="form-control" [(ngModel)]="userEmail" required>
+                                                    
                                                 </mat-form-field>
                                             </div>
                                         </div>
@@ -100,7 +103,7 @@
                                             <div class="form-outline mb-1">
                                                 <mat-form-field appearance="outline" class="w-100">
                                                     <mat-label>Nombre de Usuario</mat-label>
-                                                    <input matInput placeholder="Usuario"  type="text" id="login" name="login" class="form-control" [(ngModel)]="login">
+                                                    <input matInput placeholder="Usuario"  type="text" id="login" name="login" class="form-control" [(ngModel)]="login" required>
                                                 </mat-form-field>
                                             </div>
                                         </div>
@@ -109,8 +112,7 @@
                                             <div class="form-outline mb-1">
                                                 <mat-form-field appearance="outline" class="w-100">
                                                     <mat-label>Contraseña</mat-label>
-                                                    <input matInput placeholder="Contraseña"   type="password" id="registerPassword" name="password" class="form-control" [(ngModel)]="password">
-        
+                                                    <input matInput placeholder="Contraseña"   type="password" id="registerPassword" name="password" class="form-control" [(ngModel)]="password" #input required minlength = '5'>
                                                 </mat-form-field>
                                             </div>
                                         </div>
@@ -122,13 +124,13 @@
                             
                             
         
-                                    <button class="w-100" type="submit" mat-raised-button color="primary" >Registrarse</button>
+                                    <button class="w-100" type="submit" mat-raised-button color="primary" [disabled]="!registerForm.valid" >Registrarse</button>
 
                                     <div class="mt-md-4">
                                         <p class="mt-4">¿Ya tenes una cuenta? 
                                             <a class="boton nav-link text-white-50 fw-bold" >
                                                 <button [ngClass]="active == 'login' ? 'nav-link active' : 'nav-link'"
-                                                (click)="onLoginTab()" >Inicia sesión</button>
+                                                (click)="onLoginTab()"  >Inicia sesión</button>
                                             </a>
                                         </p>
                                     </div>

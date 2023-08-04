@@ -15,7 +15,7 @@ import { cartItems } from '../_model/cartItems.model';
 export class MyOrderComponent {
   myOrderDetails: MyOrderDetails[] = [];
   cartItems: cartItems[] = [];
-  displayedColumns: string[] = [  'userFirstName','userPhoneNumber', 'userAddress', 'orderDescription', 'cartItemsproductId', 'cartItemsproductName' , 'cartItemsamount', 'cartItemsprice', 'totalPrice', 'orderStatus' ];
+  displayedColumns: string[] = [ 'cartItemsproductId', 'cartItemsproductName' , 'cartItemsamount', 'cartItemsprice', 'totalPrice', 'orderStatus' ];
 
   constructor(private productService: ProductService,
     ){}
