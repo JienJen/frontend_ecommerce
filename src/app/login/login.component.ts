@@ -66,11 +66,6 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
-
   onSubmitRegister(): void {
     this.onSubmitRegisterEvent.emit({"firstName": this.firstName, "lastName": this.lastName, "login": this.login, "password": this.password, "userEmail": this.userEmail, "userPhoneNumber": this.userPhoneNumber});
     this.router.navigate(['/login'])

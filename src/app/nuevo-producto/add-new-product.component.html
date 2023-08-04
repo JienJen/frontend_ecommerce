@@ -7,7 +7,6 @@
                     <form #productForm="ngForm"
                       (ngSubmit)="addProduct(productForm)" >
                      
-                            
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Nombre</mat-label>
                                     <input  matInput 
@@ -19,7 +18,6 @@
                                             [(ngModel)]="product.name">
                                 </mat-form-field>
                          
-
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Descripción</mat-label>
                                     <input  matInput 
@@ -55,10 +53,12 @@
 
 
                             <div align="end">
+                                <!-- Boton para resetear el Formulario -->
                                 <button type="reset"
                                         mat-stroked-button
                                         color="accent"
                                         style="margin-right: 1rem;">Limpiar</button>
+                                <!-- Boton para añadir fotos -->
                                 <button type="button" 
                                         mat-stroked-button 
                                         color="accent" 
@@ -70,9 +70,12 @@
                                                     value="select" 
                                                     #selectFile 
                                                     (change)="onFileSelected($event)">
+                                <!-- Boton para añadir producto-->
                                 <button type="submit" *ngIf="isNewProduct"
                                         mat-stroked-button
                                         color="accent">Añadir Producto</button>
+
+                                        <!-- Si llegamos a esta ruta por el Editar producto, nos aparece este boton en vez de Añadir Producto-->
                                 <button type="submit" *ngIf="!isNewProduct"
                                         mat-stroked-button
                                         color="accent">Actualizar Producto</button>
@@ -88,6 +91,7 @@
                         <mat-grid-list cols="4" rowHeight="1:1" >
                             <mat-grid-tile *ngFor="let file of product.imageFiles; let i = index;">
                                 <div style="position:relative ">
+                                    <!-- Nos permite eliminar la imagen que cargamos -->
                                     <span class="btn-remove-image" (click)="removeimages(i)">X</span>
                                     <img [src]="file.url" width="100px" height="100px">
                                 </div>

@@ -11,14 +11,16 @@ export class MyCartComponent {
   myCartDetails: MyCartDetails[] = [];
   displayedColumns = ['idProducto', 'nombreProducto', 'cantidadProducto',  'precioProducto','estadoProducto'];
 
-
+  //Llamado al Servicio de Producto
   constructor(private productService: ProductService,
     ){}
 
+  //Llama la función que trae los detalles del carrito
   ngOnInit(): void{
     this.getCartDetails();
   }
 
+  //Llama la función de traer los detalles de mi carrito del servicio del Producto.
   getCartDetails(){
     this.productService.getMyCart().subscribe(
       (resp: MyCartDetails[]) => {
@@ -29,33 +31,4 @@ export class MyCartComponent {
       }
     )
   }
-  
-  emptyMessage: any;
-
-  emptyClause(array: MyCartDetails[]) {
-
-
-    if (array.length === 0) {
-        // array empty or does not exist
-
-        this.emptyMessage=false;
-
-}else{
-
-        this.emptyMessage=true;
-    }
-}
-
-  /*
-  sendOrder(){
-    this.productService.setMyOrder().subscribe(
-      (resp) => {
-        console.log(resp);
-        window.location.reload();
-      }, (error) =>{
-        console.log(error);
-      }
-    )
-  }
-  */
 }

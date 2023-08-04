@@ -16,14 +16,18 @@ export class MyOrderComponent {
   myOrderDetails: MyOrderDetails[] = [];
   cartItems: cartItems[] = [];
   displayedColumns: string[] = [ 'cartItemsproductId', 'cartItemsproductName' , 'cartItemsamount', 'cartItemsprice', 'totalPrice', 'orderStatus' ];
-
+  
+  
+  //Llamado al Servicio de Producto
   constructor(private productService: ProductService,
     ){}
 
+  //Llama la función que trae los detalles de las ordenes del usuario
   ngOnInit(): void{
     this.getOrderDetails();
   }
 
+  //Llama la función de traer los detalles de ordenes de un usuario del servicio del Producto.
   getOrderDetails(){
     this.productService.getMyOrders().subscribe(
       (resp: MyOrderDetails[]) => {

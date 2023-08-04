@@ -9,16 +9,21 @@ import { ProductService } from '../_services/product.service';
 })
 export class MyCartItemsComponent {
   myCartDetails: MyCartDetails[] = [];
+
+  //Las columnas desplazadas en la tabla
   displayedColumns = ['idProducto', 'nombreProducto', 'cantidadProducto',  'precioProducto'];
 
-
+  //Llamado al Servicio de Producto
   constructor(private productService: ProductService,
     ){}
 
+  //Llama la función que trae los detalles del carrito
   ngOnInit(): void{
     this.getCartDetails();
   }
 
+
+  //Llama la función de traer el carrito del servicio del Producto.
   getCartDetails(){
     this.productService.getMyCart().subscribe(
       (resp: MyCartDetails[]) => {

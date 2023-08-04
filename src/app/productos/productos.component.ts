@@ -23,6 +23,7 @@ export class ProductosComponent implements OnInit {
       this.getAllProducts();
   }
 
+  //Función que trae los productos del Servicio de Productos
   public getAllProducts(){
     this.productService.getAllProducts()
     .pipe(
@@ -39,9 +40,9 @@ export class ProductosComponent implements OnInit {
     )
   }
 
+  //Redirige a la página con los detalles correspondientes del producto de acuerdo a su Id/Codigo
   showProductDetails(id:number){
     this.router.navigate(['/DetallesDeProducto', {id: id}]);
-    
   }
 
 }

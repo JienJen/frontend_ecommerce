@@ -21,28 +21,32 @@ export class ProductViewDetailsComponent implements OnInit{
     public userService: UserServiceService,
     private router: Router) { }
 
-
+  //Valor predeterminado del Input -- Cantidad para añadir al carrito
   inputText : string = "1"
 
   ngOnInit(): void {
+    //Llama los datos del producto
     this.product = this.activatedRoute.snapshot.data['product'];
     console.log(this.product)
   }
 
   changeIndex(index: number){
+    //Al hacer click por las imagenes pequeñas del grid, cambia el valor del index de la imagen grande, trayendo asi la img que se clickeo
     this.selectedProductIndex = index;
   }
 
-  
+  //Funcion para añadir al carrito
   public addToCart(){
+    //Agarra el id del producto
     let cartProductId = this.product.id;
+    //Agarra la cantidad a comprar segun el input
     let cartProductAmount = this.inputText;
 
     const transferObject = {
       productId : cartProductId,
       amount : cartProductAmount
     }
-
+    
     let header: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json')
 
     const object = JSON.stringify(transferObject);

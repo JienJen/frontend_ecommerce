@@ -17,16 +17,20 @@ import { AllOrderDetails } from '../_model/allorders.model';
 })
 export class OrderDetailsComponent { 
   allOrderDetails: AllOrderDetails[] = [];
+
+  //Las columnas desplazadas en la tabla
   displayedColumns = [ 'orderId','idUser', 'userFirstName','userPhoneNumber', 'userAddress', 'orderDescription', 'cartItemsproductId', 'cartItemsproductName', 'cartItemsamount', 'cartItemsprice', 'totalPrice', 'orderStatus'];
 
-
+  //Llamado al Servicio de Producto
   constructor(private productService: ProductService,
     ){}
 
+  //Llama la función que trae los detalles de las ordenes
   ngOnInit(): void{
     this.getOrderDetails();
   }
 
+  //Llama la función de traer las ordenes del servicio del Producto.
   getOrderDetails(){
     this.productService.getAllOrders().subscribe(
       (resp: AllOrderDetails[]) => {

@@ -30,13 +30,16 @@ export class AddNewProductComponent implements OnInit{
     private activatedRoute: ActivatedRoute){ }
 
   ngOnInit():void{
+    //Trae los datos del producto, en caso de que estemos editnado
     this.product = this.activatedRoute.snapshot.data['product']
 
     if(this.product && this.product.id){
       this.isNewProduct = false;
     }
   }
+  
 
+  //Añade los productos
   addProduct(productForm: NgForm){
 
     const productFormData = this.prepareFormData(this.product)
@@ -53,6 +56,8 @@ export class AddNewProductComponent implements OnInit{
     );
   }
 
+
+  //Prepara los datos, ya que estamos recibiendo archivos tipo json y tipo img
   prepareFormData(product: Product): FormData {
     const formData = new FormData();
 
@@ -72,6 +77,7 @@ export class AddNewProductComponent implements OnInit{
     return formData;
   }
 
+
   onFileSelected(event: any){
       if(event.target.files){
         const file = event.target.files[0];
@@ -88,6 +94,7 @@ export class AddNewProductComponent implements OnInit{
 
       }
     }
+
 
   removeimages(i:number){
       this.product.imageFiles.splice(i, 1);
