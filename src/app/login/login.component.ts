@@ -1,10 +1,8 @@
 import { Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { FormControl, NgForm, Validators } from '@angular/forms';
+import { NgForm} from '@angular/forms';
 import { UserServiceService } from '../_services/user-service.service';
 import { UserAuthService } from '../_services/user-auth.service';
-import { HttpErrorResponse } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
