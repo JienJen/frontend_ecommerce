@@ -6,6 +6,8 @@ import { ProductService } from '../_services/product.service';
 import { FileHandle } from '../_model/file-handle.model';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-add-new-product',
@@ -27,7 +29,8 @@ export class AddNewProductComponent implements OnInit{
 
   constructor(private productService: ProductService,
     private sanitizer: DomSanitizer,
-    private activatedRoute: ActivatedRoute){ }
+    private activatedRoute: ActivatedRoute,
+    private _snackBar: MatSnackBar){ }
 
   ngOnInit():void{
     //Trae los datos del producto, en caso de que estemos editnado
@@ -49,9 +52,51 @@ export class AddNewProductComponent implements OnInit{
         productForm.reset();
         this.product.imageFiles = [];
         console.log(response);
+        this._snackBar.open("Producto añadido correctamente", "", {
+          duration: 2500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        
+      }
+    );
       },
-      (error: HttpErrorResponse) =>{
+      (error) =>{
         console.log(error)
+        this._snackBar.open(error, "", {
+          duration: 2500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+            }
+          );
+      }
+    );
+  }
+
+  editProduct(productForm: NgForm){
+
+    const productFormData = this.prepareFormData(this.product)
+
+    this.productService.addProduct(productFormData).subscribe(
+      (response: Product) => {
+        this.product.imageFiles = [];
+        console.log(response);
+        this._snackBar.open("Producto actualizado correctamente", "", {
+          duration: 1000,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        
+      }
+    );
+    setTimeout(function(){window.location.href = "/DetallesProductos"}, 1000);
+      },
+      (error) =>{
+        console.log(error)
+        this._snackBar.open(error, "", {
+          duration: 2500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+            }
+          );
       }
     );
   }

@@ -25,6 +25,7 @@ const routes: Routes = [
   {path:'Inicio', 
     component:HomeComponent},
 
+
   {path:'admin', 
     component:AdminComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']} },
 
@@ -47,7 +48,7 @@ const routes: Routes = [
   {path:'DetallesProductos', 
     component: ShowProductDetailsComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']} },
 
-  {path: 'DetallesDeProducto',
+  {path: 'Producto',
     component: ProductViewDetailsComponent,
     resolve:{
       product: ProductResolveService}},

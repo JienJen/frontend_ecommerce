@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../_services/product.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserServiceService } from '../_services/user-service.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product-view-details',
@@ -19,7 +20,8 @@ export class ProductViewDetailsComponent implements OnInit{
     private productService: ProductService,
     public httpClient: HttpClient,
     public userService: UserServiceService,
-    private router: Router) { }
+    private router: Router,
+    private _snackBar: MatSnackBar) { }
 
   //Valor predeterminado del Input -- Cantidad para añadir al carrito
   inputText : string = "1"
@@ -54,12 +56,25 @@ export class ProductViewDetailsComponent implements OnInit{
     return this.httpClient.post("http://localhost:8080/api/products/addToCart", object, {headers: header}).subscribe(
       (resp) => {
         console.log(resp)
-        window.location.reload();
+        this._snackBar.open("Se añadio correctamente al carrito", "", {
+          duration: 2500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        
+      }
+    );
+        this.inputText = "1"
       },
       (error) => {
       console.log(error)
-    }   )
-    
+      this._snackBar.open(error, "", {
+        duration: 2500,
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom'
+          }
+        );
+      }   
+    )
   }
 
   editProductDetails(id: number){

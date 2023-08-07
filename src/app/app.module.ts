@@ -21,7 +21,6 @@ import {MatTableModule} from '@angular/material/table';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ProductosComponent } from './productos/productos.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
-import { AuthContentComponent } from './auth-content/auth-content.component';
 import { MatIconModule} from '@angular/material/icon';
 import { ShowProductImagesDialogComponent } from './detalles-productos-imagenes/show-product-images-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -41,6 +40,7 @@ import { MyCartItemsComponent } from './tabla-carrito/my-cart-items.component';
 import {MatSelectModule} from '@angular/material/select';
 import { FooterComponent } from './footer/footer.component';
 import { ContentComponent } from './contenido-login/content.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -58,7 +58,6 @@ import { ContentComponent } from './contenido-login/content.component';
     AddNewProductComponent,
     ShowProductDetailsComponent,
     ProductosComponent,
-    AuthContentComponent,
     ShowProductImagesDialogComponent,
     OrderDetailsComponent,
     ProductViewDetailsComponent,
@@ -67,7 +66,7 @@ import { ContentComponent } from './contenido-login/content.component';
     CheckoutComponent,
     MyCartItemsComponent,
     FooterComponent,
-    ContentComponent
+    ContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,7 +87,8 @@ import { ContentComponent } from './contenido-login/content.component';
     RouterModule,
     MatCardModule,
     MatPaginatorModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule
   ],
 
   providers: [

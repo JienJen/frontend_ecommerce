@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ProductService } from '../_services/product.service';
 import { MyCartDetails } from '../_model/cart.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-my-cart',
@@ -13,7 +14,7 @@ export class MyCartComponent {
 
   //Llamado al Servicio de Producto
   constructor(private productService: ProductService,
-    ){}
+    private _snackBar: MatSnackBar){}
 
   //Llama la función que trae los detalles del carrito
   ngOnInit(): void{
@@ -28,6 +29,12 @@ export class MyCartComponent {
         this.myCartDetails = resp;
       }, (error) => {
         console.log(error);
+        this._snackBar.open(error, "", {
+          duration: 2500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+            }
+          );
       }
     )
   }

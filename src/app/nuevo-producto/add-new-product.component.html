@@ -4,8 +4,7 @@
         <div class="row">
             <div class="col-6">
                 <div class="formularioowo">
-                    <form #productForm="ngForm"
-                      (ngSubmit)="addProduct(productForm)" >
+                    <form #productForm="ngForm">
                      
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Nombre</mat-label>
@@ -15,7 +14,8 @@
                                             id="name" 
                                             name="name" 
                                             class="form-control" 
-                                            [(ngModel)]="product.name">
+                                            [(ngModel)]="product.name"
+                                            #input required>
                                 </mat-form-field>
                          
                                 <mat-form-field appearance="outline" class="w-100">
@@ -26,29 +26,32 @@
                                             id="description" 
                                             name="description" 
                                             class="form-control" 
-                                            [(ngModel)]="product.description">
+                                            [(ngModel)]="product.description"
+                                            #input required>
                                 </mat-form-field>
 
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Precio</mat-label>
                                     <input  matInput 
                                             placeholder="Precio"  
-                                            type="text" 
+                                            type="number" 
                                             id="price" 
                                             name="price" 
                                             class="form-control" 
-                                            [(ngModel)]="product.price">
+                                            [(ngModel)]="product.price"
+                                            #input required>
                                 </mat-form-field>
 
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Cantidad en Stock</mat-label>
                                     <input  matInput 
                                             placeholder="Cantidad en Stock"  
-                                            type="text" 
+                                            type="number" 
                                             id="amount_in_stock" 
                                             name="amount_in_stock" 
                                             class="form-control" 
-                                            [(ngModel)]="product.amountInStock">
+                                            [(ngModel)]="product.amountInStock"
+                                            #input required>
                                 </mat-form-field>
 
 
@@ -73,12 +76,14 @@
                                 <!-- Boton para añadir producto-->
                                 <button type="submit" *ngIf="isNewProduct"
                                         mat-stroked-button
-                                        color="accent">Añadir Producto</button>
+                                        color="accent" [disabled]="!productForm.valid"
+                                        (click)="addProduct(productForm)">Añadir Producto</button>
 
                                         <!-- Si llegamos a esta ruta por el Editar producto, nos aparece este boton en vez de Añadir Producto-->
                                 <button type="submit" *ngIf="!isNewProduct"
                                         mat-stroked-button
-                                        color="accent">Actualizar Producto</button>
+                                        color="accent"
+                                        (click)="editProduct(productForm)">Actualizar Producto</button>
                             </div>
                     </form>
                 </div>

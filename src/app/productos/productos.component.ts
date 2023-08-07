@@ -42,7 +42,7 @@ export class ProductosComponent implements OnInit {
 
   //Redirige a la página con los detalles correspondientes del producto de acuerdo a su Id/Codigo
   showProductDetails(id:number){
-    this.router.navigate(['/DetallesDeProducto', {id: id}]);
+    this.router.navigate(['/Producto', {id: id}]);
   }
 
 }

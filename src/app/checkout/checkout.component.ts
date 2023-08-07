@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Product } from '../_model/product.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-checkout',
@@ -9,7 +10,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class CheckoutComponent {
 
-  constructor(   public httpClient: HttpClient ) {}
+  constructor(   public httpClient: HttpClient,
+    private _snackBar: MatSnackBar ) {}
 
   selectedValue: string;
   product: Product;
@@ -40,11 +42,23 @@ export class CheckoutComponent {
     return this.httpClient.post("http://localhost:8080/api/orders/order", object, {headers: header}).subscribe(
       (resp) => {
         console.log(resp)
-        window.location.href = "/MisOrdenes"
+        this._snackBar.open("Se efectúo correctamente la compra", "", {
+          duration: 2500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+      }
+    );
+        setTimeout(function(){window.location.href = "/MisOrdenes"}, 3000);
       },
       (error) => {
       console.log(error)
-    }   )
-    
+      this._snackBar.open(error, "", {
+        duration: 2500,
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom'
+          }
+        );
+      }   
+    )
   }
 }

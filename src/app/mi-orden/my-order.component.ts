@@ -6,6 +6,7 @@ import { ImageProcessingService } from '../_services/image-processing.service';
 import { ProductService } from '../_services/product.service';
 import { MyOrderDetails } from '../_model/order.model';
 import { cartItems } from '../_model/cartItems.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-my-order',
@@ -20,7 +21,7 @@ export class MyOrderComponent {
   
   //Llamado al Servicio de Producto
   constructor(private productService: ProductService,
-    ){}
+    private _snackBar: MatSnackBar){}
 
   //Llama la función que trae los detalles de las ordenes del usuario
   ngOnInit(): void{
@@ -33,8 +34,15 @@ export class MyOrderComponent {
       (resp: MyOrderDetails[]) => {
         console.log(resp);
         this.myOrderDetails = resp;
+
       }, (error) => {
         console.log(error);
+        this._snackBar.open(error, "", {
+          duration: 2500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+            }
+          );
       }
     )
   }

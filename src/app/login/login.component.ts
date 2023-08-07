@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { FormControl, NgForm, Validators } from '@angular/forms';
 import { UserServiceService } from '../_services/user-service.service';
 import { UserAuthService } from '../_services/user-auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,8 @@ export class LoginComponent implements OnInit {
   
   constructor(private userService: UserServiceService,
     private userAuthService: UserAuthService,
-    private router: Router){}
+    private router: Router,
+    private _snackBar: MatSnackBar){}
   
   ngOnInit(): void {
   }
@@ -31,7 +34,7 @@ export class LoginComponent implements OnInit {
   userEmail: string = "";
   userPhoneNumber: string = "";
   userAddress: string = "";
-
+  error : string;
   
 
 
@@ -62,14 +65,20 @@ export class LoginComponent implements OnInit {
       },
       (error) =>{
         console.log(error);
+        this._snackBar.open(error, "", {
+          duration: 1500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        
       }
     );
   }
+)}
 
+
+  
   onSubmitRegister(): void {
     this.onSubmitRegisterEvent.emit({"firstName": this.firstName, "lastName": this.lastName, "login": this.login, "password": this.password, "userEmail": this.userEmail, "userPhoneNumber": this.userPhoneNumber});
-    this.router.navigate(['/login'])
-    window.location.reload();
     
   }
 
