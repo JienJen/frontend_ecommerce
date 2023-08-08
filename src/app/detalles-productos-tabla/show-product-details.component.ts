@@ -15,7 +15,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./show-product-details.component.css']
 })
 export class ShowProductDetailsComponent implements OnInit { 
-  productDetails: Product[] = [];
+  productDetails: Product[];
   displayedColumns = ['id', 'name', 'description', 'amountInStock', 'price', 'actions'];
 
 
