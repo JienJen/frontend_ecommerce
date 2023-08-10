@@ -25,7 +25,7 @@ import { MatIconModule} from '@angular/material/icon';
 import { ShowProductImagesDialogComponent } from './detalles-productos-imagenes/show-product-images-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { OrderDetailsComponent } from './todas-las-ordenes/order-details.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductViewDetailsComponent } from './ver-producto/product-view-details.component';
 import { RouterModule } from '@angular/router';
 import { AuthInterceptor } from './_auth/auth.interceptor';
@@ -41,6 +41,8 @@ import {MatSelectModule} from '@angular/material/select';
 import { FooterComponent } from './footer/footer.component';
 import { ContentComponent } from './contenido-login/content.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSortModule } from '@angular/material/sort';
+import { AllUsersComponent } from './all-users/all-users.component';
 
 
 
@@ -67,6 +69,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MyCartItemsComponent,
     FooterComponent,
     ContentComponent,
+    AllUsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,7 +91,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatCardModule,
     MatPaginatorModule,
     MatSelectModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatSortModule,
+    ReactiveFormsModule
+
   ],
 
   providers: [

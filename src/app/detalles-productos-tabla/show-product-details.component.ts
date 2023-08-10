@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { ProductService } from '../_services/product.service';
 import { Product } from '../_model/product.model';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -8,6 +8,10 @@ import { ImageProcessingService } from '../_services/image-processing.service';
 import { map } from 'rxjs/operators'
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-show-product-details',
@@ -17,6 +21,11 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ShowProductDetailsComponent implements OnInit { 
   productDetails: Product[];
   displayedColumns = ['id', 'name', 'description', 'amountInStock', 'price', 'actions'];
+  dataSource!:MatTableDataSource<any>;
+  nameFilter = new FormControl('');
+
+  @ViewChild('paginator') paginator! : MatPaginator;
+  @ViewChild(MatSort) matSort! : MatSort;
 
 
   constructor(private productService: ProductService,
@@ -38,7 +47,10 @@ export class ShowProductDetailsComponent implements OnInit {
     subscribe(
       (resp: Product[]) => {
         console.log(resp);
-        this.productDetails = resp;
+        this.dataSource = new MatTableDataSource(resp);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.matSort;
+        
       },
       (error: HttpErrorResponse) =>{
         console.log(error);
@@ -78,4 +90,9 @@ export class ShowProductDetailsComponent implements OnInit {
   editProductDetails(id: number){
     this.router.navigate(['/AñadirProducto', {id: id}]);
   }
+
+  filterData($event: any){
+    this.dataSource.filter = $event.target.value;
+  }
 }
+

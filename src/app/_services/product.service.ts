@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { MyOrderDetails } from '../_model/order.model';
 import { MyCartDetails } from '../_model/cart.model';
 import { AllOrderDetails } from '../_model/allorders.model';
+import { Users } from '../_model/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -45,5 +46,12 @@ export class ProductService {
     return this.httpClient.get<AllOrderDetails[]>("http://localhost:8080/api/orders/viewAll")
   }
 
+  public getUsers(){
+    return this.httpClient.get<Users[]>("http://localhost:8080/getUsers")
+  }
+
+  public test(){
+    return this.httpClient.get("http://localhost:8080/accessAdmin")
+  }
 }
 

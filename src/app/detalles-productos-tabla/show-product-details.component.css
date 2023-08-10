@@ -18,14 +18,13 @@ table {
 
 
 .mat-column-amountInStock {
-    width: 7% 
+    width: 8% 
 }
 
 
- .mdc-data-table__header-cell{
-    text-align: center;
+.mdc-data-table__header-cell{
+    text-align: center ;
     border: 1px solid #b3b3b3;
-    padding: 0 !important;
 }
 .example-container {
     display: flex;

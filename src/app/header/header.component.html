@@ -3,7 +3,7 @@
 <header class="p-3 bg-dark text-white">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <a routerLink="/home" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-white text-decoration-none"> <img class="logo">
+            <a routerLink="/Inicio" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-white text-decoration-none"> <img class="logo">
             </a>
 
             <ul class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
@@ -26,10 +26,10 @@
         <ul  class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" >
             <!--- Hay que poner el ngIf en caso de que sean usuarios-->
             <li>
-                <a  *ngIf="userService.roleMatch(['CLIENT'])" href="#" class="user nav-link px-2 text-light" routerLink="/MiCarrito" >Mi carrito</a>
+                <a  *ngIf="userService.roleMatch(['CLIENTE'])" href="#" class="user nav-link px-2 text-light" routerLink="/MiCarrito" >Mi carrito</a>
             </li>
             <li>
-                <a  *ngIf="userService.roleMatch(['CLIENT'])" href="#" class="user nav-link px-2 text-light" routerLink="/MisOrdenes">Mis Ordenes</a>
+                <a  *ngIf="userService.roleMatch(['CLIENTE'])" href="#" class="user nav-link px-2 text-light" routerLink="/MisOrdenes">Mis Ordenes</a>
             </li>
             <!--- fin ngIf usuarios-->
         </ul>
