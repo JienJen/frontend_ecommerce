@@ -23,9 +23,9 @@ export class ShowProductDetailsComponent implements OnInit {
   displayedColumns = ['id', 'name', 'description', 'amountInStock', 'price', 'actions'];
   dataSource!:MatTableDataSource<any>;
   nameFilter = new FormControl('');
+  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
 
-  @ViewChild('paginator') paginator! : MatPaginator;
-  @ViewChild(MatSort) matSort! : MatSort;
 
 
   constructor(private productService: ProductService,
@@ -49,7 +49,7 @@ export class ShowProductDetailsComponent implements OnInit {
         console.log(resp);
         this.dataSource = new MatTableDataSource(resp);
         this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.matSort;
+        this.dataSource.sort = this.sort;
         
       },
       (error: HttpErrorResponse) =>{
