@@ -37,3 +37,11 @@ mat-grid-tile{
   .grid-item {
     font-size: 18px;
 }
+
+.section{
+    display: flex;
+}
+
+.example-card{
+    margin-left: 25px;
+  }

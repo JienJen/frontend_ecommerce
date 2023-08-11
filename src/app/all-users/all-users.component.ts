@@ -22,7 +22,6 @@ export class AllUsersComponent {
     this.getCartDetails();
   }
 
-  //Llama la función de traer los detalles de mi carrito del servicio del Producto.
   getCartDetails(){
     this.productService.getUsers().subscribe(
       (resp: Users[]) => {

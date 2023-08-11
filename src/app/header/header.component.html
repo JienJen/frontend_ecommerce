@@ -17,7 +17,6 @@
             <div class="col-md-3 text-end">
                          <!-- Hay que ponerle al iniciar sesion *ngIf="! isLoggedIn()" --> 
                 <button *ngIf="! isLoggedIn()" mat-stroked-button color="accent" style="margin-right:1rem" routerLink="/login">Iniciar Sesión </button>
-                <button *ngIf="! isLoggedIn()" mat-stroked-button color="warn" routerLink="/login">Registrarse</button>
 
                 <button *ngIf=" isLoggedIn()" mat-flat-button color="warn" (click)="logout()" >Cerrar Sesión</button>
             </div>
@@ -47,7 +46,11 @@
                 <a   *ngIf="userService.roleMatch(['ADMIN'])"  class="user nav-link px-2 text-light" routerLink="/DetallesProductos">Detalles de Productos</a>
             </li>
             <li>
-                <a   *ngIf="userService.roleMatch(['ADMIN'])" class=" user nav-link px-2 text-light" routerLink="/DetallesOrden">Información de Ordenes</a>
+                <a   *ngIf="userService.roleMatch(['ADMIN'])" class=" user nav-link px-2 text-light" routerLink="/detalles-orden">Información de Ordenes</a>
+            </li>
+
+            <li>
+                <a   *ngIf="userService.roleMatch(['ADMIN'])" class=" user nav-link px-2 text-light" routerLink="/usuarios">Usuarios</a>
             </li>
             <!--- fin ngIf usuarios-->
         </ul>

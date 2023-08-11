@@ -19,7 +19,7 @@ export class OrderDetailsComponent {
   allOrderDetails: AllOrderDetails[] = [];
 
   //Las columnas desplazadas en la tabla
-  displayedColumns = [ 'orderId','idUser', 'userFirstName','userPhoneNumber', 'userAddress', 'orderDescription', 'cartItemsproductId', 'cartItemsproductName', 'cartItemsamount', 'cartItemsprice', 'totalPrice', 'orderStatus'];
+  displayedColumns = [  'userFirstName','userPhoneNumber', 'userAddress', 'orderDescription', 'cartItemsproductId', 'cartItemsproductName', 'cartItemsamount', 'cartItemsprice', 'totalPrice', 'orderStatus'];
 
   //Llamado al Servicio de Producto
   constructor(private productService: ProductService,

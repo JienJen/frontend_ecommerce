@@ -33,7 +33,7 @@ export class AddNewProductComponent implements OnInit{
     private _snackBar: MatSnackBar){ }
 
   ngOnInit():void{
-    //Trae los datos del producto, en caso de que estemos editnado
+    //Trae los datos del producto, en caso de que estemos editando
     this.product = this.activatedRoute.snapshot.data['product']
 
     if(this.product && this.product.id){

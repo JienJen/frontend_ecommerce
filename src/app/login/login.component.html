@@ -44,7 +44,7 @@
                                     <div class="mt-md-4">
                                         <p class="mt-4">¿No tienes una cuenta? 
                                             <a class="boton nav-link text-white-50 fw-bold" >
-                                                <button [ngClass]="active == 'register' ? 'nav-link active' : 'nav-link' "  
+                                                <button type="button" [ngClass]="active == 'register' ? 'nav-link active' : 'nav-link' "  
                                                 (click)="onRegisterTab()" >Registrate</button>
                                             </a>
                                         </p>
@@ -131,7 +131,7 @@
                                     <div class="mt-md-4">
                                         <p class="mt-4">¿Ya tenes una cuenta? 
                                             <a class="boton nav-link text-white-50 fw-bold" >
-                                                <button [ngClass]="active == 'login' ? 'nav-link active' : 'nav-link'"
+                                                <button type="button" [ngClass]="active == 'login' ? 'nav-link active' : 'nav-link'"
                                                 (click)="onLoginTab()"  >Inicia sesión</button>
                                             </a>
                                         </p>

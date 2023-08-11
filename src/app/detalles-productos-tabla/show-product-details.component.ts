@@ -94,5 +94,13 @@ export class ShowProductDetailsComponent implements OnInit {
   filterData($event: any){
     this.dataSource.filter = $event.target.value;
   }
+
+  applyFilter(){
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+    
+  }
 }
 

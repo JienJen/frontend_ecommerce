@@ -4,26 +4,7 @@
     Agregar el botón que lleva hacia "Añadir Producto"
 -->
 <div class=" mb-5 p-5">
-  
-  <div class="container">
-   <div class="row">
-      <div class="col-6">
-        <mat-form-field appearance="fill">
-          <input matInput placeholder="Buscar Producto" autocomplete="off" (keyup)="filterData($event)">
-        </mat-form-field>
-        
-      </div>
 
-      <div class="col-6" align="end"> 
-        <button type="button"
-        mat-raised-button
-        color="warn"
-        style="width: 200px;"
-        routerLink="/AñadirProducto"
-        > Añadir Producto </button>  
-      </div>
-    </div>
-  </div>
   <table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">
@@ -75,6 +56,31 @@
         </button>
       </td>
     </ng-container>
+
+    
+    <!-- Header -->
+    <ng-container matColumnDef="header-1">
+      <th mat-header-cell *matHeaderCellDef [attr.colspan]="4"> 
+          <mat-form-field appearance="fill" class="w-100" style="margin-top: 1rem;">
+            <input matInput placeholder="Buscar Producto" autocomplete="off"  (keyup)="filterData($event)">
+          </mat-form-field>
+      </th>
+    </ng-container>
+
+    <ng-container matColumnDef="header-2">
+      <th mat-header-cell *matHeaderCellDef 
+      [attr.colspan]="2"> 
+      <button type="button"
+        mat-raised-button
+        color="warn"
+        style="width: 200px;"
+        routerLink="/AñadirProducto"
+        > Añadir Producto </button>  </th>
+    </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="['header-1', 'header-2']"></tr>
+  <!-- Header -->
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

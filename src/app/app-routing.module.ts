@@ -70,7 +70,7 @@ const routes: Routes = [
   {path:'Productos', 
     component:ProductosComponent},
 
-  {path:'DetallesOrden', 
+  {path:'detalles-orden'  , 
     component:OrderDetailsComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']} },
   
 ];

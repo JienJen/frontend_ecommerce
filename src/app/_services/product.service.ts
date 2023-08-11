@@ -51,7 +51,12 @@ export class ProductService {
   }
 
   public test(){
-    return this.httpClient.get("http://localhost:8080/accessAdmin")
+    return this.httpClient.get("http://localhost:8080/api/cart/precioMiCarrito")
   }
+
+  public updateRole(){
+    return this.httpClient.post("http://localhost:8080/editUserStatus", {})
+  }
+
 }
 

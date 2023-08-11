@@ -1,28 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../_model/product.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ProductService } from '../_services/product.service';
+import { MyOrderDetails } from '../_model/order.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.css']
 })
-export class CheckoutComponent {
+export class CheckoutComponent implements OnInit {
 
   constructor(   public httpClient: HttpClient,
-    private _snackBar: MatSnackBar ) {}
-
+    private _snackBar: MatSnackBar,
+    private productService: ProductService,
+    private activatedRoute: ActivatedRoute) {}
+    
+  myOrderDetails: MyOrderDetails[] = [];
   selectedValue: string;
   product: Product;
   direccion : string = "";
   detalles: string ="";
+  p : any 
 
   methods = [
     {value: 'efectivo-0', viewValue: 'Efectivo'},
     {value: 'credito-1', viewValue: 'Tarjeta - QR'},
   ];
 
+  ngOnInit(): void {
+    this.httpClient.get<any>("http://localhost:8080/api/cart/precioMiCarrito").subscribe(data=> {
+      this.p = data;
+    })
+
+        
+
+  }
 
   public addToOrder(){
     let orderPayment = this.selectedValue;
@@ -61,4 +76,6 @@ export class CheckoutComponent {
       }   
     )
   }
+
+
 }
