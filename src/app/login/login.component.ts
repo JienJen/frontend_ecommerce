@@ -40,9 +40,17 @@ export class LoginComponent implements OnInit {
 		this.active = "register";
 	}
 
+  onPasswordTab(): void {
+		this.active = "password";
+	}
+
   onLoginTab(): void {
 		this.active = "login";
 	}
+
+  changePass(passwordForm:NgForm){
+
+  }
 
   logins(loginForm:NgForm){
     this.userService.login(loginForm.value).subscribe(

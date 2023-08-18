@@ -1,9 +1,10 @@
+
 <div class="section p-5">
   <div class="row">
 
 
 
-          <mat-card class="example-card border-0 text-center bg-transparent border-0" style= "width: 20rem;" *ngFor="let card of obs | async">
+          <mat-card class="example-card text-center " style= "width: 20rem;" *ngFor="let card of obs | async">
               <div class="image-container">
                 <img class="home-page-product-image" [src]="card.imageFiles[0]?.url"  > 
               </div>
@@ -33,5 +34,5 @@
 </div>
 <mat-paginator       
                 [pageSizeOptions]="[4, 12, 24, 40]"
-                >
+                hidden>
 </mat-paginator>

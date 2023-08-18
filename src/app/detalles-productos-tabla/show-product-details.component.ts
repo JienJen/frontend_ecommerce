@@ -12,6 +12,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import * as _ from 'lodash';
+
 
 @Component({
   selector: 'app-show-product-details',
@@ -23,23 +25,23 @@ export class ShowProductDetailsComponent implements OnInit {
   displayedColumns = ['id', 'name', 'description', 'amountInStock', 'price', 'actions'];
   dataSource!:MatTableDataSource<any>;
   nameFilter = new FormControl('');
+  apiResponse: any = [];
+
   @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
 
-
+  filterValues = {
+    name: '',
+  };
 
   constructor(private productService: ProductService,
     public imagesDialog: MatDialog,
     private imageProcessingService: ImageProcessingService,
     private router: Router,
-    private _snackBar: MatSnackBar){}
+    private _snackBar: MatSnackBar,
+    ){}
 
   ngOnInit(): void{
-    this.getAllProducts();
-
-  }
-
-  public getAllProducts(){
     this.productService.getAllProducts()
     .pipe(
       map((x: Product[], i) => x.map((product: Product) => this.imageProcessingService.createImages(product))) 
@@ -47,15 +49,23 @@ export class ShowProductDetailsComponent implements OnInit {
     subscribe(
       (resp: Product[]) => {
         console.log(resp);
+        this.apiResponse = resp;
         this.dataSource = new MatTableDataSource(resp);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-        
+        this.filterData;
       },
       (error: HttpErrorResponse) =>{
         console.log(error);
       }
     )
+
+    
+
+  }
+
+  public getAllProducts(){
+   
   }
   
   deleteProduct(id: number){
@@ -91,8 +101,13 @@ export class ShowProductDetailsComponent implements OnInit {
     this.router.navigate(['/AñadirProducto', {id: id}]);
   }
 
-  filterData($event: any){
-    this.dataSource.filter = $event.target.value;
+  filterData(event : Event){
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   applyFilter(){

@@ -12,6 +12,8 @@ table {
     width: 13%;
 }
 
+
+
 .mat-column-description {
     width: 55% 
 }
@@ -21,9 +23,11 @@ table {
     width: 8% 
 }
 
+
 .mat-column-header1 {
   width: 80%
 }
+
 
 
 .mdc-data-table__header-cell{

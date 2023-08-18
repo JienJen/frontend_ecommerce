@@ -31,6 +31,18 @@
                                 </mat-form-field>
 
                                 <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Categoria</mat-label>
+                                    <input  matInput 
+                                            placeholder="Categoria"  
+                                            type="text" 
+                                            id="category" 
+                                            name="category" 
+                                            class="form-control" 
+                                            [(ngModel)]="product.category"
+                                            #input required>
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline" class="w-100">
                                     <mat-label>Precio</mat-label>
                                     <input  matInput 
                                             placeholder="Precio"  

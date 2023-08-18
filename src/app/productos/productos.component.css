@@ -5,7 +5,9 @@ mat-grid-tile{
 
 }
 
-
+p{
+    color:rgb(103, 54, 54)
+}
 
 .image-container{
     position: relative;
@@ -13,7 +15,7 @@ mat-grid-tile{
 }
 
 .colorcito{
-    background-color: #bb754d;
+    background-color: #8CAF46;
 }
 
 
@@ -40,8 +42,18 @@ mat-grid-tile{
 
 .section{
     display: flex;
+    justify-content: center;
+
 }
 
 .example-card{
     margin-left: 25px;
+    background-color: #E5EED2;
+    border: 0px solid;
+    border-color: #bb754d;
   }
+
+.example-card h2 {
+    color:rgb(151, 123, 85);
+    text-transform: capitalize;
+}

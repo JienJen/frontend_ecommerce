@@ -1,0 +1,66 @@
+<mat-nav-list>
+        <img class="logo">
+    <mat-divider></mat-divider>
+    <h2 matSubheader class="mt-2"></h2>
+
+    <a *ngIf="userService.roleMatch(['CLIENTE'])"
+        mat-list-item 
+        routerLinkActive="list-item-active" 
+        routerLink="/user"
+        (click)="toggleSidebar()">
+        <mat-icon>dashboard</mat-icon> Perfil
+      </a>
+
+    <a *ngIf="userService.roleMatch(['ADMIN'])" 
+        mat-list-item routerLinkActive="list-item-active" 
+        routerLink="/admin"
+        (click)="toggleSidebar()">
+        <mat-icon>dashboard</mat-icon> Perfil
+    </a>
+
+    <!--- Cliente --->
+    <a      *ngIf="userService.roleMatch(['CLIENTE'])"  
+            class="user nav-link px-2 text-light" 
+            routerLink="/MiCarrito"
+            (click)="toggleSidebar()" 
+            mat-list-item> <mat-icon>edit</mat-icon>
+            Mi carrito
+    
+    </a>
+    <a      *ngIf="userService.roleMatch(['CLIENTE'])" 
+            class="user nav-link px-2 text-light" 
+            routerLink="/MisOrdenes"
+            (click)="toggleSidebar()"
+            mat-list-item> <mat-icon>edit</mat-icon>
+            Mis Ordenes
+        
+    </a>
+    <!--- Cliente --->
+
+    <!--- Admin --->
+    <a      *ngIf="userService.roleMatch(['ADMIN'])"   
+            class="user nav-link px-2 text-light" 
+            routerLink="/DetallesProductos" 
+            (click)="toggleSidebar()"
+            mat-list-item> <mat-icon>edit</mat-icon>
+            Detalles de Productos
+    </a>
+
+    <a      *ngIf="userService.roleMatch(['ADMIN'])" 
+            class=" user nav-link px-2 text-light" 
+            routerLink="/detalles-orden"
+            (click)="toggleSidebar()"
+            mat-list-item> <mat-icon>edit</mat-icon>
+            Información de Ordenes
+    </a>
+
+    <a      *ngIf="userService.roleMatch(['ADMIN'])" 
+            class=" user nav-link px-2 text-light" 
+            routerLink="/usuarios"
+            (click)="toggleSidebar()"
+            mat-list-item> <mat-icon>edit</mat-icon>
+            Usuarios</a>
+    <!--- Admin --->
+
+  
+  </mat-nav-list>

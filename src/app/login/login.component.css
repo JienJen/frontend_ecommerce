@@ -1,6 +1,5 @@
 .nav-link{
     font-family: 'Lucida Sans';
-
     position: relative;
     color: #6e7172;
 }
@@ -11,10 +10,9 @@
 
 .boton{
         height:20px; 
-        width:100px; 
-        position:relative;
+        text-align: center;
+        display: inline-block;
         top:50%; 
-        left:41.5%;
 
 }
 
@@ -22,6 +20,10 @@
     font-family: 'Lucida Sans';
     color:#71db8e;
     background-color:#757778 ;
+}
+
+p{
+    margin-block-end: 0;
 }
 
 .nav-link:hover{

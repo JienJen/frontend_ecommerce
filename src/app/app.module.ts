@@ -43,7 +43,12 @@ import { ContentComponent } from './contenido-login/content.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { AllUsersComponent } from './all-users/all-users.component';
-
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 
 
@@ -70,6 +75,7 @@ import { AllUsersComponent } from './all-users/all-users.component';
     FooterComponent,
     ContentComponent,
     AllUsersComponent,
+    SidenavComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,7 +99,11 @@ import { AllUsersComponent } from './all-users/all-users.component';
     MatSelectModule,
     MatSnackBarModule,
     MatSortModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSidenavModule,
+    MatMenuModule,
+    MatDividerModule,
+    MatListModule,
 
   ],
 
@@ -107,5 +117,6 @@ import { AllUsersComponent } from './all-users/all-users.component';
     UserServiceService
   ],
   bootstrap: [AppComponent]
+  
 })
 export class AppModule { }

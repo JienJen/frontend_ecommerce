@@ -49,7 +49,6 @@ export class ProductosComponent implements OnInit {
     subscribe(
       (resp: Product[]) => {
         console.log(resp);
-        this.productDetails = resp;
         this.dataSource = new MatTableDataSource<Product>(resp)
         this.obs = this.dataSource.connect();
         this.dataSource.paginator = this.paginator;

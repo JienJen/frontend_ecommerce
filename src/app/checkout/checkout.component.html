@@ -15,7 +15,7 @@
                                             id="direction" 
                                             name="direction" 
                                             class="form-control" 
-                                            [(ngModel)]="direccion">
+                                            [(ngModel)]="direccion" #input required>
                                 </mat-form-field>
                          
 
@@ -27,12 +27,12 @@
                                             id="comments" 
                                             name="comments" 
                                             class="form-control" 
-                                            [(ngModel)]="detalles">
+                                            [(ngModel)]="detalles" #input required>
                                 </mat-form-field>
 
                                 <mat-form-field appearance="outline" class="w-100">
                                     <mat-label> Método de Pago </mat-label>
-                                    <mat-select placeholder="Método de Pago" [(ngModel)]="selectedValue" name="method">
+                                    <mat-select placeholder="Método de Pago" [(ngModel)]="selectedValue" name="method" #select required>
                                       <mat-option *ngFor="let method of methods" [value]="method.value">
                                         {{method.viewValue}}
                                       </mat-option>
@@ -42,7 +42,7 @@
                                 <div align="end">
                                     <button type="submit" 
                                     mat-stroked-button
-                                    color="accent"
+                                    color="accent"  [disabled]="!productForm.valid"
                                     >Realizar Orden</button>
                                 </div>
                                

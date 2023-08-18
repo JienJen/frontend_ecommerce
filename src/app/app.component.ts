@@ -15,7 +15,11 @@ constructor(){
 
 }
 title = 'ecommerceapp';
+sideBarOpen = false;
 
+sideBarToggler() {
+  this.sideBarOpen = !this.sideBarOpen;
+}
 }
 
 

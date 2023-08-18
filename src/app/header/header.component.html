@@ -3,18 +3,20 @@
 <header class="p-3 bg-dark text-white">
     <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <a routerLink="/Inicio" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-white text-decoration-none"> <img class="logo">
-            </a>
 
-            <ul class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                <li>
-                    <a href="#" class="home nav-link px-2  text-light" routerLink="/Inicio">Inicio</a>
-                </li>
-                <li>
-                    <a href="#" class="home nav-link px-2 text-light" routerLink="/Productos" >Productos</a>
-                </li>
-            </ul>            
-            <div class="col-md-3 text-end">
+
+
+              <button *ngIf=" isLoggedIn()" mat-icon-button (click)="toggleSidebar()">
+                <mat-icon>menu</mat-icon>
+              </button>
+        
+            
+
+            <div class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <a routerLink="/Inicio" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-white text-decoration-none"> <img class="logo">
+                </a>
+            </div>            
+            <div class=" text-end">
                          <!-- Hay que ponerle al iniciar sesion *ngIf="! isLoggedIn()" --> 
                 <button *ngIf="! isLoggedIn()" mat-stroked-button color="accent" style="margin-right:1rem" routerLink="/login">Iniciar Sesión </button>
 
@@ -25,34 +27,14 @@
         <ul  class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" >
             <!--- Hay que poner el ngIf en caso de que sean usuarios-->
             <li>
-                <a  *ngIf="userService.roleMatch(['CLIENTE'])" href="#" class="user nav-link px-2 text-light" routerLink="/MiCarrito" >Mi carrito</a>
+                <a href="#" class="home nav-link px-2  text-light" routerLink="/Inicio">Inicio</a>
             </li>
             <li>
-                <a  *ngIf="userService.roleMatch(['CLIENTE'])" href="#" class="user nav-link px-2 text-light" routerLink="/MisOrdenes">Mis Ordenes</a>
+                <a href="#" class="home nav-link px-2 text-light" routerLink="/Productos" >Productos</a>
             </li>
             <!--- fin ngIf usuarios-->
         </ul>
 
-        <!--*ngIf="isLoggedIn()"-->
-        
-        <ul class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" >
-               <!--- Hay que cambiar el ngIf en caso de que sean admins-->
-            <!-- 
-                Añadir esta ruta en los detalles de productos
-                <li>
-                <a   *ngIf="userService.roleMatch(['ADMIN'])"   class="user nav-link px-2 text-light" routerLink="/AñadirProducto" >Añadir Producto</a>
-            </li>-->
-            <li>
-                <a   *ngIf="userService.roleMatch(['ADMIN'])"  class="user nav-link px-2 text-light" routerLink="/DetallesProductos">Detalles de Productos</a>
-            </li>
-            <li>
-                <a   *ngIf="userService.roleMatch(['ADMIN'])" class=" user nav-link px-2 text-light" routerLink="/detalles-orden">Información de Ordenes</a>
-            </li>
-
-            <li>
-                <a   *ngIf="userService.roleMatch(['ADMIN'])" class=" user nav-link px-2 text-light" routerLink="/usuarios">Usuarios</a>
-            </li>
-            <!--- fin ngIf usuarios-->
-        </ul>
+      
     </div>
 </header>
