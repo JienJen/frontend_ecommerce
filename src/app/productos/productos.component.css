@@ -57,3 +57,24 @@ p{
     color:rgb(151, 123, 85);
     text-transform: capitalize;
 }
+
+.mat-mdc-paginator {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    padding: 0 8px;
+    flex-wrap: wrap-reverse;
+    width: 100%;
+    background-color:transparent;
+    color: black
+  }
+
+
+::ng-deep .mat-mdc-paginator-icon {
+   fill:black !important; 
+}
+
+::ng-deep  .mat-mdc-paginator-range-label{
+    display: none !important;
+}

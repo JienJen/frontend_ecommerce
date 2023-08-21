@@ -60,45 +60,6 @@
                     <!--- Iniciar sesión --->
 
 
-                    <!--- Cambiar contraseña --->
-                    <div class="tab-content">
-                        <div [ngClass]="active == 'password' ? 'tab-pane fade show active' : 'tab-pane fade'">
-                            <form #passwordForm="ngForm" (ngSubmit)="changePass(passwordForm)">
-                                <div class="mb-md-5 mt-md-4 pb-0">
-                                    <h2 class="h2 fw-bold mb-3 text-uppercase">Cambiar Contraseña</h2>
-                                
-                                    
-                                    <div class="form-outline mb-1">
-                                        <mat-form-field appearance="outline" class="w-100">
-                                            <mat-label>Nombre de Usuario</mat-label>
-                                            <input matInput placeholder="Nombre de Usuario" type="login" id="loginName" name= "login" class="form-control" [(ngModel)]="login" #input required>
-
-                                        </mat-form-field>
-                                    </div>
-
-                                     <div class="form-outline mb-1">
-                                        <mat-form-field appearance="outline" class="w-100">
-                                            <mat-label>Contraseña Actual</mat-label>
-                                            <input matInput placeholder="Contraseña" type="password" id="loginPassword" name="password" class="form-control" [(ngModel)]="password" #input required>
-                                        </mat-form-field>
-                                    </div>
-
-                                    <div class="form-outline mb-1">
-                                        <mat-form-field appearance="outline" class="w-100">
-                                            <mat-label>Contraseña Nueva</mat-label>
-                                            <input matInput placeholder="Contraseña" type="password" id="loginPassword" name="password" class="form-control" [(ngModel)]="password" #input required>
-                                        </mat-form-field>
-                                    </div>
-                            
-        
-                                    <button class="w-100" type="submit" mat-raised-button color="primary" [disabled]="!passwordForm.valid">Solicitar Cambio</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>    
-                    <!--- Cambiar contraseña --->
-
-
                     <!--- Registro --->
                     <div class="tab-content">
                         <div [ngClass]="active == 'register' ? 'tab-pane fade show active' : 'tab-pane fade'">

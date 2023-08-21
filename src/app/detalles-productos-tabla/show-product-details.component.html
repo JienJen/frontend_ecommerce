@@ -22,6 +22,12 @@
       <td mat-cell  *matCellDef="let element"> {{element.description}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="category">
+      <th mat-header-cell  *matHeaderCellDef> Categoria </th>
+      <td mat-cell  *matCellDef="let element"> {{element.category}} </td>
+    </ng-container>
+
+
     <ng-container matColumnDef="amountInStock">
       <th mat-header-cell mat-sort-header  *matHeaderCellDef> Cantidad en Stock </th>
       <td mat-cell *matCellDef="let element"> {{element.amountInStock}} </td>
@@ -58,7 +64,7 @@
     
     <!-- Header -->
     <ng-container matColumnDef="header-1">
-      <th mat-header-cell *matHeaderCellDef [attr.colspan]="4"> 
+      <th mat-header-cell *matHeaderCellDef [attr.colspan]="5"> 
           <mat-form-field appearance="fill" class="w-100" style="margin-top: 1rem;">
             <input matInput placeholder="Buscar Producto" autocomplete="off"  (keyup)="filterData($event)" #input>
           </mat-form-field>

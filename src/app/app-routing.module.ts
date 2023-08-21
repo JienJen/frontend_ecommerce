@@ -17,6 +17,7 @@ import { MyOrderComponent } from './mi-orden/my-order.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ContentComponent } from './contenido-login/content.component';
 import { AllUsersComponent } from './all-users/all-users.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 const routes: Routes = [
   { path: '', 
@@ -73,6 +74,8 @@ const routes: Routes = [
   {path:'detalles-orden'  , 
     component:OrderDetailsComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']} },
   
+  {path:'cambiar_contraseña',
+    component: ChangePasswordComponent}
 ];
 
 @NgModule({

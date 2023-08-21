@@ -34,7 +34,7 @@ import { UserServiceService } from './_services/user-service.service';
 import { MyCartComponent } from './mi-carrito/my-cart.component';
 import { MyOrderComponent } from './mi-orden/my-order.component';
 import { MatCardModule } from '@angular/material/card';
-import { MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorIntl, MatPaginatorModule} from '@angular/material/paginator';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { MyCartItemsComponent } from './tabla-carrito/my-cart-items.component';
 import {MatSelectModule} from '@angular/material/select';
@@ -43,13 +43,13 @@ import { ContentComponent } from './contenido-login/content.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { AllUsersComponent } from './all-users/all-users.component';
-import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
-
+import { CustomMatPaginatorIntl } from './productos/productos.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 
@@ -76,6 +76,7 @@ import { MatListModule } from '@angular/material/list';
     ContentComponent,
     AllUsersComponent,
     SidenavComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,8 +114,15 @@ import { MatListModule } from '@angular/material/list';
       provide: HTTP_INTERCEPTORS,
       useClass:AuthInterceptor,
       multi:true
+      
     },
-    UserServiceService
+    UserServiceService,
+    CustomMatPaginatorIntl,
+    { 
+      provide: MatPaginatorIntl, 
+      useClass: CustomMatPaginatorIntl
+    }
+
   ],
   bootstrap: [AppComponent]
   

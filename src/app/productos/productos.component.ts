@@ -9,7 +9,7 @@ import { Product } from '../_model/product.model';
 import { ImageProcessingService } from '../_services/image-processing.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { Observable } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
@@ -72,3 +72,9 @@ export class ProductosComponent implements OnInit {
 
 }
 
+export class CustomMatPaginatorIntl extends MatPaginatorIntl {
+  override firstPageLabel = 'Primera Página';
+  override nextPageLabel     = 'Página Siguiente';
+  override previousPageLabel = 'Página Anterior';
+  override lastPageLabel = 'Última Página';
+}

@@ -16,7 +16,7 @@ export class UserServiceService {
     private userAuthService: UserAuthService) { }
 
   public login(loginData: any) {
-    return this.httpClient.post(this.PATH_OF_API + "/login", loginData)
+    return this.httpClient.post(this.PATH_OF_API + "/login", loginData);
   }
 
   public roleMatch(allowedRoles:any): boolean{

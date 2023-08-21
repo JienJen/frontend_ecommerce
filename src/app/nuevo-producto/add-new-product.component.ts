@@ -88,6 +88,7 @@ export class AddNewProductComponent implements OnInit{
         
       }
     );
+    
     setTimeout(function(){window.location.href = "/DetallesProductos"}, 1000);
       },
       (error) =>{

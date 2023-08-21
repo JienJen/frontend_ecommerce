@@ -30,5 +30,11 @@ export class UserAuthService {
     return this.getRoles() && this.getToken();
   }
   
+  public setUser(user : []){
+    localStorage.setItem('user', JSON.stringify(user));
+  }
 
+  public getUser() {
+    return localStorage.getItem('user')
+  }
 }

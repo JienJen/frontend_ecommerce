@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output} from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { NgForm} from '@angular/forms';
 import { UserServiceService } from '../_services/user-service.service';
 import { UserAuthService } from '../_services/user-auth.service';
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
 	}
 
   onPasswordTab(): void {
-		this.active = "password";
+		window.location.href = "/cambiar_contraseña"
 	}
 
   onLoginTab(): void {
@@ -52,15 +52,15 @@ export class LoginComponent implements OnInit {
 
   }
 
+
   logins(loginForm:NgForm){
     this.userService.login(loginForm.value).subscribe(
       (resp: any) =>{
-        console.log(resp)  
-        console.log(resp.token);
-        console.log(resp.roles);
-
+        console.log(resp)
+        this.userAuthService.setUser(resp)
         this.userAuthService.setRoles(resp.roles);
         this.userAuthService.setToken(resp.token);
+      
 
         const role = resp.roles[0];
         if(role === 'ADMIN') {

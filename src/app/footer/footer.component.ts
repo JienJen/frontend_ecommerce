@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UserServiceService } from '../_services/user-service.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
+  constructor(
+    public userService: UserServiceService) {
+
+  }
 }

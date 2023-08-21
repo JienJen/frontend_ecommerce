@@ -17,7 +17,6 @@
                 </a>
             </div>            
             <div class=" text-end">
-                         <!-- Hay que ponerle al iniciar sesion *ngIf="! isLoggedIn()" --> 
                 <button *ngIf="! isLoggedIn()" mat-stroked-button color="accent" style="margin-right:1rem" routerLink="/login">Iniciar Sesión </button>
 
                 <button *ngIf=" isLoggedIn()" mat-flat-button color="warn" (click)="logout()" >Cerrar Sesión</button>
@@ -25,14 +24,12 @@
         </div>
 
         <ul  class=" nav col-12 col-md-auto mb-2 justify-content-center mb-md-0" >
-            <!--- Hay que poner el ngIf en caso de que sean usuarios-->
             <li>
                 <a href="#" class="home nav-link px-2  text-light" routerLink="/Inicio">Inicio</a>
             </li>
             <li>
                 <a href="#" class="home nav-link px-2 text-light" routerLink="/Productos" >Productos</a>
             </li>
-            <!--- fin ngIf usuarios-->
         </ul>
 
       

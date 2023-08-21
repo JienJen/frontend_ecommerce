@@ -22,7 +22,7 @@ import * as _ from 'lodash';
 })
 export class ShowProductDetailsComponent implements OnInit { 
   productDetails: Product[];
-  displayedColumns = ['id', 'name', 'description', 'amountInStock', 'price', 'actions'];
+  displayedColumns = ['id', 'name', 'description', 'category', 'amountInStock', 'price', 'actions'];
   dataSource!:MatTableDataSource<any>;
   nameFilter = new FormControl('');
   apiResponse: any = [];
