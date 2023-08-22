@@ -50,6 +50,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { CustomMatPaginatorIntl } from './productos/productos.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 
@@ -77,6 +78,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     AllUsersComponent,
     SidenavComponent,
     ChangePasswordComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,

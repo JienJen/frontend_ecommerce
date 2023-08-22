@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
 	}
 
   onPasswordTab(): void {
-		window.location.href = "/cambiar_contraseña"
+		window.location.href = "/olvidarContraseña"
 	}
 
   onLoginTab(): void {

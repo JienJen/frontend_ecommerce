@@ -58,7 +58,7 @@ export class ProductService {
     return this.httpClient.post("http://localhost:8080/editUserStatus", {})
   }
 
-  public changePassword(password: FormData){
+  public forgotPassword(password: FormData){
     return this.httpClient.post("http://localhost:8080/changePasswordRequest", password)
   }
 }
