@@ -22,38 +22,38 @@
 }
 
 .image-1{
-    background: url(../../images/33.jpg);
-    height: 30rem;
+    background: url(../../images/33.png);
+    height: 34rem;
     background-size: cover;
 }
 
 .image-2{
-    background: url(../../images/11.jpg);
-    height: 30rem;
+    background: url(../../images/11.png);
+    height: 34rem;
     background-size: cover;
 }
 
 .image-3{
-    background: url(../../images/22.jpg);
-    height: 30rem;
+    background: url(../../images/22.png);
+    height: 34rem;
     background-size: cover;
 }
 
 
 ngb-carousel {
     max-width: auto;
-    height: 30rem;
+    height: 34rem;
 }
 
 ngb-carousel img {
-    height: 30rem;
+    height: 34rem;
     width: 100%;
     outline: none;
-    padding:14.95rem;
+    padding:17rem;
 }
 ngb-carousel {
     width: auto;
-    height: 30rem;
+    height: 34rem;
 }
 .carousel-inner {
     overflow: visible;
@@ -80,6 +80,8 @@ ngb-carousel {
 .carousel-indicators{
     z-index: 20;
 }
+
+
 .carousel-caption{
     color:rgb(255, 255, 255);
     font-family: 'Courier New', Courier, monospace;

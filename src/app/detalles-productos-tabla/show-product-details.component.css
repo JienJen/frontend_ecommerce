@@ -34,17 +34,17 @@ table {
     text-align: center ;
     border: 1px solid #b3b3b3;
 }
-.example-container {
-    display: flex;
-    flex-direction: column;
-    min-width: 300px;
-  }
+
+.mat-sort-header{
+  padding: 0;
   
-  .example-header {
-    min-height: 64px;
-    padding: 8px 24px 0;
-  }
-  
+}
+
+::ng-deep .mat-sort-header-container {
+  display:flex;
+  justify-content:center;
+}
+
   .mat-form-field {
     font-size: 14px;
     width: 100%;

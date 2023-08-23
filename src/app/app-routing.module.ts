@@ -75,7 +75,7 @@ const routes: Routes = [
   {path:'detalles-orden'  , 
     component:OrderDetailsComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']} },
   
-  {path:'cambiarContraseña',
+  {path:'changePassword/:token',
     component: ChangePasswordComponent},
 
   {path:'olvidarContraseña',
@@ -85,5 +85,5 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
-})
+}) 
 export class AppRoutingModule { }

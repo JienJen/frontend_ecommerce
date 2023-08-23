@@ -4,6 +4,12 @@
     </mat-drawer>
     <mat-drawer-content>
       <app-header (toggleSidebarForMe)="sideBarToggler()"></app-header>
+      <ngx-ui-loader
+        bgsColor= "#55ec54"
+        text="Cargando..."
+        pbColor="#9bce2a"
+        bgsType = "square-loader"
+      ></ngx-ui-loader>
       <router-outlet ></router-outlet>
       <app-footer></app-footer>
     </mat-drawer-content>

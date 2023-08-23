@@ -17,7 +17,6 @@ export class ForgotPasswordComponent {
     
   }
   
-  
   changePass(passwordForm:NgForm){
    this.userService.forgotPassword(passwordForm.value).subscribe(
     (resp :any) =>{

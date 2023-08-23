@@ -1,0 +1,44 @@
+
+::ng-deep .mat-sort-header-container {
+    display:flex;
+    justify-content:center;
+  }
+
+.mdc-data-table__header-cell{
+    text-align: center ;
+    border: 1px solid #b3b3b3;
+}
+
+table {
+    width: 100%;
+    
+}
+
+table td {
+    padding: 10px;
+}
+
+.mat-column-id{
+    width: 5%;
+} 
+
+.mat-column-firstName{
+    width: 19%;
+} 
+
+.mat-column-lastName{
+    width: 19%;
+}
+
+.mat-column-userEmail {
+    width: 25% 
+}
+
+.mat-column-userPhoneNumber {
+    width: 16% 
+}
+
+.mat-sort-header{
+    padding: 0;
+    
+  }

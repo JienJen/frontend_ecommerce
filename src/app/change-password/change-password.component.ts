@@ -1,12 +1,21 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { passwModel } from '../_model/password.model';
+import { EmailPasswordService } from '../_services/email-password.service';
+import { ActivatedRoute, Route, Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-change-password',
   templateUrl: './change-password.component.html',
   styleUrls: ['./change-password.component.css']
 })
-export class ChangePasswordComponent {
+export class ChangePasswordComponent implements OnInit {
+  
+  password: string;
+  repeatPassword: string;
+  token: string;
+
+  pass: passwModel
   
   active: string = "change";
 
@@ -14,9 +23,44 @@ export class ChangePasswordComponent {
 		this.active = "register";
 	}
 
+  constructor( private emailPasswService: EmailPasswordService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private _snackBar: MatSnackBar) {}
 
 
-  changePass(passwordForm:NgForm){
-
+  ngOnInit(): void {
   }
+
+  changePassw() : void {
+    if(this.password !== this.repeatPassword){
+      this._snackBar.open("Las contraseñas no coinciden", "", {
+        duration: 1500,
+        horizontalPosition: 'center',
+        verticalPosition: 'bottom'
+      });
+      return;
+    }
+    this.token = this.activatedRoute.snapshot.params['token'];
+    this.pass = new passwModel(this.password, this.repeatPassword, this.token)
+    this.emailPasswService.changePassword(this.pass).subscribe(
+      (resp: any) =>{
+        console.log(resp)
+        this._snackBar.open("Contraseña cambiada con exito", "", {
+          duration: 1500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        }
+        );
+      },
+      (error) =>{
+        console.log(error);
+        this._snackBar.open(error, "", {
+          duration: 1500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        }
+      );
+    }
+  )}
 }

@@ -27,6 +27,13 @@ export class AddNewProductComponent implements OnInit{
     price: 0,
     imageFiles: []
   }
+  selectedValue: string;
+
+  categories = [
+    {value: 'interior-0', viewValue: 'Interior'},
+    {value: 'exterior-1', viewValue: 'Exterior'},
+  ];
+
 
   constructor(private productService: ProductService,
     private sanitizer: DomSanitizer,

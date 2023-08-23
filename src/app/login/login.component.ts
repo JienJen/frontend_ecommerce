@@ -85,14 +85,7 @@ export class LoginComponent implements OnInit {
   
   onSubmitRegister(): void {
     this.onSubmitRegisterEvent.emit({"firstName": this.firstName, "lastName": this.lastName, "login": this.login, "password": this.password, "userEmail": this.userEmail, "userPhoneNumber": this.userPhoneNumber});
-        this._snackBar.open("Registro correcto", "", {
-          duration: 1500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
         
-      }
-    );
-    setTimeout(function(){window.location.href = "/login"}, 1500);
   }
 
 
