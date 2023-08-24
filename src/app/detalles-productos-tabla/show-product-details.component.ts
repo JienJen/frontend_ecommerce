@@ -48,16 +48,19 @@ export class ShowProductDetailsComponent implements OnInit {
     ).
     subscribe(
       (resp: Product[]) => {
-        console.log(resp);
         this.apiResponse = resp;
         this.dataSource = new MatTableDataSource(resp);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.filterData;
       },
-      (error: HttpErrorResponse) =>{
-        console.log(error);
-      }
+      (error) =>{
+        this._snackBar.open(error, "", {
+          duration: 1500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        }
+      );      }
     )
 
     
@@ -82,7 +85,7 @@ export class ShowProductDetailsComponent implements OnInit {
    
   }
   
-  deleteProduct(id: number){
+  deleteProducts(id: number){
     if(window.confirm("¿Estas seguro de eliminar este Producto?"))
     this.productService.deleteProduct(id).subscribe(
       (resp) => {
@@ -92,16 +95,18 @@ export class ShowProductDetailsComponent implements OnInit {
             horizontalPosition: 'center',
             verticalPosition: 'bottom'
           })
-          console.log(resp);
       },
-      (error:HttpErrorResponse) => {
-        console.log(error);
-      }
+      (error) => {
+        this._snackBar.open(error, "", {
+          duration: 1500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        }
+      );      }
     );
   }
 
   showImages(product: Product){
-    console.log(product);
     this.imagesDialog.open(ShowProductImagesDialogComponent, {
       data:{
         images: product.imageFiles

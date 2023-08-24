@@ -59,7 +59,7 @@ export class AddNewProductComponent implements OnInit{
       (response: Product) => {
         productForm.reset();
         this.product.imageFiles = [];
-        console.log(response);
+        (response);
         this._snackBar.open("Producto añadido correctamente", "", {
           duration: 2500,
           horizontalPosition: 'center',
@@ -69,7 +69,6 @@ export class AddNewProductComponent implements OnInit{
     );
       },
       (error) =>{
-        console.log(error)
         this._snackBar.open(error, "", {
           duration: 2500,
           horizontalPosition: 'center',
@@ -87,7 +86,6 @@ export class AddNewProductComponent implements OnInit{
     this.productService.addProduct(productFormData).subscribe(
       (response: Product) => {
         this.product.imageFiles = [];
-        console.log(response);
         this._snackBar.open("Producto actualizado correctamente", "", {
           duration: 1000,
           horizontalPosition: 'center',
@@ -99,7 +97,6 @@ export class AddNewProductComponent implements OnInit{
     setTimeout(function(){window.location.href = "/DetallesProductos"}, 1000);
       },
       (error) =>{
-        console.log(error)
         this._snackBar.open(error, "", {
           duration: 2500,
           horizontalPosition: 'center',

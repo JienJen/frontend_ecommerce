@@ -5,6 +5,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ProductService } from '../_services/product.service';
 import { MyOrderDetails } from '../_model/order.model';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ShowProductDetailsComponent } from '../detalles-productos-tabla/show-product-details.component';
+import { FacturarComponent } from '../facturar/facturar.component';
 
 @Component({
   selector: 'app-checkout',
@@ -16,9 +19,10 @@ export class CheckoutComponent implements OnInit {
   constructor(   public httpClient: HttpClient,
     private _snackBar: MatSnackBar,
     private productService: ProductService,
-    private activatedRoute: ActivatedRoute) {}
+    private activatedRoute: ActivatedRoute,
+    public imagesDialog: MatDialog) {}
     
-  myOrderDetails: MyOrderDetails[] = [];
+  myOrderDetails: MyOrderDetails;
   selectedValue: string;
   product: Product;
   direccion : string = "";
@@ -43,6 +47,7 @@ export class CheckoutComponent implements OnInit {
     let orderPayment = this.selectedValue;
     let orderAddress = this.direccion ;
     let orderDesc = this.detalles;
+    var order;
 
     const transferObject = {
       paymentMethod : orderPayment,
@@ -53,29 +58,42 @@ export class CheckoutComponent implements OnInit {
     let header: HttpHeaders = new HttpHeaders().set('Content-Type', 'application/json')
 
     const object = JSON.stringify(transferObject);
-
+    
     return this.httpClient.post("http://localhost:8080/api/orders/order", object, {headers: header}).subscribe(
-      (resp) => {
-        console.log(resp)
+      (resp:any ) => {
+        console.log(resp);
+        order = resp["orderId"]
         this._snackBar.open("Se efectúo correctamente la compra", "", {
           duration: 2500,
           horizontalPosition: 'center',
           verticalPosition: 'bottom'
-      }
-    );
-        setTimeout(function(){window.location.href = "/MisOrdenes"}, 3000);
+            }
+          );   
+          console.log(order)
+          
+          const dialogConfig = new MatDialogConfig();
+
+          dialogConfig.data = {
+            orderId : order
+          }
+          dialogConfig.height = '500px'
+          dialogConfig.width = '800px'
+          
+          this.imagesDialog.open(FacturarComponent, dialogConfig);
       },
       (error) => {
-      console.log(error)
       this._snackBar.open(error, "", {
         duration: 2500,
         horizontalPosition: 'center',
         verticalPosition: 'bottom'
           }
         );
-      }   
+      }
     )
   }
 
-
 }
+function showDialog() {
+  throw new Error('Function not implemented.');
+}
+

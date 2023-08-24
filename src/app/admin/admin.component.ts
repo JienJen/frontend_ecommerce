@@ -21,7 +21,6 @@ export class AdminComponent implements OnInit {
     ngOnInit(){
 try{
   this.datosUsuario = JSON.parse(localStorage.getItem('user') || '{}')
-  console.log(this.datosUsuario)
 
 }catch(error){}
       

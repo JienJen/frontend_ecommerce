@@ -13,6 +13,7 @@ import { MatPaginator, MatPaginatorIntl } from '@angular/material/paginator';
 import { Observable } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
@@ -33,7 +34,9 @@ export class ProductosComponent implements OnInit {
 
   constructor(private productService: ProductService,
     private imageProcessingService: ImageProcessingService,
-    private router: Router){}
+    private router: Router,
+    private _snackBar: MatSnackBar
+    ){}
 
   ngOnInit(): void {
     this.getAllProducts();
@@ -48,16 +51,19 @@ export class ProductosComponent implements OnInit {
     ).
     subscribe(
       (resp: Product[]) => {
-        console.log(resp);
         this.dataSource = new MatTableDataSource<Product>(resp)
         this.obs = this.dataSource.connect();
         this.dataSource.paginator = this.paginator;
 
 
       },
-      (error: HttpErrorResponse) =>{
-        console.log(error);
-      }
+      (error) =>{
+        this._snackBar.open(error, "", {
+          duration: 1500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        }
+      );      }
     )
   }
 

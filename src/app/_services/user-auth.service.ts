@@ -34,6 +34,10 @@ export class UserAuthService {
     localStorage.setItem('user', JSON.stringify(user));
   }
 
+  public setOrder (order : []){
+    localStorage.setItem('order', JSON.stringify(order));
+  }
+
   public getUser() {
     return localStorage.getItem('user')
   }

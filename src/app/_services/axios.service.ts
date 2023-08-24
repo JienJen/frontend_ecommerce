@@ -19,7 +19,6 @@ export class AxiosService {
         data: data
       }).then(
         (response) => {
-          console.log(response.data)
           this._snackBar.open("Verificar email para validar registro", "", {
             duration: 2000,
             horizontalPosition: 'center',

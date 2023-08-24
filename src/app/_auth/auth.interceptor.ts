@@ -27,7 +27,6 @@ export class AuthInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log('**INGRESANDO AL INTERCEPTOR**');
 
     if (this._activeRequest === 0) {
       this._ngxUiLoaderService.startBackground();
@@ -48,7 +47,6 @@ export class AuthInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(
         catchError(
             (err:HttpErrorResponse) => {
-                console.log(err.status);
                 if(err.status === 401) {
                   this.router.navigate(['/login']);
               } else if(err.status === 403) {

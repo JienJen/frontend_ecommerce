@@ -18,11 +18,10 @@ export class UserComponent {
  
 
     ngOnInit(){
-try{
-  this.datosUsuario = JSON.parse(localStorage.getItem('user') || '{}')
-  console.log(this.datosUsuario)
-
-}catch(error){}
+      try{
+        this.datosUsuario = JSON.parse(localStorage.getItem('user') || '{}')
+      }
+      catch(error){}
       
       
     }

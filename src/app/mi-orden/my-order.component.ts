@@ -38,14 +38,12 @@ export class MyOrderComponent {
   ngOnInit(): void{
     this.productService.getMyOrders().subscribe(
       (resp: MyOrderDetails[]) => {
-        console.log(resp);
         this.apiResponse = resp;
         this.dataSource = new MatTableDataSource<MyOrderDetails>(resp);
         this.obs = this.dataSource.connect();
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       }, (error) => {
-        console.log(error);
         this._snackBar.open(error, "", {
           duration: 2500,
           horizontalPosition: 'center',

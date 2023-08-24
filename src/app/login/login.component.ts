@@ -56,7 +56,6 @@ export class LoginComponent implements OnInit {
   logins(loginForm:NgForm){
     this.userService.login(loginForm.value).subscribe(
       (resp: any) =>{
-        console.log(resp)
         this.userAuthService.setUser(resp)
         this.userAuthService.setRoles(resp.roles);
         this.userAuthService.setToken(resp.token);
@@ -70,7 +69,6 @@ export class LoginComponent implements OnInit {
         }
       },
       (error) =>{
-        console.log(error);
         this._snackBar.open(error, "", {
           duration: 1500,
           horizontalPosition: 'center',

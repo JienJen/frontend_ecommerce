@@ -25,10 +25,8 @@ export class MyCartComponent {
   getCartDetails(){
     this.productService.getMyCart().subscribe(
       (resp: MyCartDetails[]) => {
-        console.log(resp);
         this.myCartDetails = resp;
       }, (error) => {
-        console.log(error);
         this._snackBar.open(error, "", {
           duration: 2500,
           horizontalPosition: 'center',

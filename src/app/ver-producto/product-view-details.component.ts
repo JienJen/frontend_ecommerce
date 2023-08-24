@@ -29,7 +29,6 @@ export class ProductViewDetailsComponent implements OnInit{
   ngOnInit(): void {
     //Llama los datos del producto
     this.product = this.activatedRoute.snapshot.data['product'];
-    console.log(this.product)
   }
 
   changeIndex(index: number){
@@ -55,7 +54,6 @@ export class ProductViewDetailsComponent implements OnInit{
 
     return this.httpClient.post("http://localhost:8080/api/products/addToCart", object, {headers: header}).subscribe(
       (resp) => {
-        console.log(resp)
         this._snackBar.open("Se añadio correctamente al carrito", "", {
           duration: 2500,
           horizontalPosition: 'center',
@@ -66,7 +64,6 @@ export class ProductViewDetailsComponent implements OnInit{
         this.inputText = "1"
       },
       (error) => {
-      console.log(error)
       this._snackBar.open(error, "", {
         duration: 2500,
         horizontalPosition: 'center',

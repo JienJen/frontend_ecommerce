@@ -53,6 +53,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { NgBusyModule } from 'ng-busy';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { FacturarComponent } from './facturar/facturar.component';
 
 
 
@@ -81,6 +82,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     SidenavComponent,
     ChangePasswordComponent,
     ForgotPasswordComponent,
+    FacturarComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { MatTableDataSource, _MatTableDataSource } from '@angular/material/table
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import * as _ from 'lodash';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-order-details',
@@ -26,6 +27,7 @@ export class OrderDetailsComponent {
 
   //Llamado al Servicio de Producto
   constructor(private productService: ProductService,
+    private _snackBar: MatSnackBar
     ){}
 
 
@@ -33,15 +35,18 @@ export class OrderDetailsComponent {
   ngOnInit(): void{
     this.productService.getAllOrders().subscribe(
       (resp: AllOrderDetails[]) => {
-        console.log(resp);
         this.apiResponse = resp;
         this.dataSource = new MatTableDataSource<AllOrderDetails>(resp);
         this.obs = this.dataSource.connect();
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       }, (error) => {
-        console.log(error);
-      }
+        this._snackBar.open(error, "", {
+          duration: 1500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        }
+      );      }
     )
   }
 

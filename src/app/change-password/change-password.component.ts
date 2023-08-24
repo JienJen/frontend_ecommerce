@@ -45,7 +45,6 @@ export class ChangePasswordComponent implements OnInit {
     this.pass = new passwModel(this.password, this.repeatPassword, this.token)
     this.emailPasswService.changePassword(this.pass).subscribe(
       (resp: any) =>{
-        console.log(resp)
         this._snackBar.open("Contraseña cambiada con exito", "", {
           duration: 1500,
           horizontalPosition: 'center',
@@ -54,7 +53,6 @@ export class ChangePasswordComponent implements OnInit {
         );
       },
       (error) =>{
-        console.log(error);
         this._snackBar.open(error, "", {
           duration: 1500,
           horizontalPosition: 'center',

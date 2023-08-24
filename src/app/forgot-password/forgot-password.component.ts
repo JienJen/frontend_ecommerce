@@ -28,7 +28,6 @@ export class ForgotPasswordComponent {
         })
     },
     (error) =>{
-      console.log(error);
       this._snackBar.open(error, "", {
         duration: 1500,
         horizontalPosition: 'center',

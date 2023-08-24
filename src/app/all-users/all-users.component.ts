@@ -31,15 +31,18 @@ export class AllUsersComponent {
   ngOnInit(): void{
     this.productService.getUsers().subscribe(
       (resp: Users[]) => {
-        console.log(resp);
         this.apiResponse = resp;
         this.dataSource = new MatTableDataSource<Users>(resp);
         this.obs = this.dataSource.connect();
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       }, (error) => {
-        console.log(error);
-      }
+        this._snackBar.open(error, "", {
+          duration: 1500,
+          horizontalPosition: 'center',
+          verticalPosition: 'bottom'
+        }
+      );      }
     )
 
   }

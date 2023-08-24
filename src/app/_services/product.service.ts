@@ -61,5 +61,9 @@ export class ProductService {
   public forgotPassword(password: FormData){
     return this.httpClient.post("http://localhost:8080/changePasswordRequest", password)
   }
+
+  public facturar(orderId: number){
+    return this.httpClient.get<string>("http://localhost:8080/api/JReport/facturar?orderId=" + orderId)
+  }
 }
 
