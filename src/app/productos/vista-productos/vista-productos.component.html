@@ -1,0 +1,41 @@
+
+<div class="section p-5">
+    <div class="row">
+  
+            <mat-card class="example-card text-center " style= "width: 20rem;" *ngFor="let card of obs | async " >
+                <div>
+                  <div class="image-container">
+                    <img class="home-page-product-image" [src]="card.imageFiles[0]?.url"  > 
+                  </div>
+                </div>
+  
+                <div > 
+                  <div class="mt-3">
+                    <h2><b>{{card.name}}</b></h2>
+                  </div>
+  
+                  <div class="mt-1">
+                    <p style="white-space: inherit; height: 120px; width: 288px; overflow: hidden; text-overflow: ellipsis;">{{card.description}}</p>
+                  </div>
+  
+                  <div class="grid-container">
+                    <div class="grid-item mt-2">
+                      <p>Gs. {{card.price}}</p>
+                    </div>
+                    
+                    <div align="end" class="grid-item"> 
+                      <button type="button"
+                      mat-raised-button
+                      class="colorcito"
+                      (click)="showProductDetails(card.productClassId)"> Ver detalles</button>  
+                    </div>
+                  </div>
+                </div>
+            </mat-card>
+    </div>
+  </div>
+  <mat-paginator  hidePageSize="true"
+                  showFirstLastButtons
+                  [pageSizeOptions]="[4, 12, 24, 40]"
+                  >
+  </mat-paginator>

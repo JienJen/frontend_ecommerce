@@ -1,0 +1,85 @@
+<div class="container mt-5 mb-5">
+    <div class="card p-2 bg-dark">
+        <div class="row">
+            <div class="col-6">
+                <div class="formularioowo">
+                    <form #classProductForm="ngForm">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Nombre</mat-label>
+                                    <input  matInput 
+                                            placeholder="Nombre"  
+                                            type="text" 
+                                            id="name" 
+                                            name="name" 
+                                            class="form-control" 
+                                            [(ngModel)]="classProduct.name"
+                                            #input required>
+                                </mat-form-field>
+                         
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Descripción</mat-label>
+                                    <input  matInput 
+                                            placeholder="Descripción"  
+                                            type="text" 
+                                            id="description" 
+                                            name="description" 
+                                            class="form-control" 
+                                            [(ngModel)]="classProduct.description"
+                                            #input required>
+                                </mat-form-field>
+                                
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label> Categoria </mat-label>
+                                    <mat-select placeholder="Categoria" [(ngModel)]="classProduct.category" name="category" #select required>
+                                      <mat-option *ngFor="let category of categories" [value]="category.value">
+                                        {{category.viewValue}}
+                                      </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Precio</mat-label>
+                                    <input  matInput 
+                                            placeholder="Precio"  
+                                            type="number" 
+                                            id="price" 
+                                            name="price" 
+                                            class="form-control" 
+                                            [(ngModel)]="classProduct.price"
+                                            #input required>
+                                </mat-form-field>
+
+                            <div align="end">
+                                <!-- Boton para resetear el Formulario -->
+                                <button type="reset"
+                                        mat-stroked-button
+                                        color="accent"
+                                        style="margin-right: 1rem;">Limpiar</button>
+
+                                <!-- Boton para añadir producto-->
+                                <button type="submit" *ngIf="isNewProduct"
+                                        mat-stroked-button
+                                        color="accent" [disabled]="!classProductForm.valid"
+                                        (click)="addProduct(classProductForm)">Añadir Producto</button>
+
+                                <button type="submit" *ngIf="!isNewProduct"
+                                        mat-stroked-button
+                                        color="accent"
+                                        >Actualizar Producto</button>                   
+
+                            </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-5 text-light mt-4">
+               
+                <div class="mt-5">
+                    <div class="row">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
