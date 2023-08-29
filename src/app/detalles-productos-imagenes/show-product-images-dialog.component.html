@@ -1,9 +1,0 @@
-<!-- Para ver las imagenes cargadas en la seccion de Detalles de los Productos para el Administrador -->
-
-<div class="contenedorcito">
-    <mat-grid-list cols="3" rowHeight="1:1" [gutterSize]="'25px'">
-        <mat-grid-tile *ngFor="let fileHandle of data.images">
-            <img [src]="fileHandle.url" width="150px" height="150px">
-        </mat-grid-tile>
-    </mat-grid-list>
-</div>

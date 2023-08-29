@@ -29,16 +29,11 @@ export class UserAuthService {
   public isLoggedIn() {
     return this.getRoles() && this.getToken();
   }
-  
-  public setUser(user : []){
-    localStorage.setItem('user', JSON.stringify(user));
-  }
+
 
   public setOrder (order : []){
     localStorage.setItem('order', JSON.stringify(order));
   }
 
-  public getUser() {
-    return localStorage.getItem('user')
-  }
+
 }

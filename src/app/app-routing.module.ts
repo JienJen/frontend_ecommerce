@@ -1,24 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './inicio/home.component';
-import { AdminComponent } from './admin/admin.component';
-import { UserComponent } from './user/user.component';
-import { LoginComponent } from './login/login.component';
-import { ForbiddenComponent } from './forbidden/forbidden.component';
-import { AddNewProductComponent } from './nuevo-producto/add-new-product.component';
-import { ShowProductDetailsComponent } from './detalles-productos-tabla/show-product-details.component';
-import { ProductosComponent } from './productos/productos.component';
-import { OrderDetailsComponent } from './todas-las-ordenes/order-details.component';
+import { AdminComponent } from './admin/admin/admin.component';
+import { UserComponent } from './Users/user/user.component';
+import { LoginComponent } from './contenido-login/login/login.component';
+import { ForbiddenComponent } from './inicio/forbidden/forbidden.component';
+import { OrderDetailsComponent } from './admin/todas-las-ordenes/order-details.component';
 import { ProductResolveService } from './_services/product-resolve.service';
-import { ProductViewDetailsComponent } from './ver-producto/product-view-details.component';
 import { AuthGuard } from './_auth/auth.guard';
-import { MyCartComponent } from './mi-carrito/my-cart.component';
-import { MyOrderComponent } from './mi-orden/my-order.component';
+import { MyCartComponent } from './Users/mi-carrito/my-cart.component';
+import { MyOrderComponent } from './Users/mi-orden/my-order.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ContentComponent } from './contenido-login/content.component';
-import { AllUsersComponent } from './all-users/all-users.component';
-import { ChangePasswordComponent } from './change-password/change-password.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { AllUsersComponent } from './admin/all-users/all-users.component';
+import { ChangePasswordComponent } from './password/change-password/change-password.component';
+import { ForgotPasswordComponent } from './password/forgot-password/forgot-password.component';
+import { ClassProductResolveService } from './_services/class-product-resolve.service';
+import { TablaClaseProductoComponent } from './Productos/ClaseProductos/tabla-clase-producto/tabla-clase-producto.component';
+import { AddClaseProductoComponent } from './Productos/ClaseProductos/add-clase-producto/add-clase-producto.component';
+import { VistaProductosComponent } from './Productos/vista-productos/vista-productos.component';
+import { VistaDetalleProductoComponent } from './Productos/vista-detalle-producto/vista-detalle-producto.component';
 
 const routes: Routes = [
   { path: '', 
@@ -44,20 +45,6 @@ const routes: Routes = [
   {path:'forbidden', 
     component:ForbiddenComponent},
 
-  {path:'AñadirProducto', 
-    component: AddNewProductComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']},
-    resolve: {
-      product: ProductResolveService
-    }
-  },
-
-  {path:'DetallesProductos', 
-    component: ShowProductDetailsComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']} },
-
-  {path: 'Producto',
-    component: ProductViewDetailsComponent,
-    resolve:{
-      product: ProductResolveService}},
 
   {path:'MiCarrito', 
     component: MyCartComponent,  canActivate:[AuthGuard], data:{roles:['CLIENTE']} },
@@ -69,9 +56,6 @@ const routes: Routes = [
   {path:'CheckOut', 
     component:CheckoutComponent},
 
-  {path:'Productos', 
-    component:ProductosComponent},
-
   {path:'detalles-orden'  , 
     component:OrderDetailsComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']} },
   
@@ -80,6 +64,26 @@ const routes: Routes = [
 
   {path:'olvidarContraseña',
     component: ForgotPasswordComponent},
+
+  {path: 'DetallesClaseProducto',
+    component: TablaClaseProductoComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']}},
+
+  {path: 'AñadirClaseProducto',
+    component: AddClaseProductoComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']},
+    resolve: {
+      classProduct: ClassProductResolveService
+    }},
+  
+  {path: 'Productos',
+    component: VistaProductosComponent},
+
+  {path: 'Producto',
+    component: VistaDetalleProductoComponent,
+    resolve:{
+      classProduct: ClassProductResolveService,
+      product: ProductResolveService}},
+  
+
 ];
 
 @NgModule({

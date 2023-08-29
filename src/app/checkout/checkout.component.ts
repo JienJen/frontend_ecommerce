@@ -6,8 +6,7 @@ import { ProductService } from '../_services/product.service';
 import { MyOrderDetails } from '../_model/order.model';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { ShowProductDetailsComponent } from '../detalles-productos-tabla/show-product-details.component';
-import { FacturarComponent } from '../facturar/facturar.component';
+import { FacturarComponent } from './facturar/facturar.component';
 
 @Component({
   selector: 'app-checkout',

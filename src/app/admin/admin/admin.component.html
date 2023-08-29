@@ -1,0 +1,129 @@
+<div class="container mt-5 mb-5" align="center">
+    <div class="card bg-dark text-center" style=" align-items: center ; width: 500px; padding: 20px;" >
+        <div class="formularioowo">
+            <form #adminForm="ngForm">
+                
+                            <div class="row">
+                                <div class="col-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>Nombre</mat-label>
+                                        <input [disabled]="!editMode" matInput 
+                                            placeholder="Nombre"  
+                                            type="text" 
+                                            id="firstName" 
+                                            name="firstName" 
+                                            class="form-control" 
+                                            [(ngModel)]="datosUsuario.firstName">
+                                            </mat-form-field>
+                                </div>
+
+                                <div class="col-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>Apellido</mat-label>
+                                        <input [disabled]="!editMode" matInput 
+                                            placeholder="Apellido"  
+                                            type="text" 
+                                            id="lastName" 
+                                            name="lastName" 
+                                            class="form-control" 
+                                            [(ngModel)]="datosUsuario.lastName">          
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>Telefono</mat-label>
+                                        <input [disabled]="!editMode" matInput 
+                                            placeholder="Telefono"  
+                                            type="number" 
+                                            id="userPhoneNumber" 
+                                            name="userPhoneNumber"
+                                            class="form-control" 
+                                            [(ngModel)]="datosUsuario.userPhoneNumber">
+                                            </mat-form-field>
+                                </div>
+    
+                                <div class="col-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>Correo Electronico</mat-label>
+                                        <input [disabled]="!editMode" matInput 
+                                            placeholder="Correo Electronico"  
+                                            type="text" 
+                                            id="userEmail" 
+                                            name="userEmail"
+                                            class="form-control" 
+                                            [(ngModel)]="datosUsuario.userEmail"
+                                            >          
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>RUC</mat-label>
+                                        <input [disabled]="!editMode"  matInput 
+                                            placeholder="Nombre"  
+                                            type="text" 
+                                            id="ruc"
+                                            name="ruc"
+                                            class="form-control" 
+                                             [(ngModel)]="datosUsuario.ruc">
+                                            </mat-form-field>
+                                </div>
+    
+                                <div class="col-6">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>Nombre de Usuario</mat-label>
+                                            <input [disabled]="!editMode" matInput 
+                                                placeholder="Nombre de Usuario"  
+                                                type="text" 
+                                                id="login" 
+                                                name="login" 
+                                                class="form-control" 
+                                                [(ngModel)]="datosUsuario.login">         
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-10">
+                                    <mat-form-field appearance="outline" class="w-100">
+                                        <mat-label>Contraseña</mat-label>
+                                            <input [disabled]="true"  matInput 
+                                                placeholder="Contraseña"  
+                                                type="password" 
+                                                class="form-control" 
+                                                value="******">
+                                            </mat-form-field>
+                                </div>
+    
+                                <div class="col-2">
+                                    <button class="boton" mat-icon-button 
+                                            color="accent"
+                                            routerLink="/changePassword">   
+                                            <mat-icon>edit</mat-icon>
+                                    </button>                         
+                                </div>
+                            </div>
+
+                            <button type="button" 
+                                        mat-stroked-button
+                                        color="accent" 
+                                        *ngIf="!editMode"
+                                        (click)="cambiarEditar()"
+                                       >Editar Datos</button>
+
+                             <button type="button" 
+                                        mat-stroked-button
+                                        color="accent" 
+                                        *ngIf="editMode"
+                                        (click)="editar(adminForm)"
+                                       >Aceptar Cambios</button>          
+
+            </form>
+        </div>
+    </div>   
+</div>
