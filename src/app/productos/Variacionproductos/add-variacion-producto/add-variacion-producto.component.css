@@ -1,0 +1,28 @@
+.mat-form-field-outline {
+    color:black
+}
+
+
+.formularioowo{
+    padding: 1.25rem;
+}
+
+
+img{
+    object-fit: contain;
+}
+
+.btn-remove-image{
+    position: absolute;
+    cursor: pointer;
+    top: -10px;
+    right: -10px;
+    background-color: rgb(206, 94, 75);
+    color: rgb(247, 239, 229);
+    border-radius: 70%;
+    width: 20px;
+    height: auto;
+    text-align: center;
+}
+
+    

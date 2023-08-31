@@ -55,6 +55,7 @@ import { VistaDetalleProductoComponent } from './Productos/vista-detalle-product
 import { AddVariacionProductoComponent } from './Productos/Variacionproductos/add-variacion-producto/add-variacion-producto.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DialogVariationImageComponent } from './Productos/Variacionproductos/dialog-variation-image/dialog-variation-image.component';
+import { DialogAddVariacionComponent } from './Productos/Variacionproductos/dialog-add-variacion/dialog-add-variacion.component';
 
 
 
@@ -84,7 +85,8 @@ import { DialogVariationImageComponent } from './Productos/Variacionproductos/di
     TablaClaseProductoComponent,
     VistaDetalleProductoComponent,
     AddVariacionProductoComponent,
-    DialogVariationImageComponent
+    DialogVariationImageComponent,
+    DialogAddVariacionComponent
   ],
   imports: [
     BrowserModule,

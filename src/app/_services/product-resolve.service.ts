@@ -20,7 +20,7 @@ export class ProductResolveService implements Resolve<Product>{
     const id = route.paramMap.get("id");
 
     if (id) {
-      return this.productService.getVariationProductDetailsById(id)
+      return this.productService.getProductDetailsById(id)
       .pipe(
         map(p => this.imageProcessingService.createImages(p))
       );
@@ -32,10 +32,11 @@ export class ProductResolveService implements Resolve<Product>{
   getProductDetails(){
     return {
       id:null,
+      color:"",
       amountInStock: 0,
       imageFiles: [],
-      color: "",
       productClassId: null
     }
   }
 }
+

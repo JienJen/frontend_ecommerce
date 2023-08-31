@@ -1,9 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClassProduct } from 'src/app/_model/classProduct.model';
 import { Product } from 'src/app/_model/product.model';
+import { ProductStock } from 'src/app/_model/productStock.model';
 import { ProductService } from 'src/app/_services/product.service';
 import { UserServiceService } from 'src/app/_services/user-service.service';
 
@@ -15,8 +17,11 @@ import { UserServiceService } from 'src/app/_services/user-service.service';
 export class VistaDetalleProductoComponent implements OnInit{
   
   selectedProductIndex = 0;
+  selectedProductIndex2 = 0;
   product: Product[];
+  products: ProductStock;
   classProduct: ClassProduct;
+  id:number;
 
   constructor(private activatedRoute: ActivatedRoute,
     private productService: ProductService,
@@ -31,8 +36,13 @@ export class VistaDetalleProductoComponent implements OnInit{
   ngOnInit(): void {
     //Llama los datos del producto
     this.classProduct = this.activatedRoute.snapshot.data['classProduct'];
-    this.product = this.classProduct.products
-    console.log(this.classProduct)
+
+    this.productService.getVariationProductDetailsById(this.classProduct.productClassId).subscribe(
+      (resp) => {
+        this.product = resp;
+        console.log(resp)
+      }
+    )
   }
 
   changeIndex(index: number){
@@ -40,11 +50,22 @@ export class VistaDetalleProductoComponent implements OnInit{
     this.selectedProductIndex = index;
   }
 
-  //Funcion para añadir al carrito
+  changeIndex2(index2: number){
+    this.selectedProductIndex2 = index2;
+    this.productService.getProductDetailsById(this.product[this.selectedProductIndex2].id).subscribe(
+      (resp) => {
+        this.products = resp
+        console.log(this.products)
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
+  }
+
   public addToCart(){
     //Agarra el id del producto
-    let cartProductId = this.product;
-    //Agarra la cantidad a comprar segun el input
+    let cartProductId = this.products.id;
     let cartProductAmount = this.inputText;
 
     const transferObject = {
@@ -77,11 +98,7 @@ export class VistaDetalleProductoComponent implements OnInit{
       }   
     )
   }
-
-
-  selectVariation(){
-
-  }
+  
 
   editProductDetails(id: number){
     this.router.navigate(['/AñadirProducto', {id: id}]);

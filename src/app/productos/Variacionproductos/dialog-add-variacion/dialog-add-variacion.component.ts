@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,Inject, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -6,13 +6,14 @@ import { ActivatedRoute } from '@angular/router';
 import { FileHandle } from 'src/app/_model/file-handle.model';
 import { ProductService } from 'src/app/_services/product.service';
 import { Product } from '../../ClaseProductos/tabla-clase-producto/tabla-clase-producto.component';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-add-variacion-producto',
-  templateUrl: './add-variacion-producto.component.html',
-  styleUrls: ['./add-variacion-producto.component.css']
+  selector: 'app-dialog-add-variacion',
+  templateUrl: './dialog-add-variacion.component.html',
+  styleUrls: ['./dialog-add-variacion.component.css']
 })
-export class AddVariacionProductoComponent implements OnInit{
+export class DialogAddVariacionComponent implements OnInit{
 
   isNewProduct= true;
 
@@ -24,28 +25,25 @@ export class AddVariacionProductoComponent implements OnInit{
     productClassId: null
   }
 
-  constructor(private productService: ProductService,
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
+    private productService: ProductService,
     private sanitizer: DomSanitizer,
     private activatedRoute: ActivatedRoute,
-    private _snackBar: MatSnackBar){ }
+    private _snackBar: MatSnackBar){ 
+    }
 
   ngOnInit():void{
     //Trae los datos del producto, en caso de que estemos editando
-    this.product = this.activatedRoute.snapshot.data['product']
+    console.log(this.data)
 
-    if(this.product && this.product.id){
-      this.isNewProduct = false;
-    } else {
-      this.product.productClassId = 0
-    }
   }
   
 
   //Añade los productos
   addProduct(productForm: NgForm){
+    var Id = this.data['productClassId']
     const productFormData = this.prepareFormData(this.product)
-    const productClassId = this.activatedRoute.snapshot.params['productClassId'];
-    this.productService.addProduct(productClassId, productFormData).subscribe(
+    this.productService.addProduct(Id, productFormData).subscribe(
       (response: Product) => {
         productForm.reset();
         this.product.imageFiles = [];
@@ -54,7 +52,6 @@ export class AddVariacionProductoComponent implements OnInit{
           duration: 2500,
           horizontalPosition: 'center',
           verticalPosition: 'bottom'
-        
       }
     );
     setTimeout(function(){window.location.href = "/DetallesClaseProducto"}, 1000);
@@ -70,31 +67,6 @@ export class AddVariacionProductoComponent implements OnInit{
     );
   }
 
-  editProduct(productForm: NgForm){
-    const productFormData = this.prepareFormData(this.product)
-    const id = this.product.id
-    this.productService.editVariationProduct(id, productFormData).subscribe(
-      (response: Product) => {
-        this.product.imageFiles = [];
-        this._snackBar.open("Producto actualizado correctamente", "", {
-          duration: 1000,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
-      }
-    );
-    
-    setTimeout(function(){window.location.href = "/DetallesClaseProducto"}, 1000);
-      },
-      (error) =>{
-        this._snackBar.open(error, "", {
-          duration: 2500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
-            }
-          );
-      }
-    );
-  }
 
 
   //Prepara los datos, ya que estamos recibiendo archivos tipo json y tipo img

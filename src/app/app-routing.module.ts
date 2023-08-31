@@ -20,6 +20,7 @@ import { TablaClaseProductoComponent } from './Productos/ClaseProductos/tabla-cl
 import { AddClaseProductoComponent } from './Productos/ClaseProductos/add-clase-producto/add-clase-producto.component';
 import { VistaProductosComponent } from './Productos/vista-productos/vista-productos.component';
 import { VistaDetalleProductoComponent } from './Productos/vista-detalle-producto/vista-detalle-producto.component';
+import { AddVariacionProductoComponent } from './Productos/Variacionproductos/add-variacion-producto/add-variacion-producto.component';
 
 const routes: Routes = [
   { path: '', 
@@ -74,6 +75,12 @@ const routes: Routes = [
       classProduct: ClassProductResolveService
     }},
   
+ {path: 'AñadirVariacionProducto',
+    component: AddVariacionProductoComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']},
+    resolve: {
+      product: ProductResolveService
+    }},
+
   {path: 'Productos',
     component: VistaProductosComponent},
 

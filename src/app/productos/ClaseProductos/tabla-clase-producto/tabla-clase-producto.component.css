@@ -52,21 +52,13 @@ tr.example-element-row:not(.example-expanded-row):active {
   
 }
 
-.mat-column-id2{
-    width: 25%;
-} 
-
 .mat-column-color{
-    width: 30%;
+    width: 43%;
 } 
 
 .mat-column-amountInStock{
-    width: 30%;
+    width: 42%;
 } 
-
-
-
-
 
 
 .inner-table mat-form-field {

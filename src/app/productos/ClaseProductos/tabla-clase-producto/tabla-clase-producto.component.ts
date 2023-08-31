@@ -32,10 +32,9 @@ import { HttpClient } from '@angular/common/http';
 
 export class TablaClaseProductoComponent implements OnInit { 
   displayedColumns = ['id', 'name', 'description', 'category', 'actions'];
-  innerDisplayedColumns = ['id2', 'color', 'amountInStock', 'actions2']
+  innerDisplayedColumns = ['id', 'color', 'amountInStock', 'actions2']
   dataSource:MatTableDataSource<ClassProduct>;
   nameFilter = new FormControl('');
-  apiResponse: any = [];
   expandedElement: ClassProduct | null;
 
   @ViewChild('outerSort', { static: true }) sort: MatSort;
@@ -56,21 +55,21 @@ export class TablaClaseProductoComponent implements OnInit {
 
   ngOnInit(): void{
     this.getAllProducts()
+
   }
   
   toggleRow(element: ClassProduct) {
     element.products && (element.products as MatTableDataSource<Product>).data.length ? (this.expandedElement = this.expandedElement === element ? null : element) : null;
     this.cd.detectChanges();
-    this.innerTables.forEach((table, index) => (table.dataSource as MatTableDataSource<Product>).sort = this.innerSort.toArray()[index]);
   }
 
 
   selectStage($event : any){
     if($event.value.toLowerCase() == "all"){
-      this.dataSource = new MatTableDataSource(this.apiResponse)
+      this.dataSource = new MatTableDataSource(this.productsData)
 
     } else {
-      let filteredData = _.filter(this.apiResponse, (item: any) =>{
+      let filteredData = _.filter(this.productsData, (item: any) =>{
       return item.category.toLowerCase() == $event.value.toLowerCase();
     })
     this.dataSource = new MatTableDataSource(filteredData)
@@ -78,9 +77,11 @@ export class TablaClaseProductoComponent implements OnInit {
     this.dataSource.paginator = this.paginator;
 
   }
-
+  
+  apiResponse: any = [];
   productsData: ClassProduct[] = [];
   dataSource2 : MatTableDataSource<Product>;
+
   public getAllProducts(){
     this.productService.getProductClass()
     .subscribe(
@@ -96,11 +97,8 @@ export class TablaClaseProductoComponent implements OnInit {
         this.apiResponse = resp;
         this.dataSource = new MatTableDataSource(this.productsData);
         this.dataSource2 = new MatTableDataSource(this.apiResponse.products)
-        console.log(this.dataSource.filteredData)
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
-        this.filterData;
-
       },
       (error) =>{
         this._snackBar.open(error, "", {
@@ -145,8 +143,6 @@ export class TablaClaseProductoComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-    console.log(this.expandedElement)
-
   }
 
   applyFilter(){
@@ -166,30 +162,14 @@ export class TablaClaseProductoComponent implements OnInit {
       width: '800px',
     }); 
   }
-  
-  editVariationProduct(id :number){
-
+  addVariationProduct(productClassId : number){
+    this.router.navigate(['/AñadirVariacionProducto/', {productClassId : productClassId}]);
+    console.log(productClassId)
   }
 
-  deleteVariationProducts(id :number){
-    if(window.confirm("¿Estas seguro de eliminar este Producto?"))
-    this.productService.deleteProduct(id).subscribe(
-      (resp) => {
-          this.getAllProducts();
-          this._snackBar.open("El producto fue eliminado con exito", "", {
-            duration: 1500,
-            horizontalPosition: 'center',
-            verticalPosition: 'bottom'
-          })
-      },
-      (error) => {
-        this._snackBar.open(error, "", {
-          duration: 1500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
-        }
-      );      }
-    );
+    editVariationProduct(id :number){
+    this.router.navigate(['/AñadirVariacionProducto', {id : id}]);
+    console.log(id)
   }
 }
 

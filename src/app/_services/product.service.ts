@@ -7,6 +7,7 @@ import { MyCartDetails } from '../_model/cart.model';
 import { AllOrderDetails } from '../_model/allorders.model';
 import { Users } from '../_model/user.model';
 import { ClassProduct } from '../_model/classProduct.model';
+import { ProductStock } from '../_model/productStock.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,18 +19,22 @@ export class ProductService {
   // --------------------------VARIACION PRODUCTO--------------------------------- //
 
   //Añadir VARIACION de Producto
-  public addProduct(product: FormData){
-    return this.httpClient.post<Product>("http://localhost:8080/api/products/createNew", product);
+  public addProduct(productClassId: number, product: FormData){
+    return this.httpClient.post<Product>("http://localhost:8080/api/products/createNew/" + productClassId, product);
   }
 
   //Get VARIACION de Producto
   //Para seleccionar a la hora de comprar
   public getProductDetailsById(id:any){
-    return this.httpClient.get<Product>("http://localhost:8080/api/products/view/productId/" + id);
+    return this.httpClient.get<ProductStock>("http://localhost:8080/api/products/view/productId/" + id);
   }
 
-  public getVariationProductDetailsById(id:any){
-    return this.httpClient.get<Product>("http://localhost:8080/api/products/view/productByClass/" + id);
+  public getVariationProductDetailsById(productClassId:any){
+    return this.httpClient.get<Product[]>("http://localhost:8080/api/products/view/productByClass/" + productClassId);
+  }
+
+  public editVariationProduct(id : number, product : FormData){
+    return this.httpClient.put<Product>("http://localhost:8080/api/products/edit/productId/" + id, product);
   }
 
  //Eliminar VARIACION de producto
@@ -65,7 +70,7 @@ export class ProductService {
 
   //Editar la CLASE de producto
   public editClassProduct(id: any, value : ClassProduct){
-    return this.httpClient.put("http://localhost:8080/api/products/edit/productClassId/" + id, value)
+    return this.httpClient.put<ClassProduct>("http://localhost:8080/api/products/edit/productClassId/" + id, value)
   }
 
   public deleteClassProduct(id: number){
