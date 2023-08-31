@@ -1,27 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { passwModel } from '../../_model/password.model';
-import { EmailPasswordService } from '../../_services/email-password.service';
-import { ActivatedRoute, Route, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router, ActivatedRoute } from '@angular/router';
+import { changePasswModel } from 'src/app/_model/changePassw.model';
+import { passwModel } from 'src/app/_model/password.model';
+import { EmailPasswordService } from 'src/app/_services/email-password.service';
 
 @Component({
-  selector: 'app-change-password',
-  templateUrl: './change-password.component.html',
-  styleUrls: ['./change-password.component.css']
+  selector: 'app-change-passw',
+  templateUrl: './change-passw.component.html',
+  styleUrls: ['./change-passw.component.css']
 })
-export class ChangePasswordComponent implements OnInit {
+export class ChangePasswComponent implements OnInit {
   
+  oldPassword: string;
   password: string;
   repeatPassword: string;
-  token: string;
 
-  pass: passwModel
+  pass: changePasswModel
   
-  active: string = "change";
-
-  onRegisterTab(): void {
-		this.active = "register";
-	}
 
   constructor( private emailPasswService: EmailPasswordService,
     private router: Router,
@@ -41,10 +37,10 @@ export class ChangePasswordComponent implements OnInit {
       });
       return;
     }
-    this.token = this.activatedRoute.snapshot.params['token'];
-    this.pass = new passwModel(this.password, this.repeatPassword, this.token)
-    this.emailPasswService.changePassword(this.pass).subscribe(
-      (resp: any) =>{
+    this.pass = new changePasswModel(this.password, this.password, this.repeatPassword)
+    this.emailPasswService.changePasswLogged(this.pass).subscribe(
+      (resp: any) => {
+        console.log(resp)
         this._snackBar.open("Contraseña cambiada con exito", "", {
           duration: 1500,
           horizontalPosition: 'center',
@@ -59,6 +55,6 @@ export class ChangePasswordComponent implements OnInit {
           verticalPosition: 'bottom'
         }
       );
-    }
-  )}
+    });
+  }
 }

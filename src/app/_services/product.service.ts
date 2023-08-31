@@ -157,6 +157,10 @@ export class ProductService {
     return this.httpClient.put("http://localhost:8080/editMyUser", postData)
   }
 
+  public confirmar(token: string){
+    return this.httpClient.get("http://localhost:8080/confirmar?token=" + token)
+  }
+
 
 }
 

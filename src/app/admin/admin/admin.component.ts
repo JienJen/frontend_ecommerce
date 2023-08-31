@@ -4,6 +4,8 @@ import { Users } from '../../_model/user.model';
 import { UserAuthService } from '../../_services/user-auth.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ChangePasswComponent } from 'src/app/password/change-passw/change-passw.component';
 
 @Component({
   selector: 'app-admin',
@@ -14,9 +16,12 @@ export class AdminComponent implements OnInit {
   constructor(private productService: ProductService,
     private userAuthService: UserAuthService,
     private activatedRoute: ActivatedRoute,
+    public passDialog: MatDialog) {}
 
-    ){ }
-    datosUsuario : any
+
+    datosUsuario : any = {
+      firstname: "",
+    }
     editMode: boolean = false;
 
     ngOnInit(){
@@ -38,5 +43,16 @@ export class AdminComponent implements OnInit {
         }
       )
       this.editMode = false
+    }
+
+    changepass(){
+
+      const dialogConfig = new MatDialogConfig();
+      
+      dialogConfig.height = '500px'
+      dialogConfig.width = '400px'
+
+      this.passDialog.open( ChangePasswComponent, dialogConfig )
+      
     }
 }

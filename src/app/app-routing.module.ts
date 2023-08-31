@@ -13,7 +13,7 @@ import { MyOrderComponent } from './Users/mi-orden/my-order.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ContentComponent } from './contenido-login/content.component';
 import { AllUsersComponent } from './admin/all-users/all-users.component';
-import { ChangePasswordComponent } from './password/change-password/change-password.component';
+import { ChangePasswordComponent } from './password/forgot-password/change-password/change-password.component';
 import { ForgotPasswordComponent } from './password/forgot-password/forgot-password.component';
 import { ClassProductResolveService } from './_services/class-product-resolve.service';
 import { TablaClaseProductoComponent } from './Productos/ClaseProductos/tabla-clase-producto/tabla-clase-producto.component';
@@ -21,6 +21,7 @@ import { AddClaseProductoComponent } from './Productos/ClaseProductos/add-clase-
 import { VistaProductosComponent } from './Productos/vista-productos/vista-productos.component';
 import { VistaDetalleProductoComponent } from './Productos/vista-detalle-producto/vista-detalle-producto.component';
 import { AddVariacionProductoComponent } from './Productos/Variacionproductos/add-variacion-producto/add-variacion-producto.component';
+import { VerificadoComponent } from './inicio/verificado/verificado.component';
 
 const routes: Routes = [
   { path: '', 
@@ -34,7 +35,7 @@ const routes: Routes = [
   {path:'admin', 
     component:AdminComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']} },
 
-  {path:'user', 
+  {path:'profile', 
     component:UserComponent, canActivate:[AuthGuard], data:{roles:['CLIENTE']} },
 
   {path:'usuarios', 
@@ -83,6 +84,9 @@ const routes: Routes = [
 
   {path: 'Productos',
     component: VistaProductosComponent},
+
+  {path: 'verificado/:token',
+    component: VerificadoComponent},
 
   {path: 'Producto',
     component: VistaDetalleProductoComponent,

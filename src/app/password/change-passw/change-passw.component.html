@@ -1,0 +1,44 @@
+
+<div class="container py-5 h-100">
+    <div class=" d-flex justify-content-center align-items-center h-100">
+        <div class="">
+            <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+
+<div class="tab-content">
+                            <form #changedPass="ngForm" (ngSubmit)="changePassw()">
+                                <div class="">
+                                    <h2 class="h2 fw-bold mb-3 text-uppercase">Cambiar Contraseña</h2>
+                                
+                                    <div class="form-outline mb-1">
+                                        <mat-form-field appearance="outline" class="w-100">
+                                            <mat-label>Contraseña Actual</mat-label>
+                                            <input matInput placeholder="Contraseña" type="password" id="oldPassword" name="oldPassword" class="form-control" [(ngModel)]="oldPassword" #input required>
+                                        </mat-form-field>
+                                    </div>
+                                   
+                                     <div class="form-outline mb-1">
+                                        <mat-form-field appearance="outline" class="w-100">
+                                            <mat-label>Nueva Contraseña</mat-label>
+                                            <input matInput placeholder="Contraseña" type="password" id="password" name="password" class="form-control" [(ngModel)]="password" #input required>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="form-outline mb-1">
+                                        <mat-form-field appearance="outline" class="w-100">
+                                            <mat-label>Repetir Contraseña</mat-label>
+                                            <input matInput placeholder="Repetir Contraseña" type="password" id="repeatpassword" name="repeatpassword" class="form-control" [(ngModel)]="repeatPassword"  #input required>
+                                        </mat-form-field>
+                                    </div>
+                            
+        
+                                    <button class="w-100" type="submit" mat-raised-button color="primary" [disabled]="!changedPass.valid">Cambiar</button>
+                                </div>
+                            </form>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                

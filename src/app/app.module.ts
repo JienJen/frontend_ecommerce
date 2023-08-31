@@ -42,7 +42,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
-import { ChangePasswordComponent } from './password/change-password/change-password.component';
+import { ChangePasswordComponent } from './password/forgot-password/change-password/change-password.component';
 import { ForgotPasswordComponent } from './password/forgot-password/forgot-password.component';
 import { NgBusyModule } from 'ng-busy';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
@@ -56,6 +56,8 @@ import { AddVariacionProductoComponent } from './Productos/Variacionproductos/ad
 import { MatNativeDateModule } from '@angular/material/core';
 import { DialogVariationImageComponent } from './Productos/Variacionproductos/dialog-variation-image/dialog-variation-image.component';
 import { DialogAddVariacionComponent } from './Productos/Variacionproductos/dialog-add-variacion/dialog-add-variacion.component';
+import { ChangePasswComponent } from './password/change-passw/change-passw.component';
+import { VerificadoComponent } from './inicio/verificado/verificado.component';
 
 
 
@@ -86,7 +88,9 @@ import { DialogAddVariacionComponent } from './Productos/Variacionproductos/dial
     VistaDetalleProductoComponent,
     AddVariacionProductoComponent,
     DialogVariationImageComponent,
-    DialogAddVariacionComponent
+    DialogAddVariacionComponent,
+    ChangePasswComponent,
+    VerificadoComponent
   ],
   imports: [
     BrowserModule,
