@@ -157,6 +157,16 @@ export class ProductService {
     return this.httpClient.put("http://localhost:8080/editMyUser", postData)
   }
 
+  public confirmarEmail(token: string){
+    return this.httpClient.get("http://localhost:8080/changeEmail?token=" + token)
+  }
+
+  
+  public cambiarEmail(dto: FormData){
+    return this.httpClient.post("http://localhost:8080/changeEmailRequest", dto)
+  }
+
+
   public confirmar(token: string){
     return this.httpClient.get("http://localhost:8080/confirmar?token=" + token)
   }

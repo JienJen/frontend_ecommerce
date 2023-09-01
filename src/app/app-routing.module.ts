@@ -22,6 +22,7 @@ import { VistaProductosComponent } from './Productos/vista-productos/vista-produ
 import { VistaDetalleProductoComponent } from './Productos/vista-detalle-producto/vista-detalle-producto.component';
 import { AddVariacionProductoComponent } from './Productos/Variacionproductos/add-variacion-producto/add-variacion-producto.component';
 import { VerificadoComponent } from './inicio/verificado/verificado.component';
+import { VerificadoEmailComponent } from './inicio/verificado-email/verificado-email.component';
 
 const routes: Routes = [
   { path: '', 
@@ -35,7 +36,7 @@ const routes: Routes = [
   {path:'admin', 
     component:AdminComponent, canActivate:[AuthGuard], data:{roles:['ADMIN']} },
 
-  {path:'profile', 
+  {path:'user', 
     component:UserComponent, canActivate:[AuthGuard], data:{roles:['CLIENTE']} },
 
   {path:'usuarios', 
@@ -87,6 +88,10 @@ const routes: Routes = [
 
   {path: 'verificado/:token',
     component: VerificadoComponent},
+
+    
+  {path: 'verificadoEmail/:token',
+  component: VerificadoEmailComponent},
 
   {path: 'Producto',
     component: VistaDetalleProductoComponent,

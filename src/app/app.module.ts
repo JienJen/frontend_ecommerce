@@ -58,6 +58,8 @@ import { DialogVariationImageComponent } from './Productos/Variacionproductos/di
 import { DialogAddVariacionComponent } from './Productos/Variacionproductos/dialog-add-variacion/dialog-add-variacion.component';
 import { ChangePasswComponent } from './password/change-passw/change-passw.component';
 import { VerificadoComponent } from './inicio/verificado/verificado.component';
+import { VerificadoEmailComponent } from './inicio/verificado-email/verificado-email.component';
+import { CambiarEmailComponent } from './cambiar-email/cambiar-email.component';
 
 
 
@@ -90,7 +92,9 @@ import { VerificadoComponent } from './inicio/verificado/verificado.component';
     DialogVariationImageComponent,
     DialogAddVariacionComponent,
     ChangePasswComponent,
-    VerificadoComponent
+    VerificadoComponent,
+    VerificadoEmailComponent,
+    CambiarEmailComponent
   ],
   imports: [
     BrowserModule,

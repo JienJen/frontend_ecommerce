@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ChangePasswComponent } from 'src/app/password/change-passw/change-passw.component';
+import { CambiarEmailComponent } from 'src/app/cambiar-email/cambiar-email.component';
 
 @Component({
   selector: 'app-admin',
@@ -53,6 +54,17 @@ export class AdminComponent implements OnInit {
       dialogConfig.width = '400px'
 
       this.passDialog.open( ChangePasswComponent, dialogConfig )
+      
+    }
+
+    changeEmail(){
+
+      const dialogConfig = new MatDialogConfig();
+      
+      dialogConfig.height = '350px'
+      dialogConfig.width = '400px'
+  
+      this.passDialog.open( CambiarEmailComponent, dialogConfig )
       
     }
 }

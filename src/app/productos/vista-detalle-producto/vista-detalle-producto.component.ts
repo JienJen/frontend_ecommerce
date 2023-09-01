@@ -36,11 +36,10 @@ export class VistaDetalleProductoComponent implements OnInit{
   ngOnInit(): void {
     //Llama los datos del producto
     this.classProduct = this.activatedRoute.snapshot.data['classProduct'];
-
+    console.log(this.classProduct.imageFiles)
     this.productService.getVariationProductDetailsById(this.classProduct.productClassId).subscribe(
       (resp) => {
         this.product = resp;
-        console.log(resp)
       }
     )
   }

@@ -1,0 +1,30 @@
+
+<div class="container py-5 h-100">
+    <div class=" d-flex justify-content-center align-items-center h-100">
+        <div class="">
+            <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                <div class="card-body p-5 text-center">
+
+<div class="tab-content">
+                            <form #changedEmail="ngForm" (ngSubmit)="changeEmail(changedEmail)">
+                                <div class="">
+                                    <h2 class="h2 fw-bold mb-3 text-uppercase">Cambiar Email</h2>
+
+                                    <div class="form-outline mb-1">
+                                        <mat-form-field appearance="outline" class="w-100">
+                                            <mat-label>Email Nuevo</mat-label>
+                                            <input matInput placeholder="Email Nuevo" type="email" id="userEmail" name="userEmail" class="form-control" [(ngModel)]="userEmail"  #input required email>
+                                        </mat-form-field>
+                                    </div>
+                            
+        
+                                    <button class="w-100" type="submit" mat-raised-button color="primary" [disabled]="!changedEmail.valid">Cambiar</button>
+                                </div>
+                            </form>
+                    </div>    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                

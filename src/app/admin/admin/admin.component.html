@@ -45,19 +45,28 @@
                                             </mat-form-field>
                                 </div>
     
-                                <div class="col-6">
-                                    <mat-form-field appearance="outline" class="w-100">
-                                        <mat-label>Correo Electronico</mat-label>
-                                        <input [disabled]="!editMode" matInput 
-                                            placeholder="Correo Electronico"  
-                                            type="text" 
-                                            id="userEmail" 
-                                            name="userEmail"
-                                            class="form-control" 
-                                            [(ngModel)]="datosUsuario.userEmail"
-                                            >          
-                                    </mat-form-field>
-                                </div>
+                                
+                            <div class="col-4">
+                                <mat-form-field appearance="outline" class="w-100">
+                                    <mat-label>Correo Electronico</mat-label>
+                                    <input [disabled]="true" matInput 
+                                        placeholder="Correo Electronico"  
+                                        type="text" 
+                                        id="userEmail" 
+                                        name="userEmail"
+                                        class="form-control" 
+                                        [(ngModel)]="datosUsuario.userEmail"
+                                        >          
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-2">
+                                <button class="boton" mat-icon-button 
+                                        color="accent"
+                                        (click)="changeEmail()">
+                                        <mat-icon>edit</mat-icon>
+                                </button>                         
+                            </div>
                             </div>
 
                             <div class="row">
