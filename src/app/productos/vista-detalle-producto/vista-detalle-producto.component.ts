@@ -36,7 +36,7 @@ export class VistaDetalleProductoComponent implements OnInit{
   ngOnInit(): void {
     //Llama los datos del producto
     this.classProduct = this.activatedRoute.snapshot.data['classProduct'];
-    console.log(this.classProduct.imageFiles)
+    console.log(this.classProduct)
     this.productService.getVariationProductDetailsById(this.classProduct.productClassId).subscribe(
       (resp) => {
         this.product = resp;
@@ -46,12 +46,12 @@ export class VistaDetalleProductoComponent implements OnInit{
 
   changeIndex(index: number){
     //Al hacer click por las imagenes pequeñas del grid, cambia el valor del index de la imagen grande, trayendo asi la img que se clickeo
-    this.selectedProductIndex = index;
+    this.selectedProductIndex2 = index;
   }
 
   changeIndex2(index2: number){
-    this.selectedProductIndex2 = index2;
-    this.productService.getProductDetailsById(this.product[this.selectedProductIndex2].id).subscribe(
+    this.selectedProductIndex = index2;
+    this.productService.getProductDetailsById(this.product[this.selectedProductIndex].id).subscribe(
       (resp) => {
         this.products = resp
         console.log(this.products)

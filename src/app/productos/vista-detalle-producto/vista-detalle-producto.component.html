@@ -11,7 +11,7 @@
            <!-- Grid List de imagenes pequeñas del producto -->
             <div class="mt-2">
                 <mat-grid-list cols="3" rowHeight="1:1" gutterSize="10">
-                    <mat-grid-tile *ngFor="let file of classProduct.imageFiles; let i2 = index;" style="border: 1px solid lightgrey; cursor: pointer;">
+                    <mat-grid-tile *ngFor="let file of classProduct.imageFiles; let i = index;" (click)="changeIndex(i)" style="border: 1px solid lightgrey; cursor: pointer;">
                         <img [src]="file.url" height="200px" >
                     </mat-grid-tile>
                 </mat-grid-list>
