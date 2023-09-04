@@ -3,9 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 import { ClassProduct } from 'src/app/_model/classProduct.model';
 import { Product } from 'src/app/_model/product.model';
 import { ProductStock } from 'src/app/_model/productStock.model';
+import { ImageProcessingService } from 'src/app/_services/image-processing.service';
 import { ProductService } from 'src/app/_services/product.service';
 import { UserServiceService } from 'src/app/_services/user-service.service';
 
@@ -19,6 +21,7 @@ export class VistaDetalleProductoComponent implements OnInit{
   selectedProductIndex = 0;
   selectedProductIndex2 = 0;
   product: Product[];
+  producto: Product;
   products: ProductStock;
   classProduct: ClassProduct;
   id:number;
@@ -28,7 +31,9 @@ export class VistaDetalleProductoComponent implements OnInit{
     public httpClient: HttpClient,
     public userService: UserServiceService,
     private router: Router,
-    private _snackBar: MatSnackBar) { }
+    private _snackBar: MatSnackBar,
+    private imageProcessingService: ImageProcessingService) { }
+
 
   //Valor predeterminado del Input -- Cantidad para añadir al carrito
   inputText : string = "1"
@@ -36,22 +41,28 @@ export class VistaDetalleProductoComponent implements OnInit{
   ngOnInit(): void {
     //Llama los datos del producto
     this.classProduct = this.activatedRoute.snapshot.data['classProduct'];
-    console.log(this.classProduct)
-    this.productService.getVariationProductDetailsById(this.classProduct.productClassId).subscribe(
-      (resp) => {
+
+
+    this.productService.getVariationProductDetailsById(this.classProduct.productClassId)
+    .pipe(
+      map((x: Product[], i) => x.map((product: Product) => this.imageProcessingService.createImages(product)))).
+      subscribe(
+      (resp : Product[]) => {
         this.product = resp;
+        console.log(this.product)
       }
     )
   }
 
+
   changeIndex(index: number){
     //Al hacer click por las imagenes pequeñas del grid, cambia el valor del index de la imagen grande, trayendo asi la img que se clickeo
-    this.selectedProductIndex2 = index;
+    this.selectedProductIndex = index;
   }
 
   changeIndex2(index2: number){
-    this.selectedProductIndex = index2;
-    this.productService.getProductDetailsById(this.product[this.selectedProductIndex].id).subscribe(
+    this.selectedProductIndex2 = index2;
+    this.productService.getProductDetailsById(this.product[this.selectedProductIndex2].id).subscribe(
       (resp) => {
         this.products = resp
         console.log(this.products)
