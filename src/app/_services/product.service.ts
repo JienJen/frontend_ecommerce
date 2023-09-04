@@ -124,6 +124,10 @@ export class ProductService {
   public test(){
     return this.httpClient.get("http://localhost:8080/api/cart/precioMiCarrito")
   }
+
+  public deleteCart(id: number){
+    return this.httpClient.delete("http://localhost:8080/api/cart/miCarrito/delete/" + id);
+  }
     // ------------------------------------------------------------------------- //
 
  

@@ -29,9 +29,10 @@ export class MyCartComponent {
       }, (error) => {
         this._snackBar.open(error, "", {
           duration: 2500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
-            }
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-error',
+        }
           );
       }
     )

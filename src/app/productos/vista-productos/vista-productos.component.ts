@@ -49,8 +49,9 @@ export class VistaProductosComponent implements OnInit {
       (error) =>{
         this._snackBar.open(error, "", {
         duration: 1500,
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom'
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+        panelClass: 'app-notification-error',
       }
     );   
       }

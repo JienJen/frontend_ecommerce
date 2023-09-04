@@ -63,8 +63,9 @@ export class AddClaseProductoComponent {
         classProductForm.reset();
         this._snackBar.open("Producto añadido correctamente", "", {
           duration: 2500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-success',
       }
     );
     const dialogConfig = new MatDialogConfig();
@@ -81,9 +82,10 @@ export class AddClaseProductoComponent {
       (error) =>{
         this._snackBar.open(error, "", {
           duration: 2500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
-            }
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-error',
+        }
           );
       }
     );
@@ -96,8 +98,9 @@ export class AddClaseProductoComponent {
         console.log(response)
         this._snackBar.open("Producto actualizado correctamente", "", {
           duration: 1000,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-success',
       }
     );
     
@@ -107,9 +110,10 @@ export class AddClaseProductoComponent {
       (error) =>{
         this._snackBar.open(error, "", {
           duration: 2500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
-            }
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-error',
+        }
           );
       }
     );

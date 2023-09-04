@@ -12,7 +12,7 @@ export class MyCartItemsComponent {
   myCartDetails: MyCartDetails[] = [];
 
   //Las columnas desplazadas en la tabla
-  displayedColumns = ['idProducto', 'nombreProducto', 'cantidadProducto',  'precioProducto'];
+  displayedColumns = ['idProducto', 'nombreProducto', 'cantidadProducto',  'precioProducto', 'acciones'];
 
   //Llamado al Servicio de Producto
   constructor(private productService: ProductService,
@@ -31,13 +31,38 @@ export class MyCartItemsComponent {
     this.productService.getMyCart().subscribe(
       (resp: MyCartDetails[]) => {
         this.myCartDetails = resp;
+        console.log(resp)
       }, (error: any) => {
         this._snackBar.open(error, "", {
           duration: 1500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-error',
         }
       );      }
     )
   }
+
+  deleteProducts(itemId: number){
+      this.productService.deleteCart(itemId).subscribe(
+        (resp) => {
+          console.log(resp)
+            this._snackBar.open("El producto fue eliminado con exito", "", {
+              duration: 1500,
+              horizontalPosition: 'right',
+              verticalPosition: 'top',
+              panelClass: 'app-notification-success',
+            })
+            window.location.reload()
+          },
+        (error) => {
+          this._snackBar.open(error, "", {
+            duration: 1500,
+            horizontalPosition: 'right',
+            verticalPosition: 'top',
+            panelClass: 'app-notification-error',
+          }
+        );      }
+      ); 
+    }
 }

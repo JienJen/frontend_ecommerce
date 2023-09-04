@@ -20,7 +20,7 @@
                                      <div class="form-outline mb-1">
                                         <mat-form-field appearance="outline" class="w-100">
                                             <mat-label>Nueva Contraseña</mat-label>
-                                            <input matInput placeholder="Contraseña" type="password" id="password" name="password" class="form-control" [(ngModel)]="password" #input required>
+                                            <input matInput placeholder="Nueva Contraseña" type="password" id="password" name="password" class="form-control" [(ngModel)]="password" #input required>
                                         </mat-form-field>
                                     </div>
 
@@ -32,7 +32,7 @@
                                     </div>
                             
         
-                                    <button class="w-100" type="submit" mat-raised-button color="primary" [disabled]="!changedPass.valid">Cambiar</button>
+                                    <button class="w-100" type="submit" mat-raised-button color="primary" [disabled]="!changedPass.valid" mat-dialog-close [disabled]="!changedPass.valid">Cambiar</button>
                                 </div>
                             </form>
                     </div>    

@@ -103,8 +103,9 @@ export class TablaClaseProductoComponent implements OnInit {
       (error) =>{
         this._snackBar.open(error, "", {
           duration: 1500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-error',
         }
       );      }
     )
@@ -114,18 +115,20 @@ export class TablaClaseProductoComponent implements OnInit {
     if(window.confirm("¿Estas seguro de eliminar este Producto?"))
     this.productService.deleteClassProduct(productClassId).subscribe(
       (resp) => {
-          this.getAllProducts();
           this._snackBar.open("El producto fue eliminado con exito", "", {
             duration: 1500,
-            horizontalPosition: 'center',
-            verticalPosition: 'bottom'
+            horizontalPosition: 'right',
+            verticalPosition: 'top',
+            panelClass: 'app-notification-success',
           })
+          window.location.reload()
       },
       (error) => {
         this._snackBar.open(error, "", {
           duration: 1500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-error',
         }
       );      }
     );

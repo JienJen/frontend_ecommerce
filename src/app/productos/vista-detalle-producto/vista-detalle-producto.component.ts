@@ -91,8 +91,9 @@ export class VistaDetalleProductoComponent implements OnInit{
       (resp) => {
         this._snackBar.open("Se añadio correctamente al carrito", "", {
           duration: 2500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-success',
         
       }
     );
@@ -101,9 +102,10 @@ export class VistaDetalleProductoComponent implements OnInit{
       (error) => {
       this._snackBar.open(error, "", {
         duration: 2500,
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom'
-          }
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+        panelClass: 'app-notification-error',
+      }
         );
       }   
     )

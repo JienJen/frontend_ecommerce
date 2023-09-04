@@ -34,7 +34,7 @@ import { MyCartItemsComponent } from './Users/mi-carrito/tabla-carrito/my-cart-i
 import {MatSelectModule} from '@angular/material/select';
 import { FooterComponent } from './inicio/footer/footer.component';
 import { ContentComponent } from './contenido-login/content.component';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSnackBarModule, MatSnackBarConfig, MAT_SNACK_BAR_DEFAULT_OPTIONS} from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { AllUsersComponent } from './admin/all-users/all-users.component';
 import { SidenavComponent } from './inicio/sidenav/sidenav.component';
@@ -61,6 +61,10 @@ import { VerificadoComponent } from './inicio/verificado/verificado.component';
 import { VerificadoEmailComponent } from './inicio/verificado-email/verificado-email.component';
 import { CambiarEmailComponent } from './cambiar-email/cambiar-email.component';
 
+const matSnackbarDefaultConfig: MatSnackBarConfig = {
+  verticalPosition: 'top',
+  horizontalPosition: 'right',
+};
 
 
 @NgModule({
@@ -142,7 +146,12 @@ import { CambiarEmailComponent } from './cambiar-email/cambiar-email.component';
     { 
       provide: MatPaginatorIntl, 
       useClass: CustomMatPaginatorIntl
-    }
+    },
+    MatSnackBarModule,
+      {
+        provide: MAT_SNACK_BAR_DEFAULT_OPTIONS,
+        useValue: matSnackbarDefaultConfig
+      }
 
   ],
   bootstrap: [AppComponent]

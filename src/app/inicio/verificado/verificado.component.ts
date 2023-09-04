@@ -29,16 +29,18 @@ export class VerificadoComponent implements OnInit{
         (error) => {
           this._snackBar.open(error, "", {
             duration: 1500,
-            horizontalPosition: 'center',
-            verticalPosition: 'bottom'
-        }
+            horizontalPosition: 'right',
+            verticalPosition: 'top',
+            panelClass: 'app-notification-error',
+          }
       );
         }
       )
       this._snackBar.open("Usuario Verificado!", "", {
         duration: 1500,
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom'
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+        panelClass: 'app-notification-success',
     }
   );
       window.location.href = "/Inicio"

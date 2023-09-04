@@ -29,8 +29,9 @@ export class VerificadoEmailComponent  implements OnInit{
           console.log(error)
           this._snackBar.open(error, "", {
             duration: 1500,
-            horizontalPosition: 'center',
-            verticalPosition: 'bottom'
+            horizontalPosition: 'right',
+            verticalPosition: 'top',
+            panelClass: 'app-notification-error',
           
         }
       );
@@ -38,9 +39,10 @@ export class VerificadoEmailComponent  implements OnInit{
       )
       this._snackBar.open("Email Verificado!", "", {
         duration: 1500,
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom'
-    }
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+        panelClass: 'app-notification-success',
+      }
   );
       window.location.href = "/Inicio"
     }

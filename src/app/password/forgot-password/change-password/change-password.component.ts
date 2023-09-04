@@ -32,31 +32,35 @@ export class ChangePasswordComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  changePassw() : void {
+  changePassw() {
     if(this.password !== this.repeatPassword){
       this._snackBar.open("Las contraseñas no coinciden", "", {
         duration: 1500,
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom'
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+        panelClass: 'app-notification-error',
       });
       return;
     }
     this.token = this.activatedRoute.snapshot.params['token'];
     this.pass = new passwModel(this.password, this.repeatPassword, this.token)
     this.emailPasswService.changePassword(this.pass).subscribe(
-      (resp: any) =>{
+      (resp) =>{
+        console.log(resp)
         this._snackBar.open("Contraseña cambiada con exito", "", {
           duration: 1500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-success',
         }
         );
       },
       (error) =>{
         this._snackBar.open(error, "", {
           duration: 1500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-error',
         }
       );
     }

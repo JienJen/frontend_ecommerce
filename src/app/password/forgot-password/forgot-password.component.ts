@@ -22,16 +22,18 @@ export class ForgotPasswordComponent {
     (resp :any) =>{
       this._snackBar.open("Email enviado", "", {
         duration: 1500,
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom'
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+        panelClass: 'app-notification-success',
       
         })
     },
     (error) =>{
       this._snackBar.open(error, "", {
         duration: 1500,
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom'
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+        panelClass: 'app-notification-error',
       
         }
       );

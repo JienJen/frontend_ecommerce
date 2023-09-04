@@ -31,16 +31,18 @@ export class CambiarEmailComponent implements OnInit {
         console.log(resp)
         this._snackBar.open("Verifica tu Email para validar el cambio", "", {
           duration: 1500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-success',
         }
         );
       },
       (error) =>{
         this._snackBar.open(error, "", {
           duration: 1500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-error',
         }
       );
     });

@@ -8,4 +8,12 @@
     height: 100%;
 }
 
-  
+
+
+.mat-mdc-snack-bar-container .app-notification-error {
+    --mdc-snackbar-container-color: #c23b34cb;
+}
+
+.mat-mdc-snack-bar-container{
+    --mdc-snackbar-container-color: #c23b34cb
+  }

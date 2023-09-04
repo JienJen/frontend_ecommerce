@@ -52,8 +52,9 @@ export class AddVariacionProductoComponent implements OnInit{
         (response);
         this._snackBar.open("Producto añadido correctamente", "", {
           duration: 2500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-success',
         
       }
     );
@@ -62,9 +63,10 @@ export class AddVariacionProductoComponent implements OnInit{
       (error) =>{
         this._snackBar.open(error, "", {
           duration: 2500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
-            }
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-error',
+        }
           );
       }
     );
@@ -78,9 +80,10 @@ export class AddVariacionProductoComponent implements OnInit{
         this.product.imageFiles = [];
         this._snackBar.open("Producto actualizado correctamente", "", {
           duration: 1000,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
-      }
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-success',
+        }
     );
     
     setTimeout(function(){window.location.href = "/DetallesClaseProducto"}, 1000);
@@ -88,9 +91,10 @@ export class AddVariacionProductoComponent implements OnInit{
       (error) =>{
         this._snackBar.open(error, "", {
           duration: 2500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
-            }
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-error',
+        }
           );
       }
     );

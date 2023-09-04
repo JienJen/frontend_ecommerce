@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { _closeDialogVia } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router, ActivatedRoute } from '@angular/router';
 import { changePasswModel } from 'src/app/_model/changePassw.model';
@@ -32,27 +33,30 @@ export class ChangePasswComponent implements OnInit {
     if(this.password !== this.repeatPassword){
       this._snackBar.open("Las contraseñas no coinciden", "", {
         duration: 1500,
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom'
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+        panelClass: 'app-notification-error',
       });
       return;
     }
-    this.pass = new changePasswModel(this.password, this.password, this.repeatPassword)
+    this.pass = new changePasswModel(this.oldPassword, this.password, this.repeatPassword)
     this.emailPasswService.changePasswLogged(this.pass).subscribe(
       (resp: any) => {
         console.log(resp)
         this._snackBar.open("Contraseña cambiada con exito", "", {
           duration: 1500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-success',
         }
         );
       },
       (error) =>{
         this._snackBar.open(error, "", {
           duration: 1500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-error',
         }
       );
     });

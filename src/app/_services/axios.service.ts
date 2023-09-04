@@ -21,8 +21,9 @@ export class AxiosService {
         (response) => {
           this._snackBar.open("Verificar email para validar registro", "", {
             duration: 2000,
-            horizontalPosition: 'center',
-            verticalPosition: 'bottom'
+            horizontalPosition: 'right',
+            verticalPosition: 'top',
+            panelClass: 'app-notification-success',
 
         }
       );
@@ -33,10 +34,10 @@ export class AxiosService {
           (error) =>{
             this._snackBar.open("El usuario o Email ya está registrado", "", {
               duration: 1500,
-              horizontalPosition: 'center',
-              verticalPosition: 'bottom'
-    
-          }
+              horizontalPosition: 'right',
+              verticalPosition: 'top',
+              panelClass: 'app-notification-error',
+            }
         );
             return Promise.reject(error)
           }

@@ -64,8 +64,10 @@ export class CheckoutComponent implements OnInit {
         order = resp["orderId"]
         this._snackBar.open("Se efectúo correctamente la compra", "", {
           duration: 2500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-success',
+
             }
           );   
           console.log(order)
@@ -75,16 +77,17 @@ export class CheckoutComponent implements OnInit {
           dialogConfig.data = {
             orderId : order
           }
-          dialogConfig.height = '500px'
-          dialogConfig.width = '800px'
+          dialogConfig.height = '398.4'
+          dialogConfig.width = '400px'
           
           this.imagesDialog.open(FacturarComponent, dialogConfig);
       },
       (error) => {
       this._snackBar.open(error, "", {
         duration: 2500,
-        horizontalPosition: 'center',
-        verticalPosition: 'bottom'
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+        panelClass: 'app-notification-error',
           }
         );
       }

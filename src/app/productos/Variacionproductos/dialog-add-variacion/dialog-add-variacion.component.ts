@@ -50,8 +50,9 @@ export class DialogAddVariacionComponent implements OnInit{
         (response);
         this._snackBar.open("Producto añadido correctamente", "", {
           duration: 2500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-success',
       }
     );
     setTimeout(function(){window.location.href = "/DetallesClaseProducto"}, 1000);
@@ -59,8 +60,9 @@ export class DialogAddVariacionComponent implements OnInit{
       (error) =>{
         this._snackBar.open(error, "", {
           duration: 2500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-success',
             }
           );
       }

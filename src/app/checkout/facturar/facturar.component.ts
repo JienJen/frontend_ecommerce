@@ -39,15 +39,19 @@ export class FacturarComponent implements OnInit{
         console.log(resp)
           this._snackBar.open("La factura ha sido enviada a tu correo", "", {
             duration: 1500,
-            horizontalPosition: 'center',
-            verticalPosition: 'bottom'
+            horizontalPosition: 'right',
+            verticalPosition: 'top',
+            panelClass: 'app-notification-success'
+
           })
+          window.location.href = "/MisOrdenes"
       },
       (error) => {
         this._snackBar.open(error, "", {
           duration: 1500,
-          horizontalPosition: 'center',
-          verticalPosition: 'bottom'
+          horizontalPosition: 'right',
+          verticalPosition: 'top',
+          panelClass: 'app-notification-error'
         }
       )
     })

@@ -4,3 +4,17 @@
     background-color: #ebf2de;
 
 }
+
+  
+.mat-mdc-snack-bar-container {
+    --mat-mdc-snack-bar-button-color: #ffffff;
+    --mdc-snackbar-supporting-text-color: #ffffff;
+  
+    &.app-notification-error {
+      --mdc-snackbar-container-color: #c23b34cb;
+    }
+  
+    &.app-notification-success {
+      --mdc-snackbar-container-color: #3c6e3e;
+    }
+}
