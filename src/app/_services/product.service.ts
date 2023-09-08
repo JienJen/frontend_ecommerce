@@ -175,6 +175,9 @@ export class ProductService {
     return this.httpClient.get("http://localhost:8080/confirmar?token=" + token)
   }
 
+  public newToken(token : string){
+    return this.httpClient.get("http://localhost:8080/newToken?token="+ token )
+  }
 
 }
 

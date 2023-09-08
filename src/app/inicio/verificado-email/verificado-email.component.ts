@@ -24,26 +24,29 @@ export class VerificadoEmailComponent  implements OnInit{
       this.token = this.activatedRoute.snapshot.params['token'];
       this.emailService.confirmarEmail(this.token).subscribe(
         (resp) => {
-        },
-        (error) => {
-          console.log(error)
-          this._snackBar.open(error, "", {
+          this._snackBar.open("Email Verificado!", "", {
             duration: 1500,
             horizontalPosition: 'right',
             verticalPosition: 'top',
+            panelClass: 'app-notification-success',
+          }
+      );
+        },
+        (error) => {
+          this._snackBar.open("El token ya ha expirado. Hemos enviado un nuevo Link de Verificación al Correo.", "", {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
             panelClass: 'app-notification-error',
-          
         }
       );
+      this.emailService.newToken(this.token).subscribe(
+        (resp) => {
+        },
+        (error) => {
+        })
         }
       )
-      this._snackBar.open("Email Verificado!", "", {
-        duration: 1500,
-        horizontalPosition: 'right',
-        verticalPosition: 'top',
-        panelClass: 'app-notification-success',
-      }
-  );
-      window.location.href = "/Inicio"
+      setTimeout(function(){window.location.href = "/Inicio"}, 1500);
     }
 }

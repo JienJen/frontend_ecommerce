@@ -20,29 +20,31 @@ export class VerificadoComponent implements OnInit{
     private _snackBar: MatSnackBar) {}
 
 
+    mensaje : string
 
     ngOnInit(): void {
       this.token = this.activatedRoute.snapshot.params['token'];
       this.emailService.confirmar(this.token).subscribe(
         (resp) => {
-        },
-        (error) => {
-          this._snackBar.open(error, "", {
+          this._snackBar.open(Object.values(resp)[0], "", {
             duration: 1500,
             horizontalPosition: 'right',
+            verticalPosition: 'top',
+            panelClass: 'app-notification-success',
+        }
+      );
+        },
+        (error) => {
+          this._snackBar.open(
+            "El token ya ha expirado. Hemos enviado un nuevo Link de Verificación al Correo.", "", {
+            duration: 2000,
+            horizontalPosition: 'center',
             verticalPosition: 'top',
             panelClass: 'app-notification-error',
           }
       );
+        this.emailService.newToken(this.token).subscribe()
         }
       )
-      this._snackBar.open("Usuario Verificado!", "", {
-        duration: 1500,
-        horizontalPosition: 'right',
-        verticalPosition: 'top',
-        panelClass: 'app-notification-success',
-    }
-  );
-      window.location.href = "/Inicio"
     }
 }

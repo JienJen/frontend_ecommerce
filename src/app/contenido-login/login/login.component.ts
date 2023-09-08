@@ -69,7 +69,7 @@ export class LoginComponent implements OnInit {
       },
       (error) =>{
         this._snackBar.open(error, "", {
-          duration: 1000000,
+          duration: 1500,
           horizontalPosition: 'right',
           verticalPosition: 'top',
           panelClass: ["app-notification-error"],

@@ -12,7 +12,6 @@ import { ProductService } from 'src/app/_services/product.service';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { FileHandle } from 'src/app/_model/file-handle.model';
 import { NgFor } from '@angular/common';
-import { DialogVariationImageComponent } from '../../Variacionproductos/dialog-variation-image/dialog-variation-image.component';
 import { ClassImageProcessingService } from 'src/app/_services/class-image-processing.service';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
@@ -32,7 +31,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class TablaClaseProductoComponent implements OnInit { 
   displayedColumns = ['id', 'name', 'description', 'category', 'actions'];
-  innerDisplayedColumns = ['id', 'color', 'amountInStock', 'actions2']
+  innerDisplayedColumns = [ 'color', 'amountInStock', 'actions2']
   dataSource:MatTableDataSource<ClassProduct>;
   nameFilter = new FormControl('');
   expandedElement: ClassProduct | null;
@@ -44,10 +43,6 @@ export class TablaClaseProductoComponent implements OnInit {
 
 
   constructor(private productService: ProductService,
-    public imagesDialog: MatDialog,
-    private httpClient: HttpClient,
-    private imageProcessingService: ImageProcessingService,
-    private classImageProcessingService: ClassImageProcessingService,
     private router: Router,
     private _snackBar: MatSnackBar,
     private cd: ChangeDetectorRef,
@@ -156,15 +151,6 @@ export class TablaClaseProductoComponent implements OnInit {
     
   }
 
-  showImages(product: Product){
-    this.imagesDialog.open(DialogVariationImageComponent, {
-      data:{
-        images: product.imageFiles
-      },
-      height: '500px',
-      width: '800px',
-    }); 
-  }
   addVariationProduct(productClassId : number){
     this.router.navigate(['/AñadirVariacionProducto/', {productClassId : productClassId}]);
     console.log(productClassId)

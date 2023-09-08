@@ -79,6 +79,7 @@ export class CheckoutComponent implements OnInit {
           }
           dialogConfig.height = '398.4'
           dialogConfig.width = '400px'
+          dialogConfig.disableClose = true
           
           this.imagesDialog.open(FacturarComponent, dialogConfig);
       },

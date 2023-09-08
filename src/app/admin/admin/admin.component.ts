@@ -52,7 +52,6 @@ export class AdminComponent implements OnInit {
       
       dialogConfig.height = '500px'
       dialogConfig.width = '400px'
-
       this.passDialog.open( ChangePasswComponent, dialogConfig )
       
     }

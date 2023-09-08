@@ -84,6 +84,7 @@ ngb-carousel {
 
 .carousel-caption{
     color:rgb(255, 255, 255);
+    background-color: rgb(33,37,41, 0.5);
     font-family: 'Courier New', Courier, monospace;
     font-size: large;
 }
