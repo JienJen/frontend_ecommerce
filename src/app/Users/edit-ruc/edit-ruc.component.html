@@ -1,0 +1,97 @@
+
+            <div class="card bg-dark text-white" >
+                <div class="card-body p-5 text-center">
+                    <div class="tab-content">
+                        <form #userRucForm="ngForm">
+                            <div class="mb-md-5 mt-md-4 pb-0">
+                                    <h2 class="h2 fw-bold mb-3 text-uppercase">Completa tus datos de Facturación</h2>
+                                    <div class="row" hidden >
+                                        <div class="col-6">
+                                            <mat-form-field appearance="outline" class="w-100">
+                                                <mat-label>Nombre</mat-label>
+                                                <input matInput 
+                                                placeholder="Nombre"  
+                                                type="text" 
+                                                id="firstName" 
+                                                name="firstName" 
+                                                class="form-control" 
+                                                [(ngModel)]="datosUsuario.firstName">
+                                                </mat-form-field>
+                                    </div>
+        
+                                    <div class="col-6" >
+                                        <mat-form-field appearance="outline" class="w-100">
+                                            <mat-label>Apellido</mat-label>
+                                            <input matInput 
+                                                placeholder="Apellido"  
+                                                type="text" 
+                                                id="lastName" 
+                                                name="lastName" 
+                                                class="form-control" 
+                                                [(ngModel)]="datosUsuario.lastName">          
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                
+                                <div class="row" hidden>
+                                    <div class="col-6">
+                                        <mat-form-field appearance="outline" class="w-100">
+                                            <mat-label>Telefono</mat-label>
+                                            <input  matInput 
+                                                placeholder="Telefono"  
+                                                type="number" 
+                                                id="userPhoneNumber" 
+                                                name="userPhoneNumber"
+                                                class="form-control" 
+                                                [(ngModel)]="datosUsuario.userPhoneNumber">
+                                                </mat-form-field>
+                                    </div>
+        
+                                </div>
+        
+                                <div class="row" hidden >
+        
+                                    <div class="col-6">
+                                        <mat-form-field appearance="outline" class="w-100">
+                                            <mat-label>Nombre de Usuario</mat-label>
+                                                <input matInput 
+                                                    placeholder="Nombre de Usuario"  
+                                                    type="text" 
+                                                    id="login" 
+                                                    name="login" 
+                                                    class="form-control" 
+                                                    [(ngModel)]="datosUsuario.login">         
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+
+                                     <div class="form-outline mb-1">
+                                        <mat-form-field appearance="outline" class="w-100">
+                                            <mat-label>RUC</mat-label>
+                                            <input matInput placeholder="RUC" type="text" id="ruc" name= "ruc"  class="form-control" [(ngModel)]="datosUsuario.ruc"
+                                            #input required>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="row mt-5">
+                                        <div class="col-6">
+                                            <button class="w-100" type="submit" mat-raised-button color="primary" [disabled]="!userRucForm.valid"
+                                            (click)="editar(userRucForm)"
+                                            [mat-dialog-close]="true"
+                                            >Aceptar Cambios</button>
+                                        </div>
+                            
+                                        <div class="col-6">
+                                            <button  class="w-100" type="button" 
+                                            mat-stroked-button
+                                            [mat-dialog-close]="true"
+                                            color="warn" 
+                                            >No</button>
+                                        </div>
+                                    </div>
+                            </div>
+                        </form>
+                    </div>    
+                </div>
+            </div>
+                

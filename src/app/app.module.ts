@@ -60,6 +60,7 @@ import { ChangePasswComponent } from './password/change-passw/change-passw.compo
 import { VerificadoComponent } from './inicio/verificado/verificado.component';
 import { VerificadoEmailComponent } from './inicio/verificado-email/verificado-email.component';
 import { CambiarEmailComponent } from './cambiar-email/cambiar-email.component';
+import { EditRucComponent } from './Users/edit-ruc/edit-ruc.component';
 
 const matSnackbarDefaultConfig: MatSnackBarConfig = {
   verticalPosition: 'top',
@@ -98,7 +99,8 @@ const matSnackbarDefaultConfig: MatSnackBarConfig = {
     ChangePasswComponent,
     VerificadoComponent,
     VerificadoEmailComponent,
-    CambiarEmailComponent
+    CambiarEmailComponent,
+    EditRucComponent
   ],
   imports: [
     BrowserModule,

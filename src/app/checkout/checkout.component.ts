@@ -60,7 +60,6 @@ export class CheckoutComponent implements OnInit {
     
     return this.httpClient.post("http://localhost:8080/api/orders/order", object, {headers: header}).subscribe(
       (resp:any ) => {
-        console.log(resp);
         order = resp["orderId"]
         this._snackBar.open("Se efectúo correctamente la compra", "", {
           duration: 2500,
@@ -70,10 +69,7 @@ export class CheckoutComponent implements OnInit {
 
             }
           );   
-          console.log(order)
-          
           const dialogConfig = new MatDialogConfig();
-
           dialogConfig.data = {
             orderId : order
           }
