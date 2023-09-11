@@ -104,6 +104,16 @@ export class ProductService {
     return this.httpClient.get<AllOrderDetails[]>("http://localhost:8080/api/orders/viewAll")
   }
 
+  /*
+  public editClassProduct(id: any, value : ClassProduct){
+    return this.httpClient.put<ClassProduct>("http://localhost:8080/api/products/edit/productClassId/" + id, value)
+  }
+  */
+
+  public editOrder(id: any, value : Selection) {
+    return this.httpClient.put("http://localhost:8080/api/orders/edit/orderId/{{id}}" + id, value)
+  }
+
     // ------------------------------------------------------------------------- //
 
 

@@ -87,7 +87,11 @@
 
         
         </th>
-        <td mat-cell  *matCellDef="let element"> {{element.orderStatus}} </td>
+        <td mat-cell  *matCellDef="let element"> 
+          {{element.orderStatus}} 
+          <button *ngIf="pendiente" (click)="jeje()" > a </button> 
+          <button *ngIf="enCamino" (click)="jojo()" > b </button> 
+        </td>
       </ng-container>
 
     <!-- Header -->

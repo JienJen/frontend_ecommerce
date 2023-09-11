@@ -33,6 +33,7 @@ export class EditRucComponent {
         this.productService.editUser(userRucForm.value).subscribe(
           (data : any) => {
             this.datosUsuario = data
+            
           }
         )
     

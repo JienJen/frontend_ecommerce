@@ -51,7 +51,33 @@ export class OrderDetailsComponent {
     )
   }
 
+  pendiente = true;
+  enCamino = false;
+
+  jeje(){
+    this.pendiente = false
+    this.enCamino = true
+  }
+
+  jojo(){
+    this.enCamino = false
+  }
+
   selectStage($event : any){
+    if($event.value.toLowerCase() == "all"){
+      this.dataSource = new MatTableDataSource(this.apiResponse)
+
+    } else {
+      let filteredData = _.filter(this.apiResponse, (item: any) =>{
+      return item.orderStatus.toLowerCase() == $event.value.toLowerCase();
+    })
+    this.dataSource = new MatTableDataSource(filteredData)
+    }
+    this.dataSource.paginator = this.paginator;
+
+  }
+
+  selectState($event : any){
     if($event.value.toLowerCase() == "all"){
       this.dataSource = new MatTableDataSource(this.apiResponse)
 
